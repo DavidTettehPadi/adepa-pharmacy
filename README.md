@@ -122,28 +122,3 @@ adepa-pharmacy/
 ## GitHub Repository
 
 [View the source code on GitHub](https://github.com/DavidTettehPadi/adepa-pharmacy)
-
-## Reflection
-
-Building this project helped me move beyond simply making a webpage look good. I learned to pay more attention to semantic structure, accessibility, responsive design, testing, and debugging.
-
-One of the biggest lessons was that small HTML structure issues can affect the whole page. Using tools such as the W3C Validator and HeadingsMap helped me identify and fix those issues instead of relying only on how the page looked in the browser.
-
-I also gained practical experience using Git and GitHub, integrating Formspree into a static website, and deploying the finished project.
-
-This project is part of my progression toward becoming a more confident full-stack developer.
-
-## Conclusion
-
-The Adepa Pharmacy project demonstrates my practical experience with:
-
-- Semantic HTML5
-- Responsive UI development
-- Tailwind CSS
-- CSS
-- Accessible forms
-- Keyboard navigation
-- HTML validation
-- Formspree integration
-- Git and GitHub
-- GitHub Pages deployment
