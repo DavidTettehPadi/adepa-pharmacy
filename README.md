@@ -1,131 +1,91 @@
-# Adepa Pharmacy Website
+## Project Overview
+I created this project as part of my JOMACS Fullstack Development assignment, and it serves as my first UI Engineering exercise. The goal was to design and build a professional and responsive website for Adepa Pharmacy, a local pharmacy business in Kumasi, Ghana.
 
-## Student Name
+I wanted the website to present the pharmacy in a clear and modern way, while also demonstrating my understanding of front-end design, layout, styling, and deployment. The project was built using HTML, CSS, and Tailwind CSS, with a functional contact form connected to Formspree.
 
-David Tetteh Padi
+## Objectives
+I set out to achieve the following:
+- create a professional business website for a pharmacy
+- use semantic HTML for effective page structure
+- apply responsive design principles
+- use Tailwind CSS to style the interface
+- add a functional contact form for enquiries
+- deploy the project online using GitHub Pages
 
-## Module / Course
-
-Introduction to Modern UI Engineering / Full-stack Development
-
-## Institution
-
-JOMACS-IT
-
-## Project Description
-
-I designed and developed this responsive static website for Adepa Pharmacy, a pharmacy business based in Kumasi, Ghana. I created the website to provide customers with essential business information such as the pharmacy's services, opening hours, location, and contact details.
-
-My goal was to create a website that communicates trust, professionalism, and reliability while providing customers with an easy way to access information and contact the pharmacy.
-
-The main objective of my project was to create a business-focused landing page that improves the pharmacy's online presence and provides an efficient way for customers to make enquiries.
-
-## Aims and Objectives
-
-My main aims for this project were to:
-
-- Create a professional website for a local pharmacy business
-- Present the pharmacy's services in a clear and engaging layout
-- Provide information about the business and its operating hours
-- Include a functional contact form for customer enquiries
-- Ensure the website is responsive and easy to navigate
-- Deploy the final project online using GitHub Pages
-
-## Technologies Used
-
+## Tools and Technologies I Used
+I used the following tools and technologies:
 - HTML5
 - CSS3
+- Tailwind CSS
 - GitHub Pages
 - Formspree
 - Git and GitHub
 
-## Project Features
+## Features Included
+I designed the website to include:
+- a navigation bar
+- a hero section with a strong business message
+- a services section
+- an about section
+- a gallery section
+- opening hours
+- a contact form
+- a thank-you page after successful form submission
+- mobile-friendly responsive layout
 
-My website includes:
+## Design and Build Process
+I began by planning the structure of the website and identifying the content that needed to be displayed. Then I created the semantic HTML structure and styled the page using Tailwind utility classes for layout, spacing, colors, and responsiveness.
 
-- A responsive website layout
-- A hero section with a marketing message
-- A services section detailing key offerings
-- An image gallery representing the pharmacy's operations
-- An About section describing the business background
-- A contact form for customer enquiries
-- A custom thank-you page after successful form submission
-- An opening hours section
-- A footer containing business information
+I also created a small custom CSS file for a few design touches that were not handled directly by Tailwind. This approach allowed me to combine professional structure, utility-based styling, and a few custom enhancements.
 
-## Design and Development Process
+## Contact Form Implementation
+Because I was building a static website, I needed a way to allow users to submit enquiries without a back-end server. I solved this by integrating Formspree into the contact form. The form sends data to a Formspree endpoint, and after a successful submission, the user is redirected to a thank-you page.
 
-I began the project by planning the business requirements and identifying the core information that needed to be displayed. This included the pharmacy's name, services, operating hours, location, and contact methods.
+## Challenges I Faced
+During the development of this project, I faced several challenges.
 
-I followed a clean and professional design approach to reflect the healthcare and pharmaceutical industry.
+### 1. Duplicate Form Markup
+I encountered an issue where the contact form appeared twice because of duplicate HTML markup. I resolved this by removing the repeated section and keeping only one correct form.
 
-I structured the layout using semantic HTML to improve readability and accessibility. I used CSS to create a visually consistent design and make the website responsive across different screen sizes.
+### 2. Static Site Form Handling
+Since the website is static, it could not send messages directly. I solved this by using Formspree, which allows form submissions to be handled without a server-side backend.
 
-Throughout the development process, I focused on clarity, ease of navigation, responsiveness, and creating a trustworthy experience for prospective customers.
+### 3. Deployment
+I had to ensure the project was published correctly on GitHub Pages. I fixed the repo configuration, enabled GitHub Pages, and confirmed that the site could be accessed online.
 
-## Contact Form Integration
+### 4. Tailwind Requirement
+The assignment required the use of HTML, CSS, and Tailwind. I integrated Tailwind into the project and used it to build the responsive layout, while still using a small amount of custom CSS for specific styling enhancements.
 
-Because I built the project as a static website, I did not use a traditional backend. To enable form handling, I integrated the website with Formspree.
+## Project Structure
+```text
+adepa-pharmacy/
+├── index.html
+├── styles.css
+├── thank-you.html
+├── Pharmacist.png
+├── medicine on counter.png
+├── pharmacist and client.png
+├── README.md
+```
 
-This allowed customer enquiries submitted through the website to be received and processed without requiring me to build a full server-side backend.
+## Live Demo
+I deployed the website and it is available here:
 
-My contact form includes:
-
-- Full name
-- Email address
-- Phone number
-- Preferred contact method
-- Message
-
-I also included a hidden redirect field that redirects users to a personalised thank-you page after successfully submitting the form.
-
-## Challenges Encountered
-
-During the development of the project, I encountered several challenges.
-
-### 1. Duplicate form markup
-
-During development, I accidentally created a duplicate contact form block. This caused visual repetition and confusion on the webpage.
-
-I identified the duplicated markup, removed the extra form section, and kept only the valid contact form.
-
-### 2. Static website form handling
-
-Because my website is static, I could not send emails directly from the website without a form-handling service.
-
-I resolved this by integrating Formspree, which handles the form submission without requiring me to build a traditional backend.
-
-### 3. Deployment and hosting
-
-I needed to publish my final website online for assessment. I used GitHub Pages to host the project and ensured that my project files were correctly uploaded and served.
-
-### 4. Image file handling
-
-Some of my image file names contained spaces, which required careful attention when linking them in HTML.
-
-I resolved this by using the correct URL-encoded file names in my HTML references.
-
-## How I Resolved the Problems
-
-I refined the project through debugging, testing, and iterative improvements.
-
-I identified and removed the duplicate contact form, configured the Formspree integration, corrected the relevant markup, and deployed the final website using GitHub Pages.
-
-Through this process, I was able to produce a functional, accessible, responsive, and professional website that meets the objectives of the assignment.
-
-## Testing and Validation
-
-I reviewed my website for:
-
-- HTML structure and readability
-- Image rendering
-- Visual layout and responsiveness
-- Contact form configuration
-- Thank-you page redirection
-- Deployment readiness
-
-## Live Project
-
-My project is available online at:
-
+```text
 https://davidtettehpadi.github.io/adepa-pharmacy/
+```
+
+## How to Run the Project
+I can run the website locally by opening the `index.html` file in a browser. Alternatively, I can clone the project and work on it from my local machine.
+
+```bash
+git clone https://github.com/DavidTettehPadi/adepa-pharmacy.git
+cd adepa-pharmacy
+open index.html
+```
+
+## Reflection
+This project helped me improve my practical understanding of front-end web development. I learned how to structure a website using semantic HTML, style it using Tailwind and CSS, create a working contact form, and deploy a project online. It also strengthened my skills in debugging, iteration, and version control using Git and GitHub.
+
+## Conclusion
+I am pleased with the outcome of this project because it demonstrates my ability to design and implement a professional business website while applying the key technologies required for the assignment. It reflects my growth as a beginner UI engineer and my ability to turn a concept into a functioning, published website.
