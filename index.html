@@ -104,7 +104,89 @@
   <section id="contact">
   <h2>Contact us</h2>
 
-  <form action="#" method="post">
+  <form
+    action="https://formspree.io/f/myezyror"
+    method="POST"
+    accept-charset="UTF-8"
+    aria-label="Adepa Pharmacy enquiry form"
+  >
+    <fieldset>
+      <legend>Your details</legend>
+
+      <p>
+        <label for="name">Full name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          autocomplete="name"
+        >
+      </p>
+
+      <p>
+        <label for="email">Email address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          autocomplete="email"
+        >
+      </p>
+
+      <p>
+        <label for="phone">Phone number</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          autocomplete="tel"
+          placeholder="024 123 4567"
+        >
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferred contact method</legend>
+
+      <label>
+        <input type="radio" name="contact-method" value="email" checked>
+        Email
+      </label>
+
+      <label>
+        <input type="radio" name="contact-method" value="phone">
+        Phone
+      </label>
+
+      <label>
+        <input type="radio" name="contact-method" value="whatsapp">
+        WhatsApp
+      </label>
+    </fieldset>
+
+    <p>
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="5"
+        required
+        placeholder="Tell us how we can help you"
+      ></textarea>
+    </p>
+
+    <input type="hidden" name="_subject" value="New enquiry from Adepa Pharmacy website">
+    <input
+      type="hidden"
+      name="_next"
+      value="https://davidtettehpadi.github.io/adepa-pharmacy/thank-you.html"
+    >
+
+    <button type="submit">Send message</button>
+  </form>
+</section>
     <fieldset>
       <legend>Your details</legend>
 
