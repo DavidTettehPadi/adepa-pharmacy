@@ -1,131 +1,149 @@
 # Adepa Pharmacy Website
 
-A responsive and accessible pharmacy website created as part of my **JOMACS Fullstack Development** course and **Modern UI Engineering** assignment.
+A responsive pharmacy website I built as part of my **JOMACS Fullstack Development** course and **Modern UI Engineering** assignment.
 
-The project represents Adepa Pharmacy, a fictional local pharmacy business based in Asokwa, Kumasi, Ghana. The website was designed to present the business clearly while demonstrating practical skills in semantic HTML, responsive UI development, Tailwind CSS, accessibility, form handling, Git/GitHub, and deployment.
+The project represents Adepa Pharmacy, a fictional local pharmacy in Asokwa, Kumasi, Ghana. My goal was to create a professional business website while applying the UI Engineering principles I was learning.
 
 ## Project Overview
 
-I created this project as my first UI Engineering exercise in the JOMACS Fullstack Development programme.
-
-The main goal was to build a professional business website using a clear semantic structure and responsive design principles. I also focused on making the page accessible and easy to navigate while integrating a functional contact form for customer enquiries.
-
-The project combines:
+This project helped me practise:
 
 - Semantic HTML5
-- CSS3
-- Tailwind CSS
-- Responsive design
-- Accessibility best practices
-- Formspree form handling
+- Responsive UI design
+- Tailwind CSS and CSS
+- Accessible forms and navigation
 - Git and GitHub
-- GitHub Pages deployment
+- Static website deployment
+- Frontend testing and debugging
 
-## Objectives
+## Features
 
-I set out to:
+- Responsive navigation
+- Hero section with clear calls to action
+- Pharmacy services section with three service cards
+- About section and customer testimonial
+- Pharmacy image gallery
+- Opening hours
+- Accessible contact form
+- Formspree integration
+- Custom thank-you page
+- Responsive layout for mobile and desktop
 
-- Create a professional business website for a pharmacy.
-- Structure the page using semantic HTML5 elements.
-- Apply responsive, mobile-friendly design principles.
-- Use Tailwind CSS utility classes for layout and styling.
-- Include meaningful and accessible content.
-- Create a properly labelled contact form.
-- Provide opening hours using semantic definition-list markup.
-- Include meaningful alternative text for images.
-- Validate the HTML using the W3C HTML Validator.
-- Check the page heading hierarchy using HeadingsMap.
-- Test keyboard navigation and visible focus states.
-- Connect the contact form to Formspree.
-- Deploy the project using GitHub Pages.
-- Use Git and GitHub to manage and publish the project.
+## Semantic HTML & Accessibility
 
-## Tools and Technologies
+I focused on using HTML elements according to their meaning rather than relying on generic containers.
 
-### Frontend
+The site uses elements such as:
+
+- `<header>`
+- `<nav>`
+- `<main>`
+- `<section>`
+- `<article>`
+- `<aside>`
+- `<figure>`
+- `<blockquote>`
+- `<dl>`, `<dt>`, and `<dd>`
+- `<form>`
+- `<fieldset>` and `<legend>`
+- `<footer>`
+
+I also added meaningful image `alt` text, explicit image dimensions, properly associated form labels, and visible keyboard focus states.
+
+## Testing & Verification
+
+I did not rely only on how the website looked in the browser. I also tested the structure and usability of the page.
+
+| Check                            | Result |
+
+| W3C HTML Validator       ✅      | 0 errors, 0 warnings |
+| HeadingsMap              ✅      | Correct heading hierarchy |
+| One H1                   ✅ 
+| Form labels              ✅ 
+| Fieldset and legend      ✅ 
+| Keyboard navigation      ✅ 
+| Visible keyboard focus   ✅ 
+| Mobile navigation        ✅ 
+
+The page was also tested locally using **Live Server**.
+
+## Contact Form
+
+The website is static, so I used **Formspree** to handle form submissions.
+
+The form collects:
+
+- Full name
+- Email address
+- Phone number
+- Preferred contact method
+- Message
+
+After a successful submission, the user is redirected to a custom thank-you page.
+
+## Challenges & Lessons
+
+One of the most useful parts of this project was learning how to debug instead of simply making changes until the page looked right.
+
+For example, the W3C validator initially identified an error in my navigation structure. I traced the problem to the `<ul>` and `<li>` relationship, corrected it, and revalidated the page successfully.
+
+I also fixed duplicate form markup and tested the navigation and form using only the keyboard.
+
+These challenges helped me understand that good frontend development involves **building, testing, debugging, and verifying**.
+
+## Technologies
 
 - HTML5
 - CSS3
 - Tailwind CSS
-
-### Forms and Services
-
 - Formspree
-
-### Development and Version Control
-
-- Visual Studio Code
-- Live Server
 - Git
 - GitHub
-
-### Deployment
-
 - GitHub Pages
+- VS Code
+- Live Server
 
-## Features
-
-The website includes:
-
-- Responsive navigation
-- Hero section with primary calls to action
-- Pharmacy services section
-- Three service cards
-- About section
-- Customer testimonial
-- Pharmacy image gallery
-- Opening-hours section
-- Accessible contact form
-- Preferred contact-method selection
-- Formspree integration
-- Custom thank-you page
-- Responsive layout for different screen sizes
-- Semantic HTML structure
-- Accessible image alternative text
-- Visible keyboard focus states
-
-## Semantic HTML Implementation
-
-Semantic HTML was a major requirement of the UI Engineering assignment.
-
-I used meaningful HTML elements according to the purpose of each section rather than relying on generic containers wherever possible.
-
-The page includes:
-
-- `<header>` for the site header
-- `<nav>` for navigation
-- `<main>` for the primary page content
-- `<section>` for major content areas
-- `<article>` for individual pharmacy services
-- `<figure>` and `<figcaption>` for gallery content
-- `<blockquote>` for the customer testimonial
-- `<aside>` for opening hours
-- `<dl>`, `<dt>`, and `<dd>` for opening-hour information
-- `<form>` for customer enquiries
-- `<fieldset>` and `<legend>` for grouped form controls
-- `<footer>` for the site footer
-- `<address>` for the pharmacy address
-
-The navigation links are contained within a semantic `<ul>` structure, and the page uses a logical heading hierarchy.
-
-## Heading Structure
-
-The page follows a logical heading hierarchy with one primary heading.
-
-The structure was verified using **HeadingsMap**.
+## Project Structure
 
 ```text
-H1 — Trusted medicines in Kumasi, seven days a week
+adepa-pharmacy/
+├── index.html
+├── styles.css
+├── thank-you.html
+├── Pharmacist.png
+├── medicine on counter.png
+├── pharmacist and client.png
+└── README.md
 
-  H2 — Pharmacy care designed around your wellbeing
-    H3 — Prescription dispensing
-    H3 — Blood pressure checks
-    H3 — Over-the-counter medicines
+## Live Demo
 
-  H2 — Care you can count on
+[View the live website](https://davidtettehpadi.github.io/adepa-pharmacy/)
 
-  H2 — Committed to trusted, local healthcare
+## GitHub Repository
 
-  H2 — Let’s help you with your health needs
+[View the source code on GitHub](https://github.com/DavidTettehPadi/adepa-pharmacy)
 
-  H2 — Opening hours
+## Reflection
+
+Building this project helped me move beyond simply making a webpage look good. I learned to pay more attention to semantic structure, accessibility, responsive design, testing, and debugging.
+
+One of the biggest lessons was that small HTML structure issues can affect the whole page. Using tools such as the W3C Validator and HeadingsMap helped me identify and fix those issues instead of relying only on how the page looked in the browser.
+
+I also gained practical experience using Git and GitHub, integrating Formspree into a static website, and deploying the finished project.
+
+This project is part of my progression toward becoming a more confident full-stack developer.
+
+## Conclusion
+
+The Adepa Pharmacy project demonstrates my practical experience with:
+
+- Semantic HTML5
+- Responsive UI development
+- Tailwind CSS
+- CSS
+- Accessible forms
+- Keyboard navigation
+- HTML validation
+- Formspree integration
+- Git and GitHub
+- GitHub Pages deployment
