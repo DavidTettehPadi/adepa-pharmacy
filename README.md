@@ -1,91 +1,131 @@
-## Project Overview
-I created this project as part of my JOMACS Fullstack Development assignment, and it serves as my first UI Engineering exercise. The goal was to design and build a professional and responsive website for Adepa Pharmacy, a local pharmacy business in Kumasi, Ghana.
+# Adepa Pharmacy Website
 
-I wanted the website to present the pharmacy in a clear and modern way, while also demonstrating my understanding of front-end design, layout, styling, and deployment. The project was built using HTML, CSS, and Tailwind CSS, with a functional contact form connected to Formspree.
+A responsive and accessible pharmacy website created as part of my **JOMACS Fullstack Development** course and **Modern UI Engineering** assignment.
+
+The project represents Adepa Pharmacy, a fictional local pharmacy business based in Asokwa, Kumasi, Ghana. The website was designed to present the business clearly while demonstrating practical skills in semantic HTML, responsive UI development, Tailwind CSS, accessibility, form handling, Git/GitHub, and deployment.
+
+## Project Overview
+
+I created this project as my first UI Engineering exercise in the JOMACS Fullstack Development programme.
+
+The main goal was to build a professional business website using a clear semantic structure and responsive design principles. I also focused on making the page accessible and easy to navigate while integrating a functional contact form for customer enquiries.
+
+The project combines:
+
+- Semantic HTML5
+- CSS3
+- Tailwind CSS
+- Responsive design
+- Accessibility best practices
+- Formspree form handling
+- Git and GitHub
+- GitHub Pages deployment
 
 ## Objectives
-I set out to achieve the following:
-- create a professional business website for a pharmacy
-- use semantic HTML for effective page structure
-- apply responsive design principles
-- use Tailwind CSS to style the interface
-- add a functional contact form for enquiries
-- deploy the project online using GitHub Pages
 
-## Tools and Technologies I Used
-I used the following tools and technologies:
+I set out to:
+
+- Create a professional business website for a pharmacy.
+- Structure the page using semantic HTML5 elements.
+- Apply responsive, mobile-friendly design principles.
+- Use Tailwind CSS utility classes for layout and styling.
+- Include meaningful and accessible content.
+- Create a properly labelled contact form.
+- Provide opening hours using semantic definition-list markup.
+- Include meaningful alternative text for images.
+- Validate the HTML using the W3C HTML Validator.
+- Check the page heading hierarchy using HeadingsMap.
+- Test keyboard navigation and visible focus states.
+- Connect the contact form to Formspree.
+- Deploy the project using GitHub Pages.
+- Use Git and GitHub to manage and publish the project.
+
+## Tools and Technologies
+
+### Frontend
+
 - HTML5
 - CSS3
 - Tailwind CSS
-- GitHub Pages
+
+### Forms and Services
+
 - Formspree
-- Git and GitHub
 
-## Features Included
-I designed the website to include:
-- a navigation bar
-- a hero section with a strong business message
-- a services section
-- an about section
-- a gallery section
-- opening hours
-- a contact form
-- a thank-you page after successful form submission
-- mobile-friendly responsive layout
+### Development and Version Control
 
-## Design and Build Process
-I began by planning the structure of the website and identifying the content that needed to be displayed. Then I created the semantic HTML structure and styled the page using Tailwind utility classes for layout, spacing, colors, and responsiveness.
+- Visual Studio Code
+- Live Server
+- Git
+- GitHub
 
-I also created a small custom CSS file for a few design touches that were not handled directly by Tailwind. This approach allowed me to combine professional structure, utility-based styling, and a few custom enhancements.
+### Deployment
 
-## Contact Form Implementation
-Because I was building a static website, I needed a way to allow users to submit enquiries without a back-end server. I solved this by integrating Formspree into the contact form. The form sends data to a Formspree endpoint, and after a successful submission, the user is redirected to a thank-you page.
+- GitHub Pages
 
-## Challenges I Faced
-During the development of this project, I faced several challenges.
+## Features
 
-### 1. Duplicate Form Markup
-I encountered an issue where the contact form appeared twice because of duplicate HTML markup. I resolved this by removing the repeated section and keeping only one correct form.
+The website includes:
 
-### 2. Static Site Form Handling
-Since the website is static, it could not send messages directly. I solved this by using Formspree, which allows form submissions to be handled without a server-side backend.
+- Responsive navigation
+- Hero section with primary calls to action
+- Pharmacy services section
+- Three service cards
+- About section
+- Customer testimonial
+- Pharmacy image gallery
+- Opening-hours section
+- Accessible contact form
+- Preferred contact-method selection
+- Formspree integration
+- Custom thank-you page
+- Responsive layout for different screen sizes
+- Semantic HTML structure
+- Accessible image alternative text
+- Visible keyboard focus states
 
-### 3. Deployment
-I had to ensure the project was published correctly on GitHub Pages. I fixed the repo configuration, enabled GitHub Pages, and confirmed that the site could be accessed online.
+## Semantic HTML Implementation
 
-### 4. Tailwind Requirement
-The assignment required the use of HTML, CSS, and Tailwind. I integrated Tailwind into the project and used it to build the responsive layout, while still using a small amount of custom CSS for specific styling enhancements.
+Semantic HTML was a major requirement of the UI Engineering assignment.
 
-## Project Structure
+I used meaningful HTML elements according to the purpose of each section rather than relying on generic containers wherever possible.
+
+The page includes:
+
+- `<header>` for the site header
+- `<nav>` for navigation
+- `<main>` for the primary page content
+- `<section>` for major content areas
+- `<article>` for individual pharmacy services
+- `<figure>` and `<figcaption>` for gallery content
+- `<blockquote>` for the customer testimonial
+- `<aside>` for opening hours
+- `<dl>`, `<dt>`, and `<dd>` for opening-hour information
+- `<form>` for customer enquiries
+- `<fieldset>` and `<legend>` for grouped form controls
+- `<footer>` for the site footer
+- `<address>` for the pharmacy address
+
+The navigation links are contained within a semantic `<ul>` structure, and the page uses a logical heading hierarchy.
+
+## Heading Structure
+
+The page follows a logical heading hierarchy with one primary heading.
+
+The structure was verified using **HeadingsMap**.
+
 ```text
-adepa-pharmacy/
-├── index.html
-├── styles.css
-├── thank-you.html
-├── Pharmacist.png
-├── medicine on counter.png
-├── pharmacist and client.png
-├── README.md
-```
+H1 — Trusted medicines in Kumasi, seven days a week
 
-## Live Demo
-I deployed the website and it is available here:
+  H2 — Pharmacy care designed around your wellbeing
+    H3 — Prescription dispensing
+    H3 — Blood pressure checks
+    H3 — Over-the-counter medicines
 
-```text
-https://davidtettehpadi.github.io/adepa-pharmacy/
-```
+  H2 — Care you can count on
 
-## How to Run the Project
-I can run the website locally by opening the `index.html` file in a browser. Alternatively, I can clone the project and work on it from my local machine.
+  H2 — Committed to trusted, local healthcare
 
-```bash
-git clone https://github.com/DavidTettehPadi/adepa-pharmacy.git
-cd adepa-pharmacy
-open index.html
-```
+  H2 — Let’s help you with your health needs
 
-## Reflection
-This project helped me improve my practical understanding of front-end web development. I learned how to structure a website using semantic HTML, style it using Tailwind and CSS, create a working contact form, and deploy a project online. It also strengthened my skills in debugging, iteration, and version control using Git and GitHub.
-
-## Conclusion
-I am pleased with the outcome of this project because it demonstrates my ability to design and implement a professional business website while applying the key technologies required for the assignment. It reflects my growth as a beginner UI engineer and my ability to turn a concept into a functioning, published website.
+  H2 — Opening hours
