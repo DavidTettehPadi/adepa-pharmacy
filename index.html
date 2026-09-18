@@ -8,203 +8,321 @@
     name="description"
     content="Adepa Pharmacy supplies prescription and over-the-counter medicines in Kumasi. Open seven days a week."
   >
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d'
+            }
+          },
+          boxShadow: {
+            soft: '0 20px 50px rgba(22, 101, 52, 0.12)'
+          }
+        }
+      }
+    };
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <header>
-  <a href="index.html">Adepa Pharmacy</a>
+<body class="bg-slate-50 text-slate-800 antialiased">
+  <header class="bg-brand-800 text-white shadow-soft">
+    <div class="container mx-auto flex items-center justify-between px-4 py-4">
+      <a href="index.html" class="text-2xl font-bold tracking-tight">Adepa Pharmacy</a>
 
-  <nav aria-label="Main navigation">
-    <ul>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-  <section class="hero" aria-labelledby="page-title">
-    <h1 id="page-title">Trusted medicines in Kumasi, seven days a week</h1>
-    <p>Speak with a licensed pharmacist for reliable medicines, practical advice, and everyday care.</p>
-  </section>
-
-  <section id="services">
-    <h2>Our services</h2>
-
-    <article>
-      <h3>Prescription dispensing</h3>
-      <p>Licensed pharmacists dispense prescriptions safely and explain how to use your medicine.</p>
-      <a href="#contact" aria-label="Learn more about prescription dispensing">Learn more</a>
-    </article>
-
-    <article>
-      <h3>Blood pressure checks</h3>
-      <p>Free walk-in blood pressure checks are available with no appointment required.</p>
-      <a href="#contact" aria-label="Learn more about blood pressure checks">Learn more</a>
-    </article>
-
-    <article>
-      <h3>Over-the-counter medicines</h3>
-      <p>Get trusted advice when choosing non-prescription medicines for common conditions.</p>
-      <a href="#contact" aria-label="Learn more about over-the-counter medicines">Learn more</a>
-    </article>
-  </section>
-
-  <section id="gallery" aria-labelledby="gallery-title">
-    <h2 id="gallery-title">Care you can count on</h2>
-    <div class="gallery">
-      <figure>
-        <img
-          src="Pharmacist.png"
-          alt="A pharmacist arranging medicines on pharmacy shelves"
-          width="1536"
-          height="1024"
-        >
-        <figcaption>Careful dispensing and advice for every prescription.</figcaption>
-      </figure>
-
-      <figure>
-        <img
-          src="medicine%20on%20counter.png"
-          alt="Prescription medicine containers, blister packs, and capsules on a pharmacy counter"
-          width="1536"
-          height="1024"
-          loading="lazy"
-        >
-        <figcaption>Trusted options for everyday health needs.</figcaption>
-      </figure>
-
-      <figure>
-        <img
-          src="pharmacist%20and%20client.png"
-          alt="A pharmacist explaining medicine to a customer at the pharmacy counter"
-          width="1536"
-          height="1024"
-          loading="lazy"
-        >
-        <figcaption>Friendly support from a qualified pharmacy team.</figcaption>
-      </figure>
+      <nav aria-label="Main navigation">
+        <ul class="hidden items-center gap-6 text-sm font-medium md:flex">
+          <li><a href="#services" class="transition hover:text-green-200">Services</a></li>
+          <li><a href="#about" class="transition hover:text-green-200">About</a></li>
+          <li><a href="#gallery" class="transition hover:text-green-200">Gallery</a></li>
+          <li><a href="#contact" class="transition hover:text-green-200">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <section id="about">
-    <h2>About Adepa Pharmacy</h2>
+  <main>
+    <section class="hero-section">
+      <div class="container mx-auto px-4 py-16 md:py-20">
+        <div class="max-w-2xl">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-green-100">Trusted care</p>
+          <h1 id="page-title" class="text-4xl font-black leading-tight text-white sm:text-5xl">
+            Trusted medicines in Kumasi, seven days a week
+          </h1>
+          <p class="mt-5 max-w-xl text-lg text-green-50">
+            Speak with a licensed pharmacist for reliable medicines, practical advice, and everyday care.
+          </p>
 
-    <p>
-      Adepa Pharmacy has served Asokwa and nearby Kumasi communities since 2011.
-      Our pharmacists provide trusted medicine and clear, friendly advice.
-    </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href="#contact"
+              class="rounded-lg bg-white px-6 py-3 font-semibold text-brand-800 transition hover:bg-green-50"
+            >
+              Contact us
+            </a>
+            <a
+              href="#services"
+              class="rounded-lg border border-white/40 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+            >
+              Explore services
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <blockquote>
-      <p>The pharmacist explained my prescription clearly and treated me with care.</p>
-      <footer>— <cite>Akosua Mensah, customer</cite></footer>
-    </blockquote>
-  </section>
-<section id="contact">
-  <h2>Contact us</h2>
+    <section id="services" class="container mx-auto px-4 py-16">
+      <div class="mb-10">
+        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Our services</p>
+        <h2 class="text-3xl font-bold text-slate-900">Pharmacy care designed around your wellbeing</h2>
+      </div>
 
-  <form
-    action="https://formspree.io/f/myezyror"
-    method="POST"
-    accept-charset="UTF-8"
-    aria-label="Adepa Pharmacy enquiry form"
-  >
-    <fieldset>
-      <legend>Your details</legend>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article class="service-card">
+          <h3 class="mb-3 text-xl font-semibold text-slate-900">Prescription dispensing</h3>
+          <p class="mb-4 text-slate-600">
+            Licensed pharmacists dispense prescriptions safely and explain how to use your medicine.
+          </p>
+          <a href="#contact" class="font-semibold text-brand-700 hover:text-brand-800">Learn more</a>
+        </article>
 
-      <p>
-        <label for="name">Full name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          autocomplete="name"
-        >
-      </p>
+        <article class="service-card">
+          <h3 class="mb-3 text-xl font-semibold text-slate-900">Blood pressure checks</h3>
+          <p class="mb-4 text-slate-600">
+            Free walk-in blood pressure checks are available with no appointment required.
+          </p>
+          <a href="#contact" class="font-semibold text-brand-700 hover:text-brand-800">Learn more</a>
+        </article>
 
-      <p>
-        <label for="email">Email address</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          autocomplete="email"
-        >
-      </p>
+        <article class="service-card">
+          <h3 class="mb-3 text-xl font-semibold text-slate-900">Over-the-counter medicines</h3>
+          <p class="mb-4 text-slate-600">
+            Get trusted advice when choosing non-prescription medicines for common conditions.
+          </p>
+          <a href="#contact" class="font-semibold text-brand-700 hover:text-brand-800">Learn more</a>
+        </article>
+      </div>
+    </section>
 
-      <p>
-        <label for="phone">Phone number</label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          autocomplete="tel"
-          placeholder="024 123 4567"
-        >
-      </p>
-    </fieldset>
+    <section id="gallery" class="bg-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="mb-10">
+          <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Our approach</p>
+          <h2 id="gallery-title" class="text-3xl font-bold text-slate-900">Care you can count on</h2>
+        </div>
 
-    <fieldset>
-      <legend>Preferred contact method</legend>
+        <div class="grid gap-6 md:grid-cols-3">
+          <figure class="overflow-hidden rounded-2xl bg-slate-100 shadow-soft">
+            <img
+              src="Pharmacist.png"
+              alt="A pharmacist arranging medicines on pharmacy shelves"
+              class="h-80 w-full object-cover"
+              width="1536"
+              height="1024"
+            >
+            <figcaption class="p-4 text-sm text-slate-700">
+              Careful dispensing and advice for every prescription.
+            </figcaption>
+          </figure>
 
-      <label>
-        <input type="radio" name="contact-method" value="email" checked>
-        Email
-      </label>
+          <figure class="overflow-hidden rounded-2xl bg-slate-100 shadow-soft">
+            <img
+              src="medicine%20on%20counter.png"
+              alt="Prescription medicine containers, blister packs, and capsules on a pharmacy counter"
+              class="h-80 w-full object-cover"
+              width="1536"
+              height="1024"
+              loading="lazy"
+            >
+            <figcaption class="p-4 text-sm text-slate-700">
+              Trusted options for everyday health needs.
+            </figcaption>
+          </figure>
 
-      <label>
-        <input type="radio" name="contact-method" value="phone">
-        Phone
-      </label>
+          <figure class="overflow-hidden rounded-2xl bg-slate-100 shadow-soft">
+            <img
+              src="pharmacist%20and%20client.png"
+              alt="A pharmacist explaining medicine to a customer at the pharmacy counter"
+              class="h-80 w-full object-cover"
+              width="1536"
+              height="1024"
+              loading="lazy"
+            >
+            <figcaption class="p-4 text-sm text-slate-700">
+              Friendly support from a qualified pharmacy team.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
 
-      <label>
-        <input type="radio" name="contact-method" value="whatsapp">
-        WhatsApp
-      </label>
-    </fieldset>
+    <section id="about" class="container mx-auto px-4 py-16">
+      <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+        <div>
+          <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">About us</p>
+          <h2 class="text-3xl font-bold text-slate-900">Committed to trusted, local healthcare</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-700">
+            Adepa Pharmacy has served Asokwa and nearby Kumasi communities since 2011.
+            Our pharmacists provide trusted medicine and clear, friendly advice.
+          </p>
+        </div>
 
-    <p>
-      <label for="message">Message</label>
-      <textarea
-        id="message"
-        name="message"
-        rows="5"
-        required
-        placeholder="Tell us how we can help you"
-      ></textarea>
-    </p>
+        <blockquote class="rounded-2xl border border-brand-100 bg-brand-50 p-6 shadow-soft">
+          <p class="text-xl font-medium italic text-slate-800">
+            “The pharmacist explained my prescription clearly and treated me with care.”
+          </p>
+          <footer class="mt-4 text-sm font-semibold text-brand-800">
+            — Akosua Mensah, customer
+          </footer>
+        </blockquote>
+      </div>
+    </section>
 
-    <input type="hidden" name="_subject" value="New enquiry from Adepa Pharmacy website">
-    <input
-      type="hidden"
-      name="_next"
-      value="https://davidtettehpadi.github.io/adepa-pharmacy/thank-you.html"
-    >
+    <section id="contact" class="bg-slate-100 py-16">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+          <div>
+            <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Contact</p>
+            <h2 class="text-3xl font-bold text-slate-900">Let’s help you with your health needs</h2>
+            <p class="mt-4 max-w-lg text-slate-700">
+              Send us a message and our team will respond as soon as possible.
+            </p>
+          </div>
 
-    <button type="submit">Send message</button>
-  </form>
-</section>
-</main>
-<aside>
-  <h2>Opening hours</h2>
+          <form
+            action="https://formspree.io/f/myezyror"
+            method="POST"
+            accept-charset="UTF-8"
+            aria-label="Adepa Pharmacy enquiry form"
+            class="rounded-2xl bg-white p-6 shadow-soft"
+          >
+            <div class="space-y-5">
+              <div>
+                <label for="name" class="mb-2 block text-sm font-medium text-slate-700">Full name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  autocomplete="name"
+                  class="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
+                >
+              </div>
 
-  <dl>
-    <dt>Monday to Friday</dt>
-    <dd>7:00 AM – 9:00 PM</dd>
+              <div>
+                <label for="email" class="mb-2 block text-sm font-medium text-slate-700">Email address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  autocomplete="email"
+                  class="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
+                >
+              </div>
 
-    <dt>Saturday</dt>
-    <dd>8:00 AM – 8:00 PM</dd>
+              <div>
+                <label for="phone" class="mb-2 block text-sm font-medium text-slate-700">Phone number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  autocomplete="tel"
+                  placeholder="024 123 4567"
+                  class="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
+                >
+              </div>
 
-    <dt>Sunday</dt>
-    <dd>9:00 AM – 6:00 PM</dd>
-  </dl>
-</aside>
-<footer>
-  <p>&copy; 2026 Adepa Pharmacy. Asokwa, Kumasi.</p>
-  <address>12 Asokwa Road, Kumasi, Ghana</address>
-</footer>
+              <fieldset>
+                <legend class="mb-2 block text-sm font-medium text-slate-700">Preferred contact method</legend>
+                <div class="flex flex-wrap gap-4">
+                  <label class="flex items-center gap-2 text-sm text-slate-700">
+                    <input type="radio" name="contact-method" value="email" checked class="text-brand-700">
+                    Email
+                  </label>
+
+                  <label class="flex items-center gap-2 text-sm text-slate-700">
+                    <input type="radio" name="contact-method" value="phone">
+                    Phone
+                  </label>
+
+                  <label class="flex items-center gap-2 text-sm text-slate-700">
+                    <input type="radio" name="contact-method" value="whatsapp">
+                    WhatsApp
+                  </label>
+                </div>
+              </fieldset>
+
+              <div>
+                <label for="message" class="mb-2 block text-sm font-medium text-slate-700">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Tell us how we can help you"
+                  class="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
+                ></textarea>
+              </div>
+
+              <input type="hidden" name="_subject" value="New enquiry from Adepa Pharmacy website">
+              <input
+                type="hidden"
+                name="_next"
+                value="https://davidtettehpadi.github.io/adepa-pharmacy/thank-you.html"
+              >
+
+              <button
+                type="submit"
+                class="w-full rounded-lg bg-brand-700 px-4 py-3 font-semibold text-white transition hover:bg-brand-800"
+              >
+                Send message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="container mx-auto px-4 py-12">
+    <div class="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-slate-200">
+      <h2 class="mb-4 text-2xl font-bold text-slate-900">Opening hours</h2>
+
+      <dl class="grid gap-3 text-slate-700">
+        <div class="flex justify-between gap-4 border-b border-slate-200 pb-2">
+          <dt>Monday to Friday</dt>
+          <dd>7:00 AM – 9:00 PM</dd>
+        </div>
+
+        <div class="flex justify-between gap-4 border-b border-slate-200 pb-2">
+          <dt>Saturday</dt>
+          <dd>8:00 AM – 8:00 PM</dd>
+        </div>
+
+        <div class="flex justify-between gap-4">
+          <dt>Sunday</dt>
+          <dd>9:00 AM – 6:00 PM</dd>
+        </div>
+      </dl>
+    </div>
+  </aside>
+
+  <footer class="bg-slate-900 py-10 text-slate-200">
+    <div class="container mx-auto px-4">
+      <p class="text-sm">&copy; 2026 Adepa Pharmacy. Asokwa, Kumasi.</p>
+      <address class="mt-2 not-italic text-sm text-slate-400">
+        12 Asokwa Road, Kumasi, Ghana
+      </address>
+    </div>
+  </footer>
 </body>
 </html>
