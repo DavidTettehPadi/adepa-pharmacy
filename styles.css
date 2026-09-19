@@ -138,9 +138,10 @@ main {
 }
 
 .hero {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  display: block;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
   min-height: auto;
   padding: 3rem 1.5rem;
   color: var(--color-on-brand);
