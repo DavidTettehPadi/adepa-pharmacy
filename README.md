@@ -1,124 +1,173 @@
-# Adepa Pharmacy Website
+# Adepa Pharmacy — From Semantic HTML to a Deployed Responsive Website
 
-A responsive pharmacy website I built as part of my **JOMACS Fullstack Development** course and **Modern UI Engineering** assignment.
+## 1. Project Overview
 
-The project represents Adepa Pharmacy, a fictional local pharmacy in Asokwa, Kumasi, Ghana. My goal was to create a professional business website while applying the UI Engineering principles I was learning.
+I created this responsive pharmacy website for Adepa Pharmacy in Kumasi, Ghana. The website presents the pharmacy’s services, gallery, background information, contact form, and opening hours.
 
-## Project Overview
+## 2. Project Goals
 
-This project helped me practise:
+I wanted to:
 
-- Semantic HTML5
-- Responsive UI design
-- Tailwind CSS and CSS
-- Accessible forms and navigation
+- Create a clear and professional pharmacy website
+- Practise semantic HTML structure
+- Build a responsive layout for mobile and desktop
+- Make the content accessible to different users
+- Deploy the project using GitHub Pages
+
+## 3. Technologies
+
+- HTML5
+- CSS3
+- Tailwind CSS
+- Formspree
 - Git and GitHub
-- Static website deployment
-- Frontend testing and debugging
+- GitHub Pages
 
-## Features
+## 4. What I Built
 
-- Responsive navigation
-- Hero section with clear calls to action
-- Pharmacy services section with three service cards
-- About section and customer testimonial
-- Pharmacy image gallery
-- Opening hours
-- Accessible contact form
-- Formspree integration
-- Custom thank-you page
-- Responsive layout for mobile and desktop
+I created:
 
-## Semantic HTML & Accessibility
+- A navigation header with links to each page section
+- A hero section with the main pharmacy message
+- Responsive service cards
+- A gallery using images, figures, and captions
+- An about section with a customer testimonial
+- A contact form
+- An Opening Hours section beside the contact form
+- A responsive footer with pharmacy contact information
 
-I focused on using HTML elements according to their meaning rather than relying on generic containers.
+## 5. JOMACS Module 1.2 Skills Applied
 
-The site uses elements such as:
+I applied the skills I learned in the JOMACS module, including:
+
+- Writing structured HTML
+- Using semantic HTML elements
+- Creating forms with labels and input controls
+- Styling pages with CSS
+- Using responsive layouts
+- Adding images with meaningful alternative text
+- Using Git and GitHub to manage and publish my project
+
+## 6. Key Challenges & How I Solved Them
+
+### Correcting the hero structure
+
+The hero section initially had closing tags in the wrong position. I reorganised the HTML so that all hero content is properly contained inside the section and its container.
+
+### Improving the hero layout
+
+I adjusted the hero CSS to make the height content-driven instead of using excessive vertical space. I also aligned the heading to the left and allowed the description and services link to wrap naturally on smaller screens.
+
+### Moving Opening Hours
+
+I moved the Opening Hours `<aside>` inside the contact section so it appears beside the form on larger screens and stacks below it on smaller screens.
+
+### Removing the page-level sidebar
+
+I removed the old sidebar grid layout because it was creating unnecessary page-level spacing and did not match the intended contact-section design.
+
+### Connecting the contact form
+
+I connected the form to Formspree so visitors can submit enquiries without requiring a custom backend.
+
+## 7. Accessibility & Semantic HTML
+
+I used semantic elements including:
 
 - `<header>`
 - `<nav>`
 - `<main>`
 - `<section>`
 - `<article>`
-- `<aside>`
 - `<figure>`
+- `<figcaption>`
 - `<blockquote>`
-- `<dl>`, `<dt>`, and `<dd>`
 - `<form>`
-- `<fieldset>` and `<legend>`
+- `<fieldset>`
+- `<legend>`
+- `<aside>`
+- `<dl>`, `<dt>`, and `<dd>`
 - `<footer>`
 
-I also added meaningful image `alt` text, explicit image dimensions, properly associated form labels, and visible keyboard focus states.
+I also:
 
-## Testing & Verification
+- Kept one main `<h1>` heading
+- Added meaningful image `alt` text
+- Associated labels with form inputs
+- Added keyboard focus styles
+- Preserved logical navigation order
+- Added image width and height attributes
 
-I did not rely only on how the website looked in the browser. I also tested the structure and usability of the page.
+## 8. Responsive Layout & CSS
 
-| Check                            | Result |
+I used Tailwind CSS utility classes and custom CSS to create responsive layouts.
 
-| W3C HTML Validator       ✅      | 0 errors, 0 warnings |
-| HeadingsMap              ✅      | Correct heading hierarchy |
-| One H1                   ✅ 
-| Form labels              ✅ 
-| Fieldset and legend      ✅ 
-| Keyboard navigation      ✅ 
-| Visible keyboard focus   ✅ 
-| Mobile navigation        ✅ 
+The website:
 
-The page was also tested locally using **Live Server**.
+- Displays service cards in columns on larger screens
+- Stacks content on smaller screens
+- Places the contact form and Opening Hours side by side on desktop
+- Stacks the contact content vertically on mobile
+- Prevents unnecessary horizontal overflow
+- Uses flexible spacing and responsive typography
 
-## Contact Form
+## 9. Form Handling with Formspree
 
-The website is static, so I used **Formspree** to handle form submissions.
+I used Formspree to handle contact form submissions.
 
-The form collects:
+The form includes:
 
 - Full name
 - Email address
 - Phone number
 - Preferred contact method
 - Message
+- Required fields
+- Accessible labels
+- A submission subject
+- A redirect destination after submission
 
-After a successful submission, the user is redirected to a custom thank-you page.
+## 10. Git, GitHub & Deployment
 
-## Challenges & Lessons
+I used Git to track my changes and GitHub to store the project repository.
 
-One of the most useful parts of this project was learning how to debug instead of simply making changes until the page looked right.
+I also:
 
-For example, the W3C validator initially identified an error in my navigation structure. I traced the problem to the `<ul>` and `<li>` relationship, corrected it, and revalidated the page successfully.
+- Committed my HTML and CSS changes
+- Resolved a remote repository update before pushing
+- Pushed the final changes to the `main` branch
+- Published the website using GitHub Pages
 
-I also fixed duplicate form markup and tested the navigation and form using only the keyboard.
+## 11. Working with AI and Reviewing Code
 
-These challenges helped me understand that good frontend development involves **building, testing, debugging, and verifying**.
+I used AI as a development assistant to help me:
 
-## Technologies
+- Identify incorrect HTML nesting
+- Review layout and CSS issues
+- Suggest responsive improvements
+- Check semantic and accessibility concerns
+- Improve the README documentation
 
-- HTML5
-- CSS3
-- Tailwind CSS
-- Formspree
-- Git
-- GitHub
-- GitHub Pages
-- VS Code
-- Live Server
+I reviewed the suggested changes and applied the relevant edits to my project rather than accepting changes without checking them.
 
-## Project Structure
+## 12. What I Learned
 
-```text
-adepa-pharmacy/
-├── index.html
-├── styles.css
-├── thank-you.html
-├── Pharmacist.png
-├── medicine on counter.png
-├── pharmacist and client.png
-└── README.md
+I learned that small HTML structure problems can affect the entire page layout. I also learned how important it is to keep CSS layout rules consistent with the HTML structure.
 
-## Live Demo
+This project helped me improve my understanding of:
+
+- Semantic HTML
+- Responsive design
+- CSS grid and flexbox
+- Accessible forms
+- Git workflows
+- GitHub Pages deployment
+- Reviewing and debugging code
+
+## 13. Live Demo
 
 [View the live website](https://davidtettehpadi.github.io/adepa-pharmacy/)
 
-## GitHub Repository
+## 14. Repository
 
-[View the source code on GitHub](https://github.com/DavidTettehPadi/adepa-pharmacy)
+[View the GitHub repository](https://github.com/DavidTettehPadi/adepa-pharmacy.git)
