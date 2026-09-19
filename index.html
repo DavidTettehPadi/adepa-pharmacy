@@ -33,44 +33,43 @@
   </script>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="bg-slate-50 text-slate-800 antialiased">
   <header class="bg-brand-800 text-white shadow-soft">
     <div class="container mx-auto flex items-center justify-between px-4 py-4">
       <a href="index.html" class="text-2xl font-bold tracking-tight">Adepa Pharmacy</a>
 
-  <nav aria-label="Main navigation">
-  <ul class="flex items-center gap-4 text-sm font-medium md:gap-6">
-    <li><a href="#services" class="transition hover:text-green-200">Services</a></li>
-    <li><a href="#about" class="transition hover:text-green-200">About</a></li>
-    <li><a href="#gallery" class="transition hover:text-green-200">Gallery</a></li>
-    <li><a href="#contact" class="transition hover:text-green-200">Contact</a></li>
-  </ul>
-</nav>
+      <nav aria-label="Main navigation">
+        <ul class="flex flex-wrap items-center gap-4 text-sm font-medium md:gap-6">
+          <li><a href="#services" class="transition hover:text-green-200">Services</a></li>
+          <li><a href="#about" class="transition hover:text-green-200">About</a></li>
+          <li><a href="#gallery" class="transition hover:text-green-200">Gallery</a></li>
+          <li><a href="#contact" class="transition hover:text-green-200">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero-section">
-      <div class="container mx-auto px-4 py-16 md:py-20">
+    <section class="hero">
+      <div class="container mx-auto px-4 py-0">
         <div class="max-w-2xl">
-          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-green-100">Trusted care</p>
+          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-green-100">
+            Trusted care
+          </p>
+
           <h1 id="page-title" class="text-4xl font-black leading-tight text-white sm:text-5xl">
             Trusted medicines in Kumasi, seven days a week
           </h1>
-          <p class="mt-5 max-w-xl text-lg text-green-50">
-            Speak with a licensed pharmacist for reliable medicines, practical advice, and everyday care.
-          </p>
 
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#contact"
-              class="rounded-lg bg-white px-6 py-3 font-semibold text-brand-800 transition hover:bg-green-50"
-            >
-              Contact us
-            </a>
+          <div class="mt-5 flex flex-wrap items-center gap-4">
+            <p class="max-w-xl text-lg text-green-50">
+              Speak with a licensed pharmacist for reliable medicines, practical advice, and everyday care.
+            </p>
+
             <a
               href="#services"
-              class="rounded-lg border border-white/40 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+              class="rounded-md border border-white/30 px-5 py-3 font-semibold text-white transition hover:bg-white/10"
             >
               Explore services
             </a>
@@ -81,8 +80,12 @@
 
     <section id="services" class="container mx-auto px-4 py-16">
       <div class="mb-10">
-        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Our services</p>
-        <h2 class="text-3xl font-bold text-slate-900">Pharmacy care designed around your wellbeing</h2>
+        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">
+          Our services
+        </p>
+        <h2 class="text-3xl font-bold text-slate-900">
+          Pharmacy care designed around your wellbeing
+        </h2>
       </div>
 
       <div class="grid gap-6 md:grid-cols-3">
@@ -115,11 +118,15 @@
     <section id="gallery" class="bg-white py-16">
       <div class="container mx-auto px-4">
         <div class="mb-10">
-          <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Our approach</p>
-          <h2 id="gallery-title" class="text-3xl font-bold text-slate-900">Care you can count on</h2>
+          <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">
+            Our approach
+          </p>
+          <h2 id="gallery-title" class="text-3xl font-bold text-slate-900">
+            Care you can count on
+          </h2>
         </div>
 
-        <div class="grid gap-6 md:grid-cols-3">
+        <div class="gallery grid gap-6 md:grid-cols-3">
           <figure class="overflow-hidden rounded-2xl bg-slate-100 shadow-soft">
             <img
               src="Pharmacist.png"
@@ -167,8 +174,12 @@
     <section id="about" class="container mx-auto px-4 py-16">
       <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
         <div>
-          <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">About us</p>
-          <h2 class="text-3xl font-bold text-slate-900">Committed to trusted, local healthcare</h2>
+          <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">
+            About us
+          </p>
+          <h2 class="text-3xl font-bold text-slate-900">
+            Committed to trusted, local healthcare
+          </h2>
           <p class="mt-4 text-lg leading-8 text-slate-700">
             Adepa Pharmacy has served Asokwa and nearby Kumasi communities since 2011.
             Our pharmacists provide trusted medicine and clear, friendly advice.
@@ -188,15 +199,19 @@
 
     <section id="contact" class="bg-slate-100 py-16">
       <div class="container mx-auto px-4">
-        <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
-          <div>
-            <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Contact</p>
-            <h2 class="text-3xl font-bold text-slate-900">Let’s help you with your health needs</h2>
-            <p class="mt-4 max-w-lg text-slate-700">
-              Send us a message and our team will respond as soon as possible.
-            </p>
-          </div>
+        <div class="mb-10">
+          <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">
+            Contact
+          </p>
+          <h2 class="text-3xl font-bold text-slate-900">
+            Let’s help you with your health needs
+          </h2>
+          <p class="mt-4 max-w-lg text-slate-700">
+            Send us a message and our team will respond as soon as possible.
+          </p>
+        </div>
 
+        <div class="contact-layout grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
           <form
             action="https://formspree.io/f/myezyror"
             method="POST"
@@ -206,7 +221,9 @@
           >
             <div class="space-y-5">
               <div>
-                <label for="name" class="mb-2 block text-sm font-medium text-slate-700">Full name</label>
+                <label for="name" class="mb-2 block text-sm font-medium text-slate-700">
+                  Full name
+                </label>
                 <input
                   type="text"
                   id="name"
@@ -218,7 +235,9 @@
               </div>
 
               <div>
-                <label for="email" class="mb-2 block text-sm font-medium text-slate-700">Email address</label>
+                <label for="email" class="mb-2 block text-sm font-medium text-slate-700">
+                  Email address
+                </label>
                 <input
                   type="email"
                   id="email"
@@ -230,7 +249,9 @@
               </div>
 
               <div>
-                <label for="phone" class="mb-2 block text-sm font-medium text-slate-700">Phone number</label>
+                <label for="phone" class="mb-2 block text-sm font-medium text-slate-700">
+                  Phone number
+                </label>
                 <input
                   type="tel"
                   id="phone"
@@ -242,7 +263,10 @@
               </div>
 
               <fieldset>
-                <legend class="mb-2 block text-sm font-medium text-slate-700">Preferred contact method</legend>
+                <legend class="mb-2 block text-sm font-medium text-slate-700">
+                  Preferred contact method
+                </legend>
+
                 <div class="flex flex-wrap gap-4">
                   <label class="flex items-center gap-2 text-sm text-slate-700">
                     <input type="radio" name="contact-method" value="email" checked class="text-brand-700">
@@ -262,7 +286,9 @@
               </fieldset>
 
               <div>
-                <label for="message" class="mb-2 block text-sm font-medium text-slate-700">Message</label>
+                <label for="message" class="mb-2 block text-sm font-medium text-slate-700">
+                  Message
+                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -288,27 +314,25 @@
               </button>
             </div>
           </form>
+
+          <aside class="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-slate-200">
+            <h2 class="mb-4 text-2xl font-bold text-slate-900">Opening hours</h2>
+
+            <dl class="grid gap-3 text-slate-700">
+              <dt>Monday to Friday</dt>
+              <dd>7:00 AM – 9:00 PM</dd>
+
+              <dt>Saturday</dt>
+              <dd>8:00 AM – 8:00 PM</dd>
+
+              <dt>Sunday</dt>
+              <dd>9:00 AM – 6:00 PM</dd>
+            </dl>
+          </aside>
         </div>
       </div>
     </section>
   </main>
-
-  <aside class="container mx-auto px-4 py-12">
-    <div class="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-slate-200">
-      <h2 class="mb-4 text-2xl font-bold text-slate-900">Opening hours</h2>
-
-      <dl class="grid gap-3 text-slate-700">
-  <dt>Monday to Friday</dt>
-  <dd>7:00 AM – 9:00 PM</dd>
-
-  <dt>Saturday</dt>
-  <dd>8:00 AM – 8:00 PM</dd>
-
-  <dt>Sunday</dt>
-  <dd>9:00 AM – 6:00 PM</dd>
-</dl>
-    </div>
-  </aside>
 
   <footer class="bg-slate-900 py-10 text-slate-200">
     <div class="container mx-auto px-4">
