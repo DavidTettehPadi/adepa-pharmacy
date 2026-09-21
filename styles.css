@@ -202,7 +202,8 @@ main > section:not(.hero) h2,
   flex-direction: column;
   min-width: 0;
   padding: var(--space-7);
-  background: var(--color-surface);
+  color: #334155;
+  background: #ffffff;
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
@@ -216,6 +217,7 @@ main > section:not(.hero) h2,
 
 #services article p {
   margin-block: var(--space-3) var(--space-7);
+  color: #475569;
 }
 
 #services article a {
