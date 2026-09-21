@@ -1,13 +1,13 @@
 :root {
-  --color-page: #f7fbf9;
-  --color-surface: #ffffff;
-  --color-surface-muted: #edf6f3;
-  --color-text: #20302d;
+  --color-page: #F4F8F6;
+  --color-surface: #FAFCFB;
+  --color-surface-muted: #EAF3F0;
+  --color-text: #263A36;
   --color-brand: #176c64;
   --color-brand-strong: #0d5149;
   --color-link: #0d6559;
   --color-link-hover: #07443c;
-  --color-heading: #125c51;
+  --color-heading: #164E45;
   --color-border: #c8ddd7;
   --color-border-subtle: #d7e6e1;
   --color-accent: #e69b37;
@@ -203,7 +203,8 @@ main > section:not(.hero) h2,
   min-width: 0;
   padding: var(--space-7);
   color: #334155;
-  background: #ffffff;
+  background: #FAFCFB;
+  color: #334155;
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
@@ -260,7 +261,7 @@ main > section:not(.hero) h2,
   color: #475569;
   font-size: 0.95rem;
   line-height: 1.5;
-  background: #ffffff;
+  background: #FAFCFB;
 }
 
 blockquote {
