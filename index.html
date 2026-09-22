@@ -36,13 +36,13 @@
 
 <body class="bg-slate-50 text-slate-800 antialiased">
   <header class="bg-brand-800 text-white shadow-soft">
-    <div class="container mx-auto flex items-center justify-between px-4 py-4">
+    <div class="container mx-auto flex flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
   <a href="index.html" class="flex items-center gap-2 text-2xl font-bold tracking-tight">
-  <img src="Adepa Logo.png" alt="Adepa Pharmacy Logo" class="h-20 w-20 object-contain">
+  <img src="Adepa Logo.png" alt="Adepa Pharmacy Logo" class="h-12 w-12 object-contain">
   <span>Adepa Pharmacy</span>
   </a>
       <nav aria-label="Main navigation">
-        <ul class="flex flex-wrap items-center gap-4 text-sm font-medium md:gap-6">
+        <ul class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium md:gap-x-7">
           <li><a href="#services" class="transition hover:text-green-200">Services</a></li>
           <li><a href="#about" class="transition hover:text-green-200">About</a></li>
           <li><a href="#gallery" class="transition hover:text-green-200">Gallery</a></li>
@@ -54,31 +54,50 @@
 
   <main>
     <section class="hero">
-      <div class="container mx-auto px-4 py-0">
-        <div class="max-w-2xl">
-          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-green-100">
-            Trusted care
+      <div class="container mx-auto px-4 py-16 sm:py-20">
+        <div class="max-w-3xl">
+          
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-blue-100">
+            Trusted pharmacy care
           </p>
 
-          <h1 id="page-title" class="text-4xl font-black leading-tight text-white sm:text-5xl">
-            Trusted medicines in Kumasi, seven days a week
+          <h1
+            id="page-title"
+            class="text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl"
+          >
+            Trusted medicines and professional care in Kumasi
           </h1>
 
-          <div class="mt-5 flex flex-wrap items-center gap-4">
-            <p class="max-w-xl text-lg text-green-50">
-              Speak with a licensed pharmacist for reliable medicines, practical advice, and everyday care.
-            </p>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-blue-50 sm:text-xl">
+            Get reliable medicines, professional pharmacy advice, and everyday
+            healthcare support from a team committed to your wellbeing.
+          </p>
 
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
               href="#services"
-              class="rounded-md border border-white/30 px-5 py-3 font-semibold text-white transition hover:bg-white/10"
+              class="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 font-semibold text-slate-900 shadow-sm transition hover:bg-slate-100"
             >
-              Explore services
+              Explore our services
             </a>
-          </div>
+
+            <a
+              href="#contact"
+              class="inline-flex items-center justify-center rounded-lg border border-white/40 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+            >
+              Contact the pharmacy
+            </a>
         </div>
+
+      <div class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-blue-100">
+        <span>Open 7 days a week</span>
+        <span>•</span>
+        <span>Asokwa, Kumasi</span>
       </div>
-    </section>
+
+    </div>
+  </div>
+</section>
 
     <section id="services" class="container mx-auto px-4 py-16">
       <div class="mb-10">
@@ -92,27 +111,63 @@
 
       <div class="grid gap-6 md:grid-cols-3">
         <article class="service-card">
-          <h3 class="mb-3 text-xl font-semibold text-slate-900">Prescription dispensing</h3>
+          <div class="mb-4 text-3xl" aria-hidden="true">💊</div>
+
+          <h3 class="mb-3 text-xl font-semibold text-slate-900">
+            Prescription dispensing
+          </h3>
+
           <p class="mb-4 text-slate-600">
-            Licensed pharmacists dispense prescriptions safely and explain how to use your medicine.
+            Get your prescribed medicines accurately prepared by a qualified pharmacy
+            team, with clear guidance on how and when to take them.
           </p>
-          <a href="#contact" class="font-semibold text-brand-700 hover:text-brand-800">Learn more</a>
+
+          <a
+            href="#contact"
+            class="font-semibold text-brand-700 transition hover:text-brand-800"
+          >
+            Ask about this service →
+          </a>
         </article>
 
         <article class="service-card">
-          <h3 class="mb-3 text-xl font-semibold text-slate-900">Blood pressure checks</h3>
+          <div class="mb-4 text-3xl" aria-hidden="true">❤️</div>
+
+          <h3 class="mb-3 text-xl font-semibold text-slate-900">
+            Blood pressure checks
+          </h3>
+
           <p class="mb-4 text-slate-600">
-            Free walk-in blood pressure checks are available with no appointment required.
+            Check your blood pressure during a convenient pharmacy visit and receive
+            practical guidance from our pharmacy team.
           </p>
-          <a href="#contact" class="font-semibold text-brand-700 hover:text-brand-800">Learn more</a>
+
+          <a
+            href="#contact"
+            class="font-semibold text-brand-700 transition hover:text-brand-800"
+          >
+            Ask about this service →
+          </a>
         </article>
 
         <article class="service-card">
-          <h3 class="mb-3 text-xl font-semibold text-slate-900">Over-the-counter medicines</h3>
+          <div class="mb-4 text-3xl" aria-hidden="true">🩺</div>
+
+          <h3 class="mb-3 text-xl font-semibold text-slate-900">
+            Over-the-counter medicines
+          </h3>
+
           <p class="mb-4 text-slate-600">
-            Get trusted advice when choosing non-prescription medicines for common conditions.
+            Find suitable non-prescription medicines for common health needs, with
+            professional guidance to help you make informed choices.
           </p>
-          <a href="#contact" class="font-semibold text-brand-700 hover:text-brand-800">Learn more</a>
+
+          <a
+            href="#contact"
+            class="font-semibold text-brand-700 transition hover:text-brand-800"
+          >
+            Ask about this service →
+          </a>
         </article>
       </div>
     </section>
@@ -183,16 +238,39 @@
             Committed to trusted, local healthcare
           </h2>
           <p class="mt-4 text-lg leading-8 text-slate-700">
-            Adepa Pharmacy has served Asokwa and nearby Kumasi communities since 2011.
-            Our pharmacists provide trusted medicine and clear, friendly advice.
+            Since 2011, Adepa Pharmacy has served Asokwa and nearby communities in
+            Kumasi with reliable medicines and professional pharmacy care. Our team
+            focuses on clear advice, responsible medicine use, and friendly service
+            that puts each customer's needs first.
           </p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-3">
+
+            <div class="rounded-xl border border-slate-200 bg-white p-4">
+              <p class="text-2xl font-bold text-brand-700">2011</p>
+              <p class="mt-1 text-sm text-slate-600">Serving the community</p>
+            </div>
+
+            <div class="rounded-xl border border-slate-200 bg-white p-4">
+              <p class="text-2xl font-bold text-brand-700">7 days</p>
+              <p class="mt-1 text-sm text-slate-600">Open every week</p>
+            </div>
+
+            <div class="rounded-xl border border-slate-200 bg-white p-4">
+              <p class="text-2xl font-bold text-brand-700">Local</p>
+              <p class="mt-1 text-sm text-slate-600">Pharmacy care in Kumasi</p>
+            </div>
+
+          </div>
         </div>
 
-        <blockquote class="rounded-2xl border border-brand-100 bg-brand-50 p-6 shadow-soft">
-          <p class="text-xl font-medium italic text-slate-800">
-            “The pharmacist explained my prescription clearly and treated me with care.”
+        <blockquote class="rounded-2xl border border-brand-100 bg-brand-50 p-7 shadow-soft">
+          <div class="mb-4 text-3xl text-brand-700" aria-hidden="true">“</div>
+
+          <p class="text-xl font-medium leading-8 italic text-slate-800">
+            The pharmacist explained my prescription clearly and treated me with care.
           </p>
-          <footer class="mt-4 text-sm font-semibold text-brand-800">
+
+          <footer class="mt-5 text-sm font-semibold text-brand-800">
             — Akosua Mensah, customer
           </footer>
         </blockquote>
@@ -208,8 +286,27 @@
           <h2 class="text-3xl font-bold text-slate-900">
             Let’s help you with your health needs
           </h2>
+
           <p class="mt-4 max-w-lg text-slate-700">
-            Send us a message and our team will respond as soon as possible.
+            Have a question about a medicine, prescription, or pharmacy service?
+            Contact our team directly or send us a message.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a
+              href="tel:+233501000000"
+              class="inline-flex items-center justify-center rounded-lg bg-brand-700 px-5 py-3 font-semibold text-white transition hover:bg-brand-800"
+            >
+              Call the pharmacy
+            </a>
+
+            <a
+              href="https://wa.me/233501000000"
+              class="inline-flex items-center justify-center rounded-lg border border-brand-700 px-5 py-3 font-semibold text-brand-700 transition hover:bg-brand-50"
+            >
+              WhatsApp us
+            </a>
+          </div>
           </p>
         </div>
 
@@ -320,29 +417,104 @@
           <aside class="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-slate-200">
             <h2 class="mb-4 text-2xl font-bold text-slate-900">Opening hours</h2>
 
-            <dl class="grid gap-3 text-slate-700">
-              <dt>Monday to Friday</dt>
-              <dd>7:00 AM – 9:00 PM</dd>
+            <dl class="divide-y divide-slate-200 text-slate-700">
 
-              <dt>Saturday</dt>
-              <dd>8:00 AM – 8:00 PM</dd>
+              <div class="flex items-center justify-between py-3">
+                <dt class="font-medium">Monday to Friday</dt>
+                <dd>7:00 AM – 9:00 PM</dd>
+              </div>
 
-              <dt>Sunday</dt>
-              <dd>9:00 AM – 6:00 PM</dd>
+              <div class="flex items-center justify-between py-3">
+                <dt class="font-medium">Saturday</dt>
+                <dd>8:00 AM – 8:00 PM</dd>
+              </div>
+
+              <div class="flex items-center justify-between py-3">
+                <dt class="font-medium">Sunday</dt>
+                <dd>9:00 AM – 6:00 PM</dd>
+              </div>
+
             </dl>
+            <div class="mt-8 border-t border-slate-200 pt-6">
+              <h3 class="text-lg font-semibold text-slate-900">Visit us</h3>
+                <address class="mt-2 not-italic leading-7 text-slate-700">
+                12 Asokwa Road<br>
+                Kumasi, Ghana
+              </address>
+            </div>
           </aside>
         </div>
-      </div>
     </section>
   </main>
 
   <footer class="bg-slate-900 py-10 text-slate-200">
-    <div class="container mx-auto px-4">
-      <p class="text-sm">&copy; 2026 Adepa Pharmacy. Asokwa, Kumasi.</p>
-      <address class="mt-2 not-italic text-sm text-slate-400">
-        12 Asokwa Road, Kumasi, Ghana
-      </address>
+  <div class="container mx-auto px-4">
+
+    <div class="grid gap-8 md:grid-cols-3">
+
+      <div>
+        <h2 class="text-lg font-bold text-white">Adepa Pharmacy</h2>
+        <p class="mt-3 max-w-sm text-sm leading-6 text-slate-400">
+          Reliable medicines, professional pharmacy advice, and everyday
+          healthcare support for the Kumasi community.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-bold text-white">Quick links</h2>
+
+        <nav class="mt-3 ml-0 pl-0" aria-label="Footer navigation">
+          <ul class="m-0 flex flex-wrap items-center gap-x-5 gap-y-2 p-0 text-sm">
+            <li>
+              <a href="#services" class="text-slate-400 transition hover:text-white">
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="#about" class="text-slate-400 transition hover:text-white">
+                About us
+              </a>
+            </li>
+            <li>
+              <a href="#gallery" class="text-slate-400 transition hover:text-white">
+                Gallery
+              </a>
+            </li>
+            <li>
+              <a href="#contact" class="text-slate-400 transition hover:text-white">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-bold text-white">Visit us</h2>
+
+        <div class="mt-3 flex flex-wrap items-start gap-x-8 gap-y-2">
+        <address class="not-italic text-sm leading-6 text-slate-400">
+          12 Asokwa Road<br>
+          Kumasi, Ghana
+        </address>
+
+        <a
+          href="#contact"
+          class="text-sm font-semibold text-green-300 transition hover:text-white"
+        >
+          Contact the pharmacy →
+        </a>
+      </div>
+
     </div>
-  </footer>
+
+    <div class="mt-8 border-t border-slate-700 pt-6">
+      <p class="text-center text-sm text-slate-500">
+        &copy; 2026 Adepa Pharmacy. All rights reserved.
+      </p>
+    </div>
+
+  </div>
+</footer>
 </body>
 </html>
