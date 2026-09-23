@@ -142,6 +142,7 @@ main {
   overflow-x: hidden;
 }
 
+
 .hero {
   display: block;
   width: 100%;
@@ -152,6 +153,8 @@ main {
   color: var(--color-on-brand);
   text-align: left;
   background: #1B557A;
+}
+
 .hero > .container {
   width: 100%;
 }
@@ -164,13 +167,13 @@ main {
   text-align: left;
 }
 
-.hero .max-w-2xl > p:first-child {
+.hero-content > p:first-child {
   max-width: none;
   margin: 0 0 var(--space-3);
   font-size: 0.875rem;
 }
 
-.hero .max-w-2xl > div > p {
+.hero-lead {
   max-width: 38.75rem;
   margin: 0;
   font-size: var(--font-size-lead);
@@ -201,8 +204,7 @@ main > section:not(.hero) h2,
   min-width: 0;
   padding: var(--space-7);
   color: #334155;
-  background: #FAFCFB;
-  color: #334155;
+  background: var(--color-surface);
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
@@ -240,26 +242,34 @@ main > section:not(.hero) h2,
 }
 
 .gallery figure {
+  height: 100%;
   margin: 0;
   overflow: hidden;
   background: var(--color-surface);
   border: var(--border-width) solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: 1rem;
   box-shadow: var(--shadow-card);
 }
 
 .gallery img {
+  display: block;
   width: 100%;
+  height: 20rem;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery figure:hover img {
+  transform: scale(1.03);
 }
 
 .gallery figcaption {
   padding: var(--space-4) var(--space-6);
-  color: #475569;
+  color: var(--color-text);
   font-size: 0.95rem;
-  line-height: 1.5;
-  background: #FAFCFB;
+  line-height: 1.6;
+  background: var(--color-surface);
 }
 
 blockquote {
@@ -398,6 +408,21 @@ body > footer p {
   margin-bottom: var(--space-1);
 }
 
+.service-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  box-shadow: 0 8px 24px rgb(25 74 65 / 6%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgb(25 74 65 / 10%);
+  border-color: var(--color-border);
+}
+
 @media (min-width: 48rem) {
   body > header {
     flex-direction: row;
@@ -459,43 +484,39 @@ body > footer p {
     --color-input-border: #80aa9f;
     --color-shadow: rgb(0 0 0 / 25%);
   }
-}
-.service-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: 1rem;
-  padding: 1.75rem;
-  box-shadow: 0 8px 24px rgb(25 74 65 / 6%);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
 
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgb(25 74 65 / 10%);
-  border-color: var(--color-border);
-}
+  body {
+    background: var(--color-page);
+    color: var(--color-text);
+  }
 
-.gallery figure {
-  height: 100%;
-  overflow: hidden;
-}
+  #services article,
+  .gallery figure,
+  .gallery figcaption,
+  #contact form,
+  #contact aside,
+  .bg-white {
+    background: var(--color-surface) !important;
+  }
 
-.gallery img {
-  display: block;
-  width: 100%;
-  height: 20rem;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
+  #services article p,
+  .gallery figcaption,
+  .text-slate-600,
+  .text-slate-700,
+  .text-slate-800 {
+    color: var(--color-text) !important;
+  }
 
-.gallery figure:hover img {
-  transform: scale(1.03);
-}
+  #services h3,
+  main > section:not(.hero) h2,
+  #contact aside h2,
+  .text-slate-900 {
+    color: var(--color-heading) !important;
+  }
 
-.gallery figcaption {
-  background: var(--color-surface);
-  padding: 1rem 1.25rem;
-  color: var(--color-text);
-  line-height: 1.6;
-}
+  input:not([type="radio"]),
+  textarea {
+    color: var(--color-text);
+    background: #18312d;
+  }
 }
