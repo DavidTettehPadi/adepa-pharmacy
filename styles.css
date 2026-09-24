@@ -74,7 +74,6 @@ body {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
 }
 
 a {
@@ -447,7 +446,7 @@ body > footer p {
   nav li + li {
     margin-left: 0.75rem;
   }
-
+}
 
 @media (min-width: 64rem) {
   body {
@@ -459,16 +458,6 @@ body > footer p {
   }
 }
 
-  body {
-    background: var(--color-page);
-    color: var(--color-text);
-  }
-
-  input:not([type="radio"]),
-  textarea {
-    color: var(--color-text);
-    background: #18312d;
-  }
 
 
 
