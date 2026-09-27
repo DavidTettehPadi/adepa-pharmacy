@@ -442,10 +442,6 @@ body > footer p {
   nav ul {
     column-gap: 0.75rem;
   }
-
-  nav li + li {
-    margin-left: 0.75rem;
-  }
 }
 
 @media (min-width: 64rem) {
