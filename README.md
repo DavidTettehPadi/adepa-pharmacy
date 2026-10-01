@@ -1,4 +1,22 @@
-# Adepa Pharmacy — From Semantic HTML to a Deployed Responsive Website
+# Adepa Pharmacy Website
+
+Responsive informational website for Adepa Pharmacy in Asokwa, Kumasi, Ghana.
+
+**Live website:** [davidtettehpadi.github.io/adepa-pharmacy](https://davidtettehpadi.github.io/adepa-pharmacy/)
+
+**Source repository:** [github.com/DavidTettehPadi/adepa-pharmacy](https://github.com/DavidTettehPadi/adepa-pharmacy)
+
+## Run Locally
+
+This is a static site. Clone the repository and open `index.html`, or serve the project directory with a local HTTP server:
+
+```sh
+python3 -m http.server 8000
+```
+
+Then visit `http://localhost:8000`. The contact form is handled by Formspree and requires an internet connection.
+
+## Project Overview
 
 ## 1. Project Overview
 
