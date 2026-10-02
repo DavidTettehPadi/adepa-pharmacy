@@ -8,79 +8,56 @@
     name="description"
     content="Adepa Pharmacy supplies prescription and over-the-counter medicines in Kumasi. Open seven days a week."
   >
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              500: '#22c55e',
-              600: '#16a34a',
-              700: '#15803d',
-              800: '#166534',
-              900: '#14532d'
-            }
-          },
-          boxShadow: {
-            soft: '0 20px 50px rgba(22, 101, 52, 0.12)'
-          }
-        }
-      }
-    };
-  </script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./dist/tailwind.css">
 </head>
 
-<body class="bg-slate-50 text-slate-800 antialiased">
-  <header class="bg-white text-brand-800 shadow-soft">
+<body class="bg-[radial-gradient(circle_at_top,#f8faf8_0%,#f0f6f2_30%,#edf4f3_100%)] text-slate-700 antialiased">
+  <header class="bg-white/90 text-brand-800 shadow-soft backdrop-blur-sm">
     <div class="container mx-auto flex flex-row flex-wrap items-center justify-between gap-4 px-4 py-4">
-  <a href="index.html" class="flex items-center gap-2 text-2xl font-bold tracking-tight">
+  <a href="index.html" class="flex items-center gap-2 text-2xl font-bold tracking-tight text-brand-900">
   <img src="Adepa Logo.png" alt="Adepa Pharmacy Logo" class="h-12 w-12 object-contain">
   <span>Adepa Pharmacy</span>
   </a>
       <nav aria-label="Main navigation">
         <ul class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-medium md:gap-x-7">
-          <li><a href="#services" class="text-[17.33px] transition hover:text-green-200">Services</a></li>
-          <li><a href="#about" class="text-[17.33px] transition hover:text-green-200">About</a></li>
-          <li><a href="#gallery" class="text-[17.33px] transition hover:text-green-200">Gallery</a></li>
-          <li><a href="#contact" class="text-[17.33px] transition hover:text-green-200">Contact</a></li>
+          <li><a href="#services" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Services</a></li>
+          <li><a href="#about" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">About</a></li>
+          <li><a href="#gallery" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Gallery</a></li>
+          <li><a href="#contact" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container mx-auto px-1 py-1 sm:py-1">
-        <div class="hero-content max-w-3xl">
+    <section class="bg-[linear-gradient(135deg,#f3f8f6_0%,#edf4f1_45%,#f4f7f3_100%)] px-6 py-12">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl">
           
-          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-blue-100">
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-brand-700">
             Trusted pharmacy care
           </p>
 
-          <h1 id="page-title" class="text-2xl font-black leading-tight text-white sm:text-3xl lg:text-3xl">
+          <h1 id="page-title" class="text-2xl font-black leading-tight text-brand-900 sm:text-3xl lg:text-3xl">
             Trusted medicines and professional care in Kumasi
           </h1>
 
-          <p class="hero-lead mt-3 max-w-xl text-lg leading-7 text-blue-100 sm:text-xl">
+          <p class="mt-3 max-w-xl text-lg leading-7 text-slate-600 sm:text-xl">
             Get reliable medicines, professional pharmacy advice, and everyday
             healthcare support from a team committed to your wellbeing.
           </p>
 
           <div class="mt-4 flex flex-col gap-1.5 sm:flex-row sm:items-center">
-            <a href="#services" class="inline-flex items-center justify-center rounded-lg bg-white px-3 py-1 font-semibold text-slate-500 shadow-sm transition hover:bg-slate-100">
+            <a href="#services" class="inline-flex items-center justify-center rounded-lg bg-brand-700 px-3 py-1 font-semibold text-white shadow-sm transition hover:bg-brand-800">
               Explore our services
             </a>
 
-            <a href="#contact" class="inline-flex items-center justify-center rounded-lg border border-white/40 px-2 py-1 font-semibold text-white transition hover:bg-white/10">
+            <a href="#contact" class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-2 py-1 font-semibold text-brand-700 transition hover:bg-slate-50">
               Contact the pharmacy
             </a>
         </div>
 
-        <div class="mt-8 flex flex-wrap gap-x-3 gap-y-1 text-sm font-medium text-blue-100">
+        <div class="mt-8 flex flex-wrap gap-x-3 gap-y-1 text-sm font-medium text-slate-600">
           <span>Open 7 days a week</span>
           <span>•</span>
           <span>Asokwa, Kumasi</span>
@@ -98,7 +75,7 @@
       </div>
 
       <div class="grid gap-6 md:grid-cols-3">
-        <article class="service-card">
+        <article class="service-card rounded-2xl border border-slate-200/80 bg-white/80 shadow-[0_16px_34px_rgba(24,57,52,0.06)]">
           <div class="mb-4 text-3xl" aria-hidden="true">💊</div>
 
           <h3 class="mb-3 text-xl font-semibold text-slate-900">
@@ -118,7 +95,7 @@
           </a>
         </article>
 
-        <article class="service-card">
+        <article class="service-card rounded-2xl border border-slate-200/80 bg-white/80 shadow-[0_16px_34px_rgba(24,57,52,0.06)]">
           <div class="mb-4 text-3xl" aria-hidden="true">❤️</div>
 
           <h3 class="mb-3 text-xl font-semibold text-slate-900">
@@ -138,7 +115,7 @@
           </a>
         </article>
 
-        <article class="service-card">
+        <article class="service-card rounded-2xl border border-slate-200/80 bg-white/80 shadow-[0_16px_34px_rgba(24,57,52,0.06)]">
           <div class="mb-4 text-3xl" aria-hidden="true">🩺</div>
 
           <h3 class="mb-3 text-xl font-semibold text-slate-900">
@@ -160,7 +137,7 @@
       </div>
     </section>
 
-    <section id="gallery" class="bg-white py-16">
+    <section id="gallery" class="bg-[linear-gradient(180deg,#f4f7f3_0%,#edf3f2_100%)] py-16">
       <div class="container mx-auto px-4">
         <div class="mb-10">
           <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">
@@ -265,7 +242,7 @@
       </div>
     </section>
 
-    <section id="contact" class="bg-slate-100 py-16">
+    <section id="contact" class="bg-[#f4f7f3] py-16">
       <div class="container mx-auto px-4">
         <div class="mb-10">
           <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">

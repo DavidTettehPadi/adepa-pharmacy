@@ -1,0 +1,27 @@
+{
+  "name": "adepa",
+  "version": "1.0.0",
+  "description": "Responsive informational website for Adepa Pharmacy in Asokwa, Kumasi, Ghana.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/tailwind.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/tailwind.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidTettehPadi/adepa-pharmacy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidTettehPadi/adepa-pharmacy/issues"
+  },
+  "homepage": "https://github.com/DavidTettehPadi/adepa-pharmacy#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
+
