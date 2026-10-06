@@ -9,6 +9,7 @@
     content="Adepa Pharmacy supplies prescription and over-the-counter medicines in Kumasi. Open seven days a week."
   >
   <link rel="stylesheet" href="./dist/tailwind.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
 
 <body class="bg-[radial-gradient(circle_at_top,#f8faf8_0%,#f0f6f2_30%,#edf4f3_100%)] text-slate-700 antialiased">
@@ -111,7 +112,27 @@
 
       <p id="medicine-count" class="mb-3 text-sm text-slate-600" role="status" aria-live="polite">Loading medicines...</p>
       <p id="inventory-message" class="mb-3 min-h-6 text-sm font-medium text-brand-800" role="status" aria-live="polite"></p>
-      <section class="mb-6 border-y border-slate-200 py-5" aria-labelledby="sale-title">
+      <section class="mb-6 border-y border-slate-200 py-5" aria-labelledby="staff-access-title">
+        <div class="flex flex-wrap items-end gap-3">
+          <div class="mr-auto">
+            <h3 id="staff-access-title" class="text-lg font-semibold text-slate-900">Pharmacy staff access</h3>
+            <p id="staff-auth-status" class="mt-1 text-sm text-slate-600" role="status" aria-live="polite">Sign in to process pharmacy sales. Sales history is owner-only.</p>
+          </div>
+          <form id="staff-signin-form" class="flex flex-wrap items-end gap-3">
+            <div>
+              <label for="staff-email" class="mb-1 block text-sm font-medium text-slate-700">Staff email</label>
+              <input id="staff-email" type="email" required autocomplete="username" class="w-52 rounded-md border border-slate-300 px-3 py-2 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+            </div>
+            <div>
+              <label for="staff-password" class="mb-1 block text-sm font-medium text-slate-700">Password</label>
+              <input id="staff-password" type="password" required autocomplete="current-password" class="w-44 rounded-md border border-slate-300 px-3 py-2 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+            </div>
+            <button type="submit" class="rounded-md bg-brand-700 px-4 py-2 font-semibold text-white transition hover:bg-brand-800">Sign in</button>
+          </form>
+          <button id="staff-signout" type="button" class="rounded-md border border-slate-300 px-4 py-2 font-semibold text-slate-700 transition hover:bg-slate-100" hidden>Sign out</button>
+        </div>
+      </section>
+      <section id="staff-sale-workspace" class="mb-6 border-y border-slate-200 py-5" aria-labelledby="sale-title" hidden>
         <div class="mb-3 flex flex-wrap items-center justify-between gap-3">
           <div>
             <h3 id="sale-title" class="text-xl font-bold text-slate-900">Current sale</h3>
@@ -166,7 +187,7 @@
           </table>
         </div>
       </section>
-      <section class="mb-8 border-b border-slate-200 pb-6" aria-labelledby="sales-history-title">
+      <section id="owner-sales-history" class="mb-8 border-b border-slate-200 pb-6" aria-labelledby="sales-history-title" hidden>
         <div class="mb-4">
           <h3 id="sales-history-title" class="text-xl font-bold text-slate-900">Daily sales history</h3>
           <p class="mt-1 text-sm text-slate-600">Review transactions by date or receipt, and reopen a receipt for reconciliation.</p>
@@ -755,7 +776,11 @@
   const salesDateFrom = document.querySelector("#sales-date-from");
   const salesDateTo = document.querySelector("#sales-date-to");
   const salesSearch = document.querySelector("#sales-search");
-  const salesHistoryStorageKey = "adepa-sales-history-v1";
+  const staffSigninForm = document.querySelector("#staff-signin-form");
+  const staffAuthStatus = document.querySelector("#staff-auth-status");
+  const staffSaleWorkspace = document.querySelector("#staff-sale-workspace");
+  const ownerSalesHistory = document.querySelector("#owner-sales-history");
+  const staffSignoutButton = document.querySelector("#staff-signout");
   const pageSize = 20;
   const pageStatusElements = [
     document.querySelector("#medicine-page-status"),
@@ -786,6 +811,9 @@
   const nhisClientName = document.querySelector("#nhis-client-name");
   const nhisCardNumber = document.querySelector("#nhis-card-number");
   const saleBasket = new Map();
+  const supabaseUrl = "https://ighgdemynncibtwjdxsl.supabase.co";
+  const supabasePublishableKey = "sb_publishable_iBpSHQWgWIorCvsIkrOohg_WUi-p2AO";
+  const supabaseClient = window.supabase?.createClient(supabaseUrl, supabasePublishableKey);
   let currentPage = 1;
   const inventoryStorageKey = "adepa-medicine-inventory-v1";
   const restockThreshold = 100;
@@ -793,19 +821,13 @@
   let salesHistory = [];
   let savedStock = {};
   let activeReturnReference = "";
+  let currentStaffRole = "";
 
   try {
     savedStock = JSON.parse(localStorage.getItem(inventoryStorageKey) || "{}");
     if (!savedStock || typeof savedStock !== "object" || Array.isArray(savedStock)) savedStock = {};
   } catch {
     savedStock = {};
-  }
-
-  try {
-    const storedSales = JSON.parse(localStorage.getItem(salesHistoryStorageKey) || "[]");
-    salesHistory = Array.isArray(storedSales) ? storedSales : [];
-  } catch {
-    salesHistory = [];
   }
 
   function parseCsv(text) {
@@ -995,6 +1017,140 @@
       fragment.append(row);
     });
     salesHistoryRows.append(fragment);
+  }
+
+  async function loadOwnerSalesHistory() {
+    if (currentStaffRole !== "admin" || !supabaseClient) return;
+    salesHistoryStatus.textContent = "Loading owner sales history...";
+    const { data, error } = await supabaseClient
+      .from("pharmacy_sales")
+      .select("id, reference, created_at, payment_method, client_name, nhis_number, total, pharmacy_sale_items(id, medicine_id, medicine_name, quantity, unit_price, pricing_unit), pharmacy_sale_returns(id, reference, created_at, reason, total, pharmacy_sale_return_items(sale_item_id, medicine_id, medicine_name, quantity, unit_price))")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      salesHistory = [];
+      renderSalesHistory();
+      salesHistoryStatus.textContent = `Sales history could not be loaded: ${error.message}`;
+      return;
+    }
+
+    salesHistory = (data || []).map((sale) => ({
+      reference: sale.reference,
+      createdAt: sale.created_at,
+      paymentMethod: sale.payment_method,
+      clientName: sale.client_name || "",
+      nhisNumber: sale.nhis_number || "",
+      total: Number(sale.total),
+      items: sale.pharmacy_sale_items.map((item) => ({
+        id: item.medicine_id,
+        saleItemId: item.id,
+        name: item.medicine_name,
+        quantity: item.quantity,
+        unitPrice: Number(item.unit_price),
+        unit: item.pricing_unit
+      })),
+      returns: sale.pharmacy_sale_returns.map((reversal) => ({
+        createdAt: reversal.created_at,
+        reason: reversal.reason,
+        total: Number(reversal.total),
+        items: reversal.pharmacy_sale_return_items.map((item) => ({
+          id: item.medicine_id,
+          quantity: item.quantity
+        }))
+      }))
+    }));
+    renderSalesHistory();
+  }
+
+  async function loadSharedInventory() {
+    if (!supabaseClient) return;
+    const { data, error } = await supabaseClient.from("medicines").select("id, stock");
+    if (error) {
+      staffAuthStatus.textContent = `Shared inventory could not be loaded: ${error.message}`;
+      return;
+    }
+    const stockById = new Map((data || []).map((item) => [item.id, item.stock]));
+    medicines.forEach((medicine) => {
+      if (stockById.has(medicine.id)) medicine.stock = stockById.get(medicine.id);
+    });
+    saveInventory();
+    updateInventorySummary();
+    renderMedicines();
+  }
+
+  async function applyStaffSession(session) {
+    currentStaffRole = session?.user?.app_metadata?.pharmacy_role || "";
+    const hasStaffAccess = ["admin", "pharmacist", "assistant"].includes(currentStaffRole);
+    const isOwner = currentStaffRole === "admin";
+    staffSigninForm.hidden = hasStaffAccess;
+    staffSignoutButton.hidden = !session;
+    staffSaleWorkspace.hidden = !hasStaffAccess;
+    ownerSalesHistory.hidden = !isOwner;
+
+    if (!supabaseClient) {
+      staffSigninForm.hidden = true;
+      staffAuthStatus.textContent = "Staff sign-in is unavailable because the Supabase client did not load.";
+      return;
+    }
+    if (!session) {
+      staffAuthStatus.textContent = "Sign in to process pharmacy sales. Sales history is owner-only.";
+      salesHistory = [];
+      renderSalesHistory();
+      return;
+    }
+    if (!hasStaffAccess) {
+      staffAuthStatus.textContent = "This account does not have an Adepa Pharmacy staff role.";
+      salesHistory = [];
+      renderSalesHistory();
+      return;
+    }
+
+    staffAuthStatus.textContent = isOwner
+      ? `Signed in as owner (${session.user.email}). You can access sales history.`
+      : `Signed in as pharmacy staff (${session.user.email}). Sales history is restricted to the owner.`;
+    await loadSharedInventory();
+    if (isOwner) await loadOwnerSalesHistory();
+    else {
+      salesHistory = [];
+      renderSalesHistory();
+    }
+  }
+
+  if (supabaseClient) {
+    staffSigninForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      staffAuthStatus.textContent = "Signing in...";
+      const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email: document.querySelector("#staff-email").value.trim(),
+        password: document.querySelector("#staff-password").value
+      });
+      if (error) {
+        staffAuthStatus.textContent = `Sign-in failed: ${error.message}`;
+        return;
+      }
+      document.querySelector("#staff-password").value = "";
+      await applyStaffSession(data.session);
+    });
+    staffSignoutButton.addEventListener("click", async () => {
+      const { error } = await supabaseClient.auth.signOut();
+      if (error) {
+        staffAuthStatus.textContent = `Sign-out failed: ${error.message}`;
+        return;
+      }
+      saleBasket.clear();
+      renderSaleBasket();
+      await applyStaffSession(null);
+    });
+    supabaseClient.auth.onAuthStateChange((_event, session) => {
+      applyStaffSession(session);
+    });
+    supabaseClient.auth.getSession().then(({ data, error }) => {
+      if (error) staffAuthStatus.textContent = `Session check failed: ${error.message}`;
+      applyStaffSession(data?.session || null);
+    });
+  } else {
+    staffSigninForm.hidden = true;
+    staffAuthStatus.textContent = "Staff sign-in is unavailable because the Supabase client could not be reached.";
   }
 
   function addCell(row, value) {
@@ -1253,7 +1409,7 @@
       const maxQuantity = Number(input.max);
       if (!Number.isInteger(quantity) || quantity < 0 || quantity > maxQuantity) validQuantities = false;
       if (Number.isInteger(quantity) && quantity > 0) {
-        const item = sale.items.find((saleItem) => saleItem.id === input.dataset.returnItem);
+        const item = sale.items.find((saleItem) => String(saleItem.saleItemId || saleItem.id) === input.dataset.returnItem);
         amount += item.unitPrice * quantity;
         selectedQuantity += quantity;
       }
@@ -1291,7 +1447,7 @@
       quantityInput.max = String(remainingQuantity);
       quantityInput.step = "1";
       quantityInput.value = "0";
-      quantityInput.dataset.returnItem = item.id;
+      quantityInput.dataset.returnItem = String(item.saleItemId || item.id);
       quantityInput.setAttribute("aria-label", `Return quantity for ${item.name}`);
       quantityInput.className = "w-24 rounded-md border border-slate-300 px-2 py-1.5 text-right focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100";
       quantityCell.append(quantityInput);
@@ -1302,7 +1458,7 @@
     returnDialog.showModal();
   }
 
-  function confirmReturn() {
+  async function confirmReturn() {
     const sale = salesHistory.find((record) => record.reference === activeReturnReference);
     if (!sale || returnReferenceInput.value.trim() !== sale.reference || !returnReasonInput.value.trim()) {
       returnMessage.textContent = "Enter the matching receipt reference and a return reason.";
@@ -1311,7 +1467,7 @@
 
     const returnedItems = [...returnItems.querySelectorAll("input[data-return-item]")]
       .map((input) => ({
-        item: sale.items.find((saleItem) => saleItem.id === input.dataset.returnItem),
+        item: sale.items.find((saleItem) => String(saleItem.saleItemId || saleItem.id) === input.dataset.returnItem),
         quantity: Number(input.value),
         maxQuantity: Number(input.max)
       }))
@@ -1332,51 +1488,35 @@
       return;
     }
 
-    const reversal = {
-      createdAt: new Date().toISOString(),
-      reason: returnReasonInput.value.trim(),
-      items: stockItems.map(({ item, quantity }) => ({
-        id: item.id,
-        name: item.name,
-        quantity,
-        unitPrice: item.unitPrice
-      })),
-      total: stockItems.reduce((sum, { item, quantity }) => sum + item.unitPrice * quantity, 0)
-    };
-    const previousReturns = sale.returns || [];
+    if (!supabaseClient || currentStaffRole !== "admin") {
+      returnMessage.textContent = "Only the pharmacy owner can record a receipt return.";
+      return;
+    }
+
+    returnConfirmButton.disabled = true;
+    const { error } = await supabaseClient.rpc("record_pharmacy_sale_return", {
+      p_sale_reference: sale.reference,
+      p_reason: returnReasonInput.value.trim(),
+      p_items: returnedItems.map(({ item, quantity }) => ({
+        sale_item_id: item.saleItemId,
+        quantity
+      }))
+    });
+    returnConfirmButton.disabled = false;
+    if (error) {
+      returnMessage.textContent = `Return was not recorded: ${error.message}`;
+      return;
+    }
+
     stockItems.forEach(({ medicine, quantity }) => {
       medicine.stock += quantity;
     });
-    sale.returns = [...previousReturns, reversal];
-
-    if (!saveInventory()) {
-      stockItems.forEach(({ medicine, quantity }) => {
-        medicine.stock -= quantity;
-      });
-      sale.returns = previousReturns;
-      updateInventorySummary();
-      renderMedicines();
-      return;
-    }
-
-    try {
-      localStorage.setItem(salesHistoryStorageKey, JSON.stringify(salesHistory));
-    } catch {
-      stockItems.forEach(({ medicine, quantity }) => {
-        medicine.stock -= quantity;
-      });
-      sale.returns = previousReturns;
-      saveInventory();
-      updateInventorySummary();
-      renderMedicines();
-      returnMessage.textContent = "Return was not saved; stock remains unchanged.";
-      return;
-    }
+    saveInventory();
 
     const returnedQuantity = stockItems.reduce((sum, item) => sum + item.quantity, 0);
     updateInventorySummary();
     renderMedicines();
-    renderSalesHistory();
+    await loadOwnerSalesHistory();
     returnDialog.close();
     inventoryMessage.textContent = `${returnedQuantity} pieces returned against receipt ${sale.reference}; stock and net sales were updated.`;
     inventoryMessage.classList.remove("text-red-800");
@@ -1443,7 +1583,7 @@
     renderSaleBasket();
   });
 
-  saleCheckoutButton.addEventListener("click", () => {
+  saleCheckoutButton.addEventListener("click", async () => {
     const lines = [...saleBasket.entries()].map(([id, quantity]) => ({
       medicine: medicines.find((item) => item.id === id),
       quantity
@@ -1469,8 +1609,32 @@
       return;
     }
 
+    if (!supabaseClient || !["admin", "pharmacist", "assistant"].includes(currentStaffRole)) {
+      inventoryMessage.textContent = "Sign in with an authorized pharmacy staff account before completing a sale.";
+      inventoryMessage.classList.remove("text-brand-800");
+      inventoryMessage.classList.add("text-red-800");
+      return;
+    }
+
+    saleCheckoutButton.disabled = true;
+    inventoryMessage.textContent = "Saving sale securely...";
+    const { data, error } = await supabaseClient.rpc("record_pharmacy_sale", {
+      p_payment_method: saleDetails.paymentMethod,
+      p_client_name: saleDetails.clientName || null,
+      p_nhis_number: saleDetails.nhisNumber || null,
+      p_items: lines.map(({ medicine, quantity }) => ({ id: medicine.id, quantity }))
+    });
+    saleCheckoutButton.disabled = false;
+    if (error || !data?.length) {
+      inventoryMessage.textContent = `Sale was not completed: ${error?.message || "No sale confirmation was returned."}`;
+      inventoryMessage.classList.remove("text-brand-800");
+      inventoryMessage.classList.add("text-red-800");
+      return;
+    }
+
+    const recordedSale = data[0];
     const saleRecord = {
-      reference: `ADE-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`,
+      reference: recordedSale.sale_reference,
       createdAt: new Date().toISOString(),
       paymentMethod: saleDetails.paymentMethod,
       clientName: saleDetails.clientName,
@@ -1482,44 +1646,22 @@
         unitPrice: medicine.price,
         unit: medicine.unit
       })),
-      total: lines.reduce((sum, line) => sum + line.medicine.price * line.quantity, 0)
+      total: Number(recordedSale.sale_total)
     };
 
     lines.forEach(({ medicine, quantity }) => {
       medicine.stock -= quantity;
     });
-    const saved = saveInventory();
-    if (!saved) {
-      lines.forEach(({ medicine, quantity }) => {
-        medicine.stock += quantity;
-      });
-      updateInventorySummary();
-      renderMedicines();
-      return;
-    }
-
-    try {
-      localStorage.setItem(salesHistoryStorageKey, JSON.stringify([saleRecord, ...salesHistory]));
-    } catch {
-      lines.forEach(({ medicine, quantity }) => {
-        medicine.stock += quantity;
-      });
-      saveInventory();
-      updateInventorySummary();
-      renderMedicines();
-      inventoryMessage.textContent = "Sale was not completed because its history could not be saved in this browser.";
-      inventoryMessage.classList.remove("text-brand-800");
-      inventoryMessage.classList.add("text-red-800");
-      return;
-    }
-    salesHistory.unshift(saleRecord);
-    renderSalesHistory();
+    const stockCacheSaved = saveInventory();
+    if (currentStaffRole === "admin") await loadOwnerSalesHistory();
 
     saleBasket.clear();
     renderSaleBasket();
     updateInventorySummary();
     renderMedicines();
-    inventoryMessage.textContent = `Sale completed for ${lines.length} medicine${lines.length === 1 ? "" : "s"}. Stock has been updated.`;
+    inventoryMessage.textContent = stockCacheSaved
+      ? `Sale ${saleRecord.reference} saved securely for ${lines.length} medicine${lines.length === 1 ? "" : "s"}.`
+      : `Sale ${saleRecord.reference} saved securely. Refresh shared inventory before the next sale.`;
     inventoryMessage.classList.remove("text-red-800");
     inventoryMessage.classList.add("text-brand-800");
     showReceipt(lines, saleDetails, saleRecord);
