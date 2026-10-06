@@ -21,6 +21,7 @@
       <nav aria-label="Main navigation">
         <ul class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-medium md:gap-x-7">
           <li><a href="#services" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Services</a></li>
+          <li><a href="#medicines" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Medicines</a></li>
           <li><a href="#about" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">About</a></li>
           <li><a href="#gallery" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Gallery</a></li>
           <li><a href="#contact" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Contact</a></li>
@@ -63,6 +64,265 @@
           <span>Asokwa, Kumasi</span>
         </div>
       </div>
+    </section>
+    <section id="medicines" class="container mx-auto px-4 py-16" aria-labelledby="medicines-title">
+      <div class="mb-8">
+        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">NHIS medicine list</p>
+        <h2 id="medicines-title" class="text-3xl font-bold text-slate-900">Medication catalogue</h2>
+        <p class="mt-3 max-w-2xl text-slate-600">
+          NHIS medicine prices with opening stock by dosage form. Items below 100 pieces are flagged for restocking.
+        </p>
+        <p class="mt-3 max-w-2xl text-sm text-amber-900" role="note">
+          Inventory and sales history are saved in this browser only. NHIS client details are retained here for claim reconciliation; restrict access to this device.
+        </p>
+      </div>
+
+      <dl class="mb-6 grid gap-3 sm:grid-cols-3">
+        <div class="rounded-lg border border-slate-200 bg-white p-4">
+          <dt class="text-sm text-slate-600">Medicines listed</dt>
+          <dd id="inventory-medicine-total" class="mt-1 text-2xl font-bold text-slate-900">—</dd>
+        </div>
+        <div class="rounded-lg border border-slate-200 bg-white p-4">
+          <dt class="text-sm text-slate-600">Total pieces in stock</dt>
+          <dd id="inventory-piece-total" class="mt-1 text-2xl font-bold text-slate-900">—</dd>
+        </div>
+        <div class="rounded-lg border border-red-200 bg-red-50 p-4">
+          <dt class="text-sm text-red-800">Items below 100 pieces</dt>
+          <dd id="inventory-low-total" class="mt-1 text-2xl font-bold text-red-900">—</dd>
+        </div>
+      </dl>
+
+      <div class="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div class="w-full sm:max-w-md">
+          <label for="medicine-search" class="mb-1 block text-sm font-medium text-slate-700">Search medicines</label>
+          <input id="medicine-search" type="search" placeholder="Search by name or ID" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+        </div>
+        <div class="w-full sm:w-56">
+          <label for="medicine-category" class="mb-1 block text-sm font-medium text-slate-700">Category</label>
+          <select id="medicine-category" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+            <option value="">All categories</option>
+          </select>
+        </div>
+        <label class="flex items-center gap-2 pb-3 text-sm font-medium text-slate-700">
+          <input id="low-stock-only" type="checkbox" class="h-4 w-4 rounded border-slate-300 text-brand-700 focus:ring-brand-500">
+          Show restock flags only
+        </label>
+      </div>
+
+      <p id="medicine-count" class="mb-3 text-sm text-slate-600" role="status" aria-live="polite">Loading medicines...</p>
+      <p id="inventory-message" class="mb-3 min-h-6 text-sm font-medium text-brand-800" role="status" aria-live="polite"></p>
+      <section class="mb-6 border-y border-slate-200 py-5" aria-labelledby="sale-title">
+        <div class="mb-3 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h3 id="sale-title" class="text-xl font-bold text-slate-900">Current sale</h3>
+            <p id="sale-item-count" class="mt-1 text-sm text-slate-600">No medicines added</p>
+          </div>
+          <div class="flex gap-2">
+            <button id="sale-clear" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100">Clear sale</button>
+            <button id="sale-checkout" type="button" class="rounded-md bg-brand-700 px-3 py-2 text-sm font-semibold text-white transition hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-50" disabled>Complete sale and print receipt</button>
+          </div>
+        </div>
+        <div class="mb-4 grid gap-3 sm:grid-cols-3">
+          <div>
+            <label for="sale-payment-method" class="mb-1 block text-sm font-medium text-slate-700">Payment method</label>
+            <select id="sale-payment-method" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+              <option value="cash">Cash</option>
+              <option value="nhis">NHIS claim</option>
+            </select>
+          </div>
+          <div id="nhis-customer-fields" class="col-span-full grid gap-3 sm:grid-cols-2" hidden>
+            <div>
+              <label for="nhis-client-name" class="mb-1 block text-sm font-medium text-slate-700">Client name</label>
+              <input id="nhis-client-name" type="text" autocomplete="off" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+            </div>
+            <div>
+              <label for="nhis-card-number" class="mb-1 block text-sm font-medium text-slate-700">NHIS number</label>
+              <input id="nhis-card-number" type="text" autocomplete="off" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+            </div>
+            <p class="text-xs text-slate-500 sm:col-span-2">NHIS details are saved in this browser's sales history for claim reconciliation.</p>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-140 border-collapse text-left text-sm">
+            <thead class="text-xs uppercase tracking-wide text-slate-600">
+              <tr>
+                <th scope="col" class="border-b border-slate-200 px-3 py-2">Medicine</th>
+                <th scope="col" class="border-b border-slate-200 px-3 py-2 text-right">Quantity</th>
+                <th scope="col" class="border-b border-slate-200 px-3 py-2 text-right">Unit price</th>
+                <th scope="col" class="border-b border-slate-200 px-3 py-2 text-right">Line total</th>
+                <th scope="col" class="border-b border-slate-200 px-3 py-2"><span class="sr-only">Remove</span></th>
+              </tr>
+            </thead>
+            <tbody id="sale-rows" class="divide-y divide-slate-200 text-slate-700">
+              <tr><td colspan="5" class="px-3 py-4 text-slate-500">Add medicines from the catalogue to begin a sale.</td></tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="3" scope="row" class="px-3 py-3 text-right text-base text-slate-900">Total (GHS)</th>
+                <td id="sale-total" class="px-3 py-3 text-right text-base font-bold text-slate-900">0.00</td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+      <section class="mb-8 border-b border-slate-200 pb-6" aria-labelledby="sales-history-title">
+        <div class="mb-4">
+          <h3 id="sales-history-title" class="text-xl font-bold text-slate-900">Daily sales history</h3>
+          <p class="mt-1 text-sm text-slate-600">Review transactions by date or receipt, and reopen a receipt for reconciliation.</p>
+        </div>
+        <div class="mb-4 grid gap-3 sm:grid-cols-3">
+          <div>
+            <label for="sales-date-from" class="mb-1 block text-sm font-medium text-slate-700">From date</label>
+            <input id="sales-date-from" type="date" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+          </div>
+          <div>
+            <label for="sales-date-to" class="mb-1 block text-sm font-medium text-slate-700">To date</label>
+            <input id="sales-date-to" type="date" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+          </div>
+          <div>
+            <label for="sales-search" class="mb-1 block text-sm font-medium text-slate-700">Find sale</label>
+            <input id="sales-search" type="search" placeholder="Receipt, buyer, or NHIS number" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+          </div>
+        </div>
+        <dl class="mb-4 grid gap-3 sm:grid-cols-3 xl:grid-cols-6">
+          <div class="border-l-2 border-slate-300 pl-3">
+            <dt class="text-sm text-slate-600">Transactions</dt>
+            <dd id="sales-count" class="mt-1 text-lg font-bold text-slate-900">0</dd>
+          </div>
+          <div class="border-l-2 border-brand-600 pl-3">
+            <dt class="text-sm text-slate-600">Gross sales (GHS)</dt>
+            <dd id="sales-gross-total" class="mt-1 text-lg font-bold text-slate-900">0.00</dd>
+          </div>
+          <div class="border-l-2 border-red-600 pl-3">
+            <dt class="text-sm text-slate-600">Returned (GHS)</dt>
+            <dd id="sales-returned-total" class="mt-1 text-lg font-bold text-slate-900">0.00</dd>
+          </div>
+          <div class="border-l-2 border-brand-600 pl-3">
+            <dt class="text-sm text-slate-600">Net sales (GHS)</dt>
+            <dd id="sales-total" class="mt-1 text-lg font-bold text-slate-900">0.00</dd>
+          </div>
+          <div class="border-l-2 border-green-600 pl-3">
+            <dt class="text-sm text-slate-600">Cash (GHS)</dt>
+            <dd id="sales-cash-total" class="mt-1 text-lg font-bold text-slate-900">0.00</dd>
+          </div>
+          <div class="border-l-2 border-amber-600 pl-3">
+            <dt class="text-sm text-slate-600">NHIS claims (GHS)</dt>
+            <dd id="sales-nhis-total" class="mt-1 text-lg font-bold text-slate-900">0.00</dd>
+          </div>
+        </dl>
+        <p id="sales-history-status" class="mb-2 text-sm text-slate-600" role="status" aria-live="polite">No sales recorded yet.</p>
+        <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+          <table class="w-full min-w-300 border-collapse text-left text-sm">
+            <thead class="bg-slate-100 text-xs uppercase tracking-wide text-slate-600">
+              <tr>
+                <th scope="col" class="px-3 py-3">Date and time</th>
+                <th scope="col" class="px-3 py-3">Receipt</th>
+                <th scope="col" class="px-3 py-3">Buyer</th>
+                <th scope="col" class="px-3 py-3">Payment</th>
+                <th scope="col" class="px-3 py-3">Medicines</th>
+                <th scope="col" class="px-3 py-3 text-right">Sale (GHS)</th>
+                <th scope="col" class="px-3 py-3 text-right">Returned (GHS)</th>
+                <th scope="col" class="px-3 py-3 text-right">Net (GHS)</th>
+                <th scope="col" class="px-3 py-3">Status</th>
+                <th scope="col" class="px-3 py-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="sales-history-rows" class="divide-y divide-slate-200 text-slate-700">
+              <tr><td colspan="10" class="px-3 py-6 text-center text-slate-500">No sales recorded yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <nav class="mb-3 flex flex-wrap items-center justify-between gap-3" aria-label="Medication catalogue pages">
+        <p id="medicine-page-status" class="text-sm text-slate-600" aria-live="polite">Page 1 of 1</p>
+        <div class="flex gap-2">
+          <button id="medicine-previous-page" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50">Previous</button>
+          <button id="medicine-next-page" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50">Next</button>
+        </div>
+      </nav>
+      <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm">
+        <table class="w-full min-w-280 border-collapse text-left text-sm">
+          <thead class="bg-slate-100 text-xs uppercase tracking-wide text-slate-600">
+            <tr>
+              <th scope="col" class="px-4 py-3">ID</th>
+              <th scope="col" class="px-4 py-3">Name</th>
+              <th scope="col" class="px-4 py-3">Price (GHS / unit)</th>
+              <th scope="col" class="px-4 py-3">Category</th>
+              <th scope="col" class="px-4 py-3">Supplier</th>
+              <th scope="col" class="px-4 py-3">Stock (pieces)</th>
+              <th scope="col" class="px-4 py-3">Status</th>
+              <th scope="col" class="px-4 py-3">Quantity</th>
+              <th scope="col" class="px-4 py-3">Stock movement</th>
+            </tr>
+          </thead>
+          <tbody id="medicine-rows" class="divide-y divide-slate-200 text-slate-700">
+            <tr><td colspan="9" class="px-4 py-8 text-center text-slate-500">Loading medicine catalogue...</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <nav class="mt-3 flex flex-wrap items-center justify-between gap-3" aria-label="Medication catalogue pages, bottom">
+        <p id="medicine-page-status-bottom" class="text-sm text-slate-600" aria-live="polite">Page 1 of 1</p>
+        <div class="flex gap-2">
+          <button id="medicine-previous-page-bottom" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50">Previous</button>
+          <button id="medicine-next-page-bottom" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50">Next</button>
+        </div>
+      </nav>
+      <dialog id="receipt-dialog" class="w-[min(100%-2rem,32rem)] rounded-lg border border-slate-300 bg-white p-0 text-slate-800 shadow-xl">
+        <article id="receipt-print-area" class="p-6 sm:p-8" aria-labelledby="receipt-title">
+          <header class="border-b border-slate-300 pb-4 text-center">
+            <h2 id="receipt-title" class="text-2xl font-bold text-brand-900">Adepa Pharmacy</h2>
+            <p class="mt-1 text-sm">12 Asokwa Road, Kumasi, Ghana</p>
+            <p class="text-sm">Tel: +233 50 100 0000</p>
+            <p class="mt-4 text-lg font-semibold">Medicine Sale Receipt</p>
+          </header>
+          <p id="receipt-reference" class="mt-4 text-sm"></p>
+          <p id="receipt-date" class="mt-1 text-sm"></p>
+          <p id="receipt-payment-method" class="mt-1 text-sm"></p>
+          <p id="receipt-customer" class="mt-1 text-sm"></p>
+          <div id="receipt-details" class="mt-5"></div>
+          <p id="receipt-total" class="mt-5 border-t border-slate-300 pt-4 text-right text-lg font-bold"></p>
+          <p class="mt-6 text-center text-sm">Thank you for choosing Adepa Pharmacy.</p>
+          <div class="receipt-actions mt-6 flex justify-end gap-3">
+            <button id="receipt-close" type="button" class="rounded-md border border-slate-300 px-4 py-2 font-semibold text-slate-700 transition hover:bg-slate-100">Close</button>
+            <button id="receipt-print" type="button" class="rounded-md bg-brand-700 px-4 py-2 font-semibold text-white transition hover:bg-brand-800">Print receipt</button>
+          </div>
+        </article>
+      </dialog>
+      <dialog id="return-dialog" class="w-[min(100%-2rem,48rem)] rounded-lg border border-slate-300 bg-white p-0 text-slate-800 shadow-xl">
+        <section class="p-6 sm:p-8" aria-labelledby="return-title">
+          <h2 id="return-title" class="text-xl font-bold text-slate-900">Return medicines from receipt</h2>
+          <p class="mt-2 text-sm text-slate-600">Check the customer's printed receipt. Enter the exact receipt reference, select the quantities being returned, and record a reason.</p>
+          <p id="return-reference-label" class="mt-4 font-semibold text-slate-800"></p>
+          <div class="mt-3">
+            <label for="return-reference-input" class="mb-1 block text-sm font-medium text-slate-700">Confirm receipt reference</label>
+            <input id="return-reference-input" type="text" autocomplete="off" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+          </div>
+          <div class="mt-3">
+            <label for="return-reason" class="mb-1 block text-sm font-medium text-slate-700">Reason for return</label>
+            <textarea id="return-reason" rows="2" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"></textarea>
+          </div>
+          <div class="mt-4 overflow-x-auto">
+            <table class="w-full min-w-140 border-collapse text-left text-sm">
+              <thead class="bg-slate-100 text-xs uppercase tracking-wide text-slate-600">
+                <tr>
+                  <th scope="col" class="px-3 py-2">Medicine</th>
+                  <th scope="col" class="px-3 py-2 text-right">Sold</th>
+                  <th scope="col" class="px-3 py-2 text-right">Returned</th>
+                  <th scope="col" class="px-3 py-2 text-right">Return now</th>
+                </tr>
+              </thead>
+              <tbody id="return-items" class="divide-y divide-slate-200"></tbody>
+            </table>
+          </div>
+          <p id="return-estimate" class="mt-4 text-right font-semibold text-slate-900">Return total: GHS 0.00</p>
+          <p id="return-message" class="mt-2 min-h-6 text-sm text-red-800" role="alert"></p>
+          <div class="mt-5 flex justify-end gap-3">
+            <button id="return-cancel" type="button" class="rounded-md border border-slate-300 px-4 py-2 font-semibold text-slate-700 transition hover:bg-slate-100">Cancel</button>
+            <button id="return-confirm" type="button" class="rounded-md bg-red-700 px-4 py-2 font-semibold text-white transition hover:bg-red-800">Confirm return</button>
+          </div>
+        </section>
+      </dialog>
     </section>
     <section id="services" class="container mx-auto px-4 py-16">
       <div class="mb-10">
@@ -480,5 +740,836 @@
 
   </div>
 </footer>
+<script>
+  const medicineRows = document.querySelector("#medicine-rows");
+  const medicineSearch = document.querySelector("#medicine-search");
+  const medicineCategory = document.querySelector("#medicine-category");
+  const medicineCount = document.querySelector("#medicine-count");
+  const lowStockOnly = document.querySelector("#low-stock-only");
+  const inventoryMessage = document.querySelector("#inventory-message");
+  const inventoryMedicineTotal = document.querySelector("#inventory-medicine-total");
+  const inventoryPieceTotal = document.querySelector("#inventory-piece-total");
+  const inventoryLowTotal = document.querySelector("#inventory-low-total");
+  const salesHistoryRows = document.querySelector("#sales-history-rows");
+  const salesHistoryStatus = document.querySelector("#sales-history-status");
+  const salesDateFrom = document.querySelector("#sales-date-from");
+  const salesDateTo = document.querySelector("#sales-date-to");
+  const salesSearch = document.querySelector("#sales-search");
+  const salesHistoryStorageKey = "adepa-sales-history-v1";
+  const pageSize = 20;
+  const pageStatusElements = [
+    document.querySelector("#medicine-page-status"),
+    document.querySelector("#medicine-page-status-bottom")
+  ];
+  const previousPageButtons = [
+    document.querySelector("#medicine-previous-page"),
+    document.querySelector("#medicine-previous-page-bottom")
+  ];
+  const nextPageButtons = [
+    document.querySelector("#medicine-next-page"),
+    document.querySelector("#medicine-next-page-bottom")
+  ];
+  const receiptDialog = document.querySelector("#receipt-dialog");
+  const returnDialog = document.querySelector("#return-dialog");
+  const returnItems = document.querySelector("#return-items");
+  const returnReferenceInput = document.querySelector("#return-reference-input");
+  const returnReasonInput = document.querySelector("#return-reason");
+  const returnConfirmButton = document.querySelector("#return-confirm");
+  const returnEstimate = document.querySelector("#return-estimate");
+  const returnMessage = document.querySelector("#return-message");
+  const saleRows = document.querySelector("#sale-rows");
+  const saleTotalElement = document.querySelector("#sale-total");
+  const saleItemCount = document.querySelector("#sale-item-count");
+  const saleCheckoutButton = document.querySelector("#sale-checkout");
+  const salePaymentMethod = document.querySelector("#sale-payment-method");
+  const nhisCustomerFields = document.querySelector("#nhis-customer-fields");
+  const nhisClientName = document.querySelector("#nhis-client-name");
+  const nhisCardNumber = document.querySelector("#nhis-card-number");
+  const saleBasket = new Map();
+  let currentPage = 1;
+  const inventoryStorageKey = "adepa-medicine-inventory-v1";
+  const restockThreshold = 100;
+  let medicines = [];
+  let salesHistory = [];
+  let savedStock = {};
+  let activeReturnReference = "";
+
+  try {
+    savedStock = JSON.parse(localStorage.getItem(inventoryStorageKey) || "{}");
+    if (!savedStock || typeof savedStock !== "object" || Array.isArray(savedStock)) savedStock = {};
+  } catch {
+    savedStock = {};
+  }
+
+  try {
+    const storedSales = JSON.parse(localStorage.getItem(salesHistoryStorageKey) || "[]");
+    salesHistory = Array.isArray(storedSales) ? storedSales : [];
+  } catch {
+    salesHistory = [];
+  }
+
+  function parseCsv(text) {
+    const records = [];
+    let record = [];
+    let field = "";
+    let quoted = false;
+
+    for (let index = 0; index < text.length; index += 1) {
+      const character = text[index];
+      if (character === '"') {
+        if (quoted && text[index + 1] === '"') {
+          field += '"';
+          index += 1;
+        } else {
+          quoted = !quoted;
+        }
+      } else if (character === "," && !quoted) {
+        record.push(field);
+        field = "";
+      } else if ((character === "\n" || character === "\r") && !quoted) {
+        if (character === "\r" && text[index + 1] === "\n") index += 1;
+        record.push(field);
+        if (record.some((value) => value !== "")) records.push(record);
+        record = [];
+        field = "";
+      } else {
+        field += character;
+      }
+    }
+
+    if (field || record.length) {
+      record.push(field);
+      records.push(record);
+    }
+    return records;
+  }
+
+  function getCategory(name) {
+    if (/\b(tablet|capsule|caplet)\b/i.test(name)) return "Oral solid";
+    if (/\b(injection|injectable)\b/i.test(name)) return "Injection";
+    if (/\b(syrup|suspension|oral solution|elixir)\b/i.test(name)) return "Oral liquid";
+    if (/\b(cream|ointment|gel|lotion)\b/i.test(name)) return "Topical";
+    if (/\b(drops|eye drop|ear drop)\b/i.test(name)) return "Drops";
+    if (/\b(inhaler|inhalation)\b/i.test(name)) return "Inhalation";
+    if (/\b(powder|granules)\b/i.test(name)) return "Powder";
+    if (/\bsuppositor(y|ies)\b/i.test(name)) return "Suppository";
+    return "Other dosage form";
+  }
+
+  function getOpeningStock(category) {
+    return category === "Other dosage form" ? 500 : 1000;
+  }
+
+  function saveInventory() {
+    try {
+      localStorage.setItem(inventoryStorageKey, JSON.stringify(
+        Object.fromEntries(medicines.map((medicine) => [medicine.id, medicine.stock]))
+      ));
+      return true;
+    } catch {
+      inventoryMessage.textContent = "Stock changed for this page, but could not be saved in this browser.";
+      return false;
+    }
+  }
+
+  function updateInventorySummary() {
+    inventoryMedicineTotal.textContent = medicines.length.toLocaleString();
+    inventoryPieceTotal.textContent = medicines.reduce((total, medicine) => total + medicine.stock, 0).toLocaleString();
+    inventoryLowTotal.textContent = medicines.filter((medicine) => medicine.stock < restockThreshold).length.toLocaleString();
+  }
+
+  function getLocalDateKey(dateValue) {
+    const date = new Date(dateValue);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+
+  function getReturnedQuantity(sale, itemId) {
+    return (sale.returns || []).reduce((total, reversal) =>
+      total + reversal.items.reduce((itemTotal, item) => itemTotal + (item.id === itemId ? item.quantity : 0), 0), 0);
+  }
+
+  function roundMoney(amount) {
+    const rounded = Math.round((amount + Math.sign(amount) * Number.EPSILON) * 100) / 100;
+    return rounded === 0 ? 0 : rounded;
+  }
+
+  function getReturnedAmount(sale) {
+    return roundMoney((sale.returns || []).reduce((total, reversal) => total + reversal.total, 0));
+  }
+
+  function isFullyReturned(sale) {
+    return sale.items.every((item) => getReturnedQuantity(sale, item.id) >= item.quantity);
+  }
+
+  function renderSalesHistory() {
+    const query = salesSearch.value.trim().toLowerCase();
+    const fromDate = salesDateFrom.value;
+    const toDate = salesDateTo.value;
+    const filteredSales = salesHistory.filter((sale) => {
+      const saleDate = getLocalDateKey(sale.createdAt);
+      const matchesDate = (!fromDate || saleDate >= fromDate) && (!toDate || saleDate <= toDate);
+      const searchableText = `${sale.reference} ${sale.clientName || ""} ${sale.nhisNumber || ""} ${sale.items.map((item) => item.name).join(" ")}`.toLowerCase();
+      return matchesDate && searchableText.includes(query);
+    });
+    const total = roundMoney(filteredSales.reduce((sum, sale) => sum + sale.total - getReturnedAmount(sale), 0));
+    const grossTotal = roundMoney(filteredSales.reduce((sum, sale) => sum + sale.total, 0));
+    const returnedTotal = roundMoney(filteredSales.reduce((sum, sale) => sum + getReturnedAmount(sale), 0));
+    const cashTotal = roundMoney(filteredSales.reduce((sum, sale) => sum + (sale.paymentMethod === "cash" ? sale.total - getReturnedAmount(sale) : 0), 0));
+    const nhisTotal = roundMoney(filteredSales.reduce((sum, sale) => sum + (sale.paymentMethod === "nhis" ? sale.total - getReturnedAmount(sale) : 0), 0));
+    document.querySelector("#sales-count").textContent = filteredSales.length.toLocaleString();
+    document.querySelector("#sales-gross-total").textContent = grossTotal.toFixed(2);
+    document.querySelector("#sales-returned-total").textContent = returnedTotal.toFixed(2);
+    document.querySelector("#sales-total").textContent = total.toFixed(2);
+    document.querySelector("#sales-cash-total").textContent = cashTotal.toFixed(2);
+    document.querySelector("#sales-nhis-total").textContent = nhisTotal.toFixed(2);
+    salesHistoryStatus.textContent = filteredSales.length
+      ? `${filteredSales.length} sale${filteredSales.length === 1 ? "" : "s"} shown`
+      : "No sales match these filters.";
+    salesHistoryRows.replaceChildren();
+
+    if (!filteredSales.length) {
+      const row = document.createElement("tr");
+      const cell = document.createElement("td");
+      cell.colSpan = 10;
+      cell.className = "px-3 py-6 text-center text-slate-500";
+      cell.textContent = "No sales recorded for this selection.";
+      row.append(cell);
+      salesHistoryRows.append(row);
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+    filteredSales.forEach((sale) => {
+      const row = document.createElement("tr");
+      const saleDate = new Date(sale.createdAt);
+      const returnedAmount = getReturnedAmount(sale);
+      const netAmount = roundMoney(sale.total - returnedAmount);
+      const hasReturns = returnedAmount > 0;
+      const values = [
+        saleDate.toLocaleString(),
+        sale.reference,
+        sale.paymentMethod === "nhis" ? `${sale.clientName} (${sale.nhisNumber})` : "Cash sale",
+        sale.paymentMethod === "nhis" ? "NHIS claim" : "Cash",
+        sale.items.map((item) => `${item.name} × ${item.quantity}`).join(", "),
+        roundMoney(sale.total).toFixed(2),
+        returnedAmount.toFixed(2),
+        netAmount.toFixed(2)
+      ];
+      values.forEach((value, index) => {
+        const cell = document.createElement("td");
+        cell.className = index >= 5 && index <= 7 ? "px-3 py-3 text-right font-semibold" : "px-3 py-3 align-top";
+        cell.textContent = value;
+        row.append(cell);
+      });
+      const statusCell = document.createElement("td");
+      statusCell.className = "px-3 py-3 align-top";
+      const statusText = document.createElement("span");
+      statusText.className = hasReturns ? "font-semibold text-red-800" : "text-green-800";
+      statusText.textContent = isFullyReturned(sale) ? "Fully returned" : hasReturns ? "Partially returned" : "Completed";
+      statusCell.append(statusText);
+      (sale.returns || []).forEach((reversal) => {
+        const returnNote = document.createElement("p");
+        returnNote.className = "mt-1 max-w-56 whitespace-normal text-xs text-slate-600";
+        returnNote.textContent = `${new Date(reversal.createdAt).toLocaleDateString()}: ${reversal.reason}`;
+        statusCell.append(returnNote);
+      });
+      row.append(statusCell);
+      const actionCell = document.createElement("td");
+      actionCell.className = "px-3 py-3 align-top whitespace-nowrap";
+      const receiptButton = document.createElement("button");
+      receiptButton.type = "button";
+      receiptButton.dataset.salesReceipt = sale.reference;
+      receiptButton.className = "font-semibold text-brand-700 underline underline-offset-2 hover:text-brand-900";
+      receiptButton.textContent = "View / print";
+      const returnButton = document.createElement("button");
+      returnButton.type = "button";
+      returnButton.dataset.salesReturn = sale.reference;
+      returnButton.className = "ml-3 font-semibold text-red-700 underline underline-offset-2 hover:text-red-900 disabled:cursor-not-allowed disabled:opacity-40";
+      returnButton.textContent = "Return items";
+      returnButton.disabled = isFullyReturned(sale);
+      actionCell.append(receiptButton, returnButton);
+      row.append(actionCell);
+      fragment.append(row);
+    });
+    salesHistoryRows.append(fragment);
+  }
+
+  function addCell(row, value) {
+    const cell = document.createElement("td");
+    cell.className = "px-4 py-3 align-top";
+    cell.textContent = value;
+    row.append(cell);
+  }
+
+  function renderMedicines() {
+    const query = medicineSearch.value.trim().toLowerCase();
+    const selectedCategory = medicineCategory.value;
+    const filtered = medicines.filter((medicine) =>
+      (!selectedCategory || medicine.category === selectedCategory) &&
+      (!lowStockOnly.checked || medicine.stock < restockThreshold) &&
+      `${medicine.id} ${medicine.name}`.toLowerCase().includes(query)
+    );
+
+    medicineCount.textContent = `${filtered.length} of ${medicines.length} medicines`;
+    const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
+    currentPage = Math.min(currentPage, pageCount);
+    const pageStart = (currentPage - 1) * pageSize;
+    const pageMedicines = filtered.slice(pageStart, pageStart + pageSize);
+    pageStatusElements.forEach((element) => {
+      element.textContent = `Page ${currentPage} of ${pageCount}`;
+    });
+    previousPageButtons.forEach((button) => {
+      button.disabled = currentPage === 1;
+    });
+    nextPageButtons.forEach((button) => {
+      button.disabled = currentPage === pageCount;
+    });
+    medicineRows.replaceChildren();
+
+    if (!pageMedicines.length) {
+      const row = document.createElement("tr");
+      const cell = document.createElement("td");
+      cell.colSpan = 9;
+      cell.className = "px-4 py-8 text-center text-slate-500";
+      cell.textContent = "No medicines match your search.";
+      row.append(cell);
+      medicineRows.append(row);
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+    pageMedicines.forEach((medicine) => {
+      const row = document.createElement("tr");
+      row.dataset.medicineId = medicine.id;
+      addCell(row, medicine.id);
+      addCell(row, medicine.name);
+      addCell(row, `${medicine.price.toFixed(2)} / ${medicine.unit}`);
+      addCell(row, medicine.category);
+      addCell(row, medicine.supplier);
+      addCell(row, medicine.stock.toLocaleString());
+      const statusCell = document.createElement("td");
+      statusCell.className = "px-4 py-3 align-top";
+      const status = document.createElement("span");
+      status.className = medicine.stock < restockThreshold
+        ? "inline-flex rounded-sm bg-red-100 px-2 py-1 font-semibold text-red-800"
+        : "inline-flex rounded-sm bg-green-100 px-2 py-1 font-semibold text-green-800";
+      status.textContent = medicine.stock < restockThreshold ? "Restock" : "In stock";
+      statusCell.append(status);
+      row.append(statusCell);
+      const quantityCell = document.createElement("td");
+      quantityCell.className = "px-4 py-3 align-top";
+      const quantityInput = document.createElement("input");
+      quantityInput.type = "number";
+      quantityInput.min = "1";
+      quantityInput.step = "1";
+      quantityInput.value = "1";
+      quantityInput.setAttribute("aria-label", `Quantity for ${medicine.name}`);
+      quantityInput.className = "w-24 rounded-md border border-slate-300 px-2 py-1.5 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100";
+      quantityCell.append(quantityInput);
+      row.append(quantityCell);
+      const movementCell = document.createElement("td");
+      movementCell.className = "px-4 py-3 align-top";
+      const receiveButton = document.createElement("button");
+      receiveButton.type = "button";
+      receiveButton.dataset.stockAction = "receive";
+      receiveButton.className = "mr-2 rounded-md bg-brand-700 px-3 py-1.5 font-semibold text-white transition hover:bg-brand-800";
+      receiveButton.textContent = "Receive";
+      const dispenseButton = document.createElement("button");
+      dispenseButton.type = "button";
+      dispenseButton.dataset.stockAction = "add-to-sale";
+      dispenseButton.className = "rounded-md border border-slate-300 px-3 py-1.5 font-semibold text-slate-700 transition hover:bg-slate-100";
+      dispenseButton.textContent = "Add to sale";
+      movementCell.append(receiveButton, dispenseButton);
+      row.append(movementCell);
+      fragment.append(row);
+    });
+    medicineRows.append(fragment);
+  }
+
+  fetch("./nhis_2025_medicines.csv")
+    .then((response) => {
+      if (!response.ok) throw new Error("Medicine list could not be loaded.");
+      return response.text();
+    })
+    .then((csv) => {
+      const [headers, ...records] = parseCsv(csv);
+      const column = Object.fromEntries(headers.map((header, index) => [header, index]));
+      medicines = records.map((record) => {
+        const name = record[column.generic_name_dosage_form_strength];
+        return {
+          id: record[column.code],
+          name,
+          price: Number(record[column.price_ghc]),
+          unit: record[column.unit_of_pricing],
+          category: getCategory(name),
+          supplier: "NHIS"
+        };
+      }).filter((medicine) => medicine.id && medicine.name && Number.isFinite(medicine.price));
+
+      medicines = medicines.map((medicine) => {
+        const storedStock = savedStock[medicine.id];
+        const stock = Number.isInteger(storedStock) && storedStock >= 0
+          ? storedStock
+          : getOpeningStock(medicine.category);
+        return { ...medicine, stock };
+      });
+
+      [...new Set(medicines.map((medicine) => medicine.category))].sort().forEach((category) => {
+        const option = document.createElement("option");
+        option.value = category;
+        option.textContent = category;
+        medicineCategory.append(option);
+      });
+      updateInventorySummary();
+      renderMedicines();
+    })
+    .catch(() => {
+      medicineCount.textContent = "Medicine catalogue unavailable";
+      medicineRows.replaceChildren();
+      const row = document.createElement("tr");
+      const cell = document.createElement("td");
+      cell.colSpan = 9;
+      cell.className = "px-4 py-8 text-center text-slate-600";
+      cell.textContent = "The medicine list could not be loaded. Please try again later.";
+      row.append(cell);
+      medicineRows.append(row);
+    });
+
+  function goToPage(page) {
+    currentPage = page;
+    renderMedicines();
+  }
+
+  medicineSearch.addEventListener("input", () => goToPage(1));
+  medicineCategory.addEventListener("change", () => goToPage(1));
+  lowStockOnly.addEventListener("change", () => goToPage(1));
+  previousPageButtons.forEach((button) => button.addEventListener("click", () => goToPage(currentPage - 1)));
+  nextPageButtons.forEach((button) => button.addEventListener("click", () => goToPage(currentPage + 1)));
+
+  function renderSaleBasket() {
+    saleRows.replaceChildren();
+    let total = 0;
+    let totalQuantity = 0;
+
+    if (!saleBasket.size) {
+      const emptyRow = document.createElement("tr");
+      const emptyCell = document.createElement("td");
+      emptyCell.colSpan = 5;
+      emptyCell.className = "px-3 py-4 text-slate-500";
+      emptyCell.textContent = "Add medicines from the catalogue to begin a sale.";
+      emptyRow.append(emptyCell);
+      saleRows.append(emptyRow);
+    }
+
+    saleBasket.forEach((quantity, id) => {
+      const medicine = medicines.find((item) => item.id === id);
+      const lineTotal = medicine.price * quantity;
+      total += lineTotal;
+      totalQuantity += quantity;
+      const row = document.createElement("tr");
+      const nameCell = document.createElement("td");
+      nameCell.className = "px-3 py-3";
+      nameCell.textContent = medicine.name;
+      const quantityCell = document.createElement("td");
+      quantityCell.className = "px-3 py-3 text-right";
+      quantityCell.textContent = quantity.toLocaleString();
+      const priceCell = document.createElement("td");
+      priceCell.className = "px-3 py-3 text-right";
+      priceCell.textContent = medicine.price.toFixed(2);
+      const totalCell = document.createElement("td");
+      totalCell.className = "px-3 py-3 text-right font-medium";
+      totalCell.textContent = lineTotal.toFixed(2);
+      const removeCell = document.createElement("td");
+      removeCell.className = "px-3 py-3 text-right";
+      const removeButton = document.createElement("button");
+      removeButton.type = "button";
+      removeButton.dataset.saleRemove = id;
+      removeButton.className = "font-semibold text-red-700 hover:text-red-900";
+      removeButton.textContent = "Remove";
+      removeButton.setAttribute("aria-label", `Remove ${medicine.name} from sale`);
+      removeCell.append(removeButton);
+      row.append(nameCell, quantityCell, priceCell, totalCell, removeCell);
+      saleRows.append(row);
+    });
+
+    saleItemCount.textContent = saleBasket.size
+      ? `${saleBasket.size} medicine${saleBasket.size === 1 ? "" : "s"}, ${totalQuantity.toLocaleString()} pieces`
+      : "No medicines added";
+    saleTotalElement.textContent = total.toFixed(2);
+    saleCheckoutButton.disabled = !saleBasket.size;
+  }
+
+  function showReceipt(lines, saleDetails, saleRecord = null) {
+    const total = lines.reduce((sum, line) => sum + line.medicine.price * line.quantity, 0);
+    const reference = saleRecord?.reference || `ADE-${Date.now().toString(36).toUpperCase()}`;
+    const saleDate = saleRecord ? new Date(saleRecord.createdAt) : new Date();
+    const detailTable = document.createElement("table");
+    detailTable.className = "w-full border-collapse text-left text-sm";
+    const tableHead = document.createElement("thead");
+    tableHead.innerHTML = "<tr class=\"border-b border-slate-300\"><th class=\"py-2\">Medicine</th><th class=\"px-2 py-2 text-right\">Qty</th><th class=\"px-2 py-2 text-right\">Unit price</th><th class=\"py-2 text-right\">Amount</th></tr>";
+    const tableBody = document.createElement("tbody");
+    lines.forEach(({ medicine, quantity }) => {
+      const line = document.createElement("tr");
+      const medicineCell = document.createElement("td");
+      medicineCell.className = "py-3";
+      medicineCell.textContent = medicine.name;
+      const quantityCell = document.createElement("td");
+      quantityCell.className = "px-2 py-3 text-right";
+      quantityCell.textContent = quantity.toLocaleString();
+      const priceCell = document.createElement("td");
+      priceCell.className = "px-2 py-3 text-right";
+      priceCell.textContent = `GHS ${medicine.price.toFixed(2)}`;
+      const totalCell = document.createElement("td");
+      totalCell.className = "py-3 text-right";
+      totalCell.textContent = `GHS ${(medicine.price * quantity).toFixed(2)}`;
+      line.append(medicineCell, quantityCell, priceCell, totalCell);
+      tableBody.append(line);
+    });
+    detailTable.append(tableHead, tableBody);
+    document.querySelector("#receipt-reference").textContent = `Receipt: ${reference}`;
+    document.querySelector("#receipt-date").textContent = `Date: ${saleDate.toLocaleString()}`;
+    document.querySelector("#receipt-payment-method").textContent = `Payment method: ${saleDetails.paymentMethod === "nhis" ? "NHIS claim" : "Cash"}`;
+    const customerReceiptLine = document.querySelector("#receipt-customer");
+    customerReceiptLine.hidden = saleDetails.paymentMethod !== "nhis";
+    customerReceiptLine.textContent = saleDetails.paymentMethod === "nhis"
+      ? `Client: ${saleDetails.clientName} | NHIS number: ${saleDetails.nhisNumber}`
+      : "";
+    document.querySelector("#receipt-details").replaceChildren(detailTable);
+    document.querySelector("#receipt-total").textContent = `Total bill: GHS ${total.toFixed(2)}`;
+    receiptDialog.showModal();
+  }
+
+  function updateReturnEstimate() {
+    const sale = salesHistory.find((record) => record.reference === activeReturnReference);
+    if (!sale) return;
+    let amount = 0;
+    let selectedQuantity = 0;
+    let validQuantities = true;
+    returnItems.querySelectorAll("input[data-return-item]").forEach((input) => {
+      const quantity = Number(input.value);
+      const maxQuantity = Number(input.max);
+      if (!Number.isInteger(quantity) || quantity < 0 || quantity > maxQuantity) validQuantities = false;
+      if (Number.isInteger(quantity) && quantity > 0) {
+        const item = sale.items.find((saleItem) => saleItem.id === input.dataset.returnItem);
+        amount += item.unitPrice * quantity;
+        selectedQuantity += quantity;
+      }
+    });
+    returnEstimate.textContent = `Return total: GHS ${amount.toFixed(2)}`;
+    returnConfirmButton.disabled = returnReferenceInput.value.trim() !== sale.reference ||
+      !returnReasonInput.value.trim() || selectedQuantity === 0 || !validQuantities;
+  }
+
+  function openReturnDialog(sale) {
+    activeReturnReference = sale.reference;
+    document.querySelector("#return-reference-label").textContent = `Receipt: ${sale.reference}`;
+    returnReferenceInput.value = "";
+    returnReasonInput.value = "";
+    returnMessage.textContent = "";
+    returnItems.replaceChildren();
+    sale.items.forEach((item) => {
+      const returnedQuantity = getReturnedQuantity(sale, item.id);
+      const remainingQuantity = item.quantity - returnedQuantity;
+      const row = document.createElement("tr");
+      const nameCell = document.createElement("td");
+      nameCell.className = "px-3 py-3";
+      nameCell.textContent = item.name;
+      const soldCell = document.createElement("td");
+      soldCell.className = "px-3 py-3 text-right";
+      soldCell.textContent = item.quantity.toLocaleString();
+      const returnedCell = document.createElement("td");
+      returnedCell.className = "px-3 py-3 text-right";
+      returnedCell.textContent = returnedQuantity.toLocaleString();
+      const quantityCell = document.createElement("td");
+      quantityCell.className = "px-3 py-3 text-right";
+      const quantityInput = document.createElement("input");
+      quantityInput.type = "number";
+      quantityInput.min = "0";
+      quantityInput.max = String(remainingQuantity);
+      quantityInput.step = "1";
+      quantityInput.value = "0";
+      quantityInput.dataset.returnItem = item.id;
+      quantityInput.setAttribute("aria-label", `Return quantity for ${item.name}`);
+      quantityInput.className = "w-24 rounded-md border border-slate-300 px-2 py-1.5 text-right focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100";
+      quantityCell.append(quantityInput);
+      row.append(nameCell, soldCell, returnedCell, quantityCell);
+      returnItems.append(row);
+    });
+    updateReturnEstimate();
+    returnDialog.showModal();
+  }
+
+  function confirmReturn() {
+    const sale = salesHistory.find((record) => record.reference === activeReturnReference);
+    if (!sale || returnReferenceInput.value.trim() !== sale.reference || !returnReasonInput.value.trim()) {
+      returnMessage.textContent = "Enter the matching receipt reference and a return reason.";
+      return;
+    }
+
+    const returnedItems = [...returnItems.querySelectorAll("input[data-return-item]")]
+      .map((input) => ({
+        item: sale.items.find((saleItem) => saleItem.id === input.dataset.returnItem),
+        quantity: Number(input.value),
+        maxQuantity: Number(input.max)
+      }))
+      .filter(({ quantity }) => quantity > 0);
+    if (!returnedItems.length || returnedItems.some(({ quantity, maxQuantity }) =>
+      !Number.isInteger(quantity) || quantity > maxQuantity)) {
+      returnMessage.textContent = "Choose a valid return quantity for at least one medicine.";
+      return;
+    }
+
+    const stockItems = returnedItems.map(({ item, quantity }) => ({
+      medicine: medicines.find((medicine) => medicine.id === item.id),
+      item,
+      quantity
+    }));
+    if (stockItems.some(({ medicine }) => !medicine)) {
+      returnMessage.textContent = "A medicine on this receipt is not in the current catalogue; stock was not changed.";
+      return;
+    }
+
+    const reversal = {
+      createdAt: new Date().toISOString(),
+      reason: returnReasonInput.value.trim(),
+      items: stockItems.map(({ item, quantity }) => ({
+        id: item.id,
+        name: item.name,
+        quantity,
+        unitPrice: item.unitPrice
+      })),
+      total: stockItems.reduce((sum, { item, quantity }) => sum + item.unitPrice * quantity, 0)
+    };
+    const previousReturns = sale.returns || [];
+    stockItems.forEach(({ medicine, quantity }) => {
+      medicine.stock += quantity;
+    });
+    sale.returns = [...previousReturns, reversal];
+
+    if (!saveInventory()) {
+      stockItems.forEach(({ medicine, quantity }) => {
+        medicine.stock -= quantity;
+      });
+      sale.returns = previousReturns;
+      updateInventorySummary();
+      renderMedicines();
+      return;
+    }
+
+    try {
+      localStorage.setItem(salesHistoryStorageKey, JSON.stringify(salesHistory));
+    } catch {
+      stockItems.forEach(({ medicine, quantity }) => {
+        medicine.stock -= quantity;
+      });
+      sale.returns = previousReturns;
+      saveInventory();
+      updateInventorySummary();
+      renderMedicines();
+      returnMessage.textContent = "Return was not saved; stock remains unchanged.";
+      return;
+    }
+
+    const returnedQuantity = stockItems.reduce((sum, item) => sum + item.quantity, 0);
+    updateInventorySummary();
+    renderMedicines();
+    renderSalesHistory();
+    returnDialog.close();
+    inventoryMessage.textContent = `${returnedQuantity} pieces returned against receipt ${sale.reference}; stock and net sales were updated.`;
+    inventoryMessage.classList.remove("text-red-800");
+    inventoryMessage.classList.add("text-brand-800");
+    activeReturnReference = "";
+  }
+
+  document.querySelector("#receipt-close").addEventListener("click", () => receiptDialog.close());
+  document.querySelector("#receipt-print").addEventListener("click", () => window.print());
+
+  function updateNhisCustomerFields() {
+    const isNhisSale = salePaymentMethod.value === "nhis";
+    nhisCustomerFields.hidden = !isNhisSale;
+    nhisClientName.required = isNhisSale;
+    nhisCardNumber.required = isNhisSale;
+    if (!isNhisSale) {
+      nhisClientName.value = "";
+      nhisCardNumber.value = "";
+    }
+  }
+
+  salePaymentMethod.addEventListener("change", updateNhisCustomerFields);
+  [salesDateFrom, salesDateTo, salesSearch].forEach((control) => {
+    control.addEventListener("input", renderSalesHistory);
+    control.addEventListener("change", renderSalesHistory);
+  });
+
+  salesHistoryRows.addEventListener("click", (event) => {
+    const returnButton = event.target.closest("button[data-sales-return]");
+    if (returnButton) {
+      const saleToReturn = salesHistory.find((record) => record.reference === returnButton.dataset.salesReturn);
+      if (saleToReturn) openReturnDialog(saleToReturn);
+      return;
+    }
+    const receiptButton = event.target.closest("button[data-sales-receipt]");
+    if (!receiptButton) return;
+    const sale = salesHistory.find((record) => record.reference === receiptButton.dataset.salesReceipt);
+    if (!sale) return;
+    const lines = sale.items.map((item) => ({
+      medicine: { name: item.name, price: item.unitPrice, unit: item.unit },
+      quantity: item.quantity
+    }));
+    showReceipt(lines, sale, sale);
+  });
+
+  returnReferenceInput.addEventListener("input", updateReturnEstimate);
+  returnReasonInput.addEventListener("input", updateReturnEstimate);
+  returnItems.addEventListener("input", updateReturnEstimate);
+  document.querySelector("#return-cancel").addEventListener("click", () => returnDialog.close());
+  returnConfirmButton.addEventListener("click", confirmReturn);
+  returnDialog.addEventListener("close", () => {
+    activeReturnReference = "";
+  });
+
+  saleRows.addEventListener("click", (event) => {
+    const removeButton = event.target.closest("button[data-sale-remove]");
+    if (!removeButton) return;
+    saleBasket.delete(removeButton.dataset.saleRemove);
+    renderSaleBasket();
+  });
+
+  document.querySelector("#sale-clear").addEventListener("click", () => {
+    saleBasket.clear();
+    renderSaleBasket();
+  });
+
+  saleCheckoutButton.addEventListener("click", () => {
+    const lines = [...saleBasket.entries()].map(([id, quantity]) => ({
+      medicine: medicines.find((item) => item.id === id),
+      quantity
+    }));
+    const saleDetails = {
+      paymentMethod: salePaymentMethod.value,
+      clientName: nhisClientName.value.trim(),
+      nhisNumber: nhisCardNumber.value.trim()
+    };
+    if (saleDetails.paymentMethod === "nhis" && (!saleDetails.clientName || !saleDetails.nhisNumber)) {
+      inventoryMessage.textContent = "Enter the NHIS client's name and card number before completing the claim sale.";
+      inventoryMessage.classList.remove("text-brand-800");
+      inventoryMessage.classList.add("text-red-800");
+      if (!saleDetails.clientName) nhisClientName.focus();
+      else nhisCardNumber.focus();
+      return;
+    }
+    const insufficient = lines.find(({ medicine, quantity }) => quantity > medicine.stock);
+    if (insufficient) {
+      inventoryMessage.textContent = `Cannot complete sale: only ${insufficient.medicine.stock} pieces remain for ${insufficient.medicine.name}.`;
+      inventoryMessage.classList.remove("text-brand-800");
+      inventoryMessage.classList.add("text-red-800");
+      return;
+    }
+
+    const saleRecord = {
+      reference: `ADE-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`,
+      createdAt: new Date().toISOString(),
+      paymentMethod: saleDetails.paymentMethod,
+      clientName: saleDetails.clientName,
+      nhisNumber: saleDetails.nhisNumber,
+      items: lines.map(({ medicine, quantity }) => ({
+        id: medicine.id,
+        name: medicine.name,
+        quantity,
+        unitPrice: medicine.price,
+        unit: medicine.unit
+      })),
+      total: lines.reduce((sum, line) => sum + line.medicine.price * line.quantity, 0)
+    };
+
+    lines.forEach(({ medicine, quantity }) => {
+      medicine.stock -= quantity;
+    });
+    const saved = saveInventory();
+    if (!saved) {
+      lines.forEach(({ medicine, quantity }) => {
+        medicine.stock += quantity;
+      });
+      updateInventorySummary();
+      renderMedicines();
+      return;
+    }
+
+    try {
+      localStorage.setItem(salesHistoryStorageKey, JSON.stringify([saleRecord, ...salesHistory]));
+    } catch {
+      lines.forEach(({ medicine, quantity }) => {
+        medicine.stock += quantity;
+      });
+      saveInventory();
+      updateInventorySummary();
+      renderMedicines();
+      inventoryMessage.textContent = "Sale was not completed because its history could not be saved in this browser.";
+      inventoryMessage.classList.remove("text-brand-800");
+      inventoryMessage.classList.add("text-red-800");
+      return;
+    }
+    salesHistory.unshift(saleRecord);
+    renderSalesHistory();
+
+    saleBasket.clear();
+    renderSaleBasket();
+    updateInventorySummary();
+    renderMedicines();
+    inventoryMessage.textContent = `Sale completed for ${lines.length} medicine${lines.length === 1 ? "" : "s"}. Stock has been updated.`;
+    inventoryMessage.classList.remove("text-red-800");
+    inventoryMessage.classList.add("text-brand-800");
+    showReceipt(lines, saleDetails, saleRecord);
+    salePaymentMethod.value = "cash";
+    updateNhisCustomerFields();
+  });
+
+  medicineRows.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-stock-action]");
+    if (!button) return;
+
+    const row = button.closest("tr[data-medicine-id]");
+    const medicine = medicines.find((item) => item.id === row.dataset.medicineId);
+    const quantityInput = row.querySelector('input[type="number"]');
+    const quantity = Number(quantityInput.value);
+    inventoryMessage.classList.remove("text-red-800", "text-brand-800");
+
+    if (!Number.isInteger(quantity) || quantity <= 0) {
+      inventoryMessage.textContent = "Enter a whole-number quantity greater than zero.";
+      inventoryMessage.classList.add("text-red-800");
+      quantityInput.focus();
+      return;
+    }
+
+    inventoryMessage.classList.remove("text-red-800", "text-brand-800");
+    if (button.dataset.stockAction === "add-to-sale") {
+      const queuedQuantity = saleBasket.get(medicine.id) || 0;
+      if (quantity + queuedQuantity > medicine.stock) {
+        inventoryMessage.textContent = `Cannot add ${quantity} more; only ${medicine.stock - queuedQuantity} pieces remain available for ${medicine.name}.`;
+        inventoryMessage.classList.add("text-red-800");
+        return;
+      }
+      saleBasket.set(medicine.id, queuedQuantity + quantity);
+      renderSaleBasket();
+      inventoryMessage.textContent = `${medicine.name} added to the current sale.`;
+      inventoryMessage.classList.add("text-brand-800");
+      return;
+    }
+
+    medicine.stock += quantity;
+    const saved = saveInventory();
+    updateInventorySummary();
+    renderMedicines();
+    if (saved) {
+      inventoryMessage.textContent = `${medicine.name}: ${quantity} pieces received. New stock: ${medicine.stock}.`;
+      inventoryMessage.classList.add("text-brand-800");
+    }
+  });
+
+  renderSalesHistory();
+</script>
 </body>
 </html>

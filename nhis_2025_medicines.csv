@@ -1,0 +1,551 @@
+code,generic_name_dosage_form_strength,unit_of_pricing,price_ghc,level_of_prescribing,source_page
+ACETAZIN1,"Acetazolamide Injection, 500 mg",Ampoule,17.16,C,11
+ACETAZTA1,"Acetazolamide Tablet, 250 mg",Tablet,0.88,C,11
+ACETYLIN1,"Acetylcysteine Injection, 200 mg/mL",1 mL,62.98,B1,11
+ACETYLTA1,"Acetylsalicylic Acid Tablet, 300 mg",Tablet,0.55,A,11
+ACETYLDT1,"Acetylsalicylic Acid Tablet, 75 mg (Dispersible)",Tablet,0.33,B2,11
+ACTINOIN1,Actinomycin D Injection 0.5 mg Intravenous,Vial,205.57,D,11
+ACTCHAPO1,"Activated Charcoal Powder, 50 g",50 G,38.56,A,11
+ACICLOCR1,"Acyclovir Cream, 5%",5G,38.50,C,11
+ACICLOEO1,"Acyclovir Eye Ointment, 3%",2G,52.03,C,11
+ACICLOIN1,"Acyclovir Injection, 250 mg vial",Vial,136.13,C,11
+ACICLOSU2,"Acyclovir Suspension, 200 mg/5 mL",20 mL,276.91,B2,11
+ACICLOTA1,"Acyclovir Tablet, 200 mg",Tablet,1.98,B2,11
+ADRENAIN1,"Adrenaline Injection, 1 mg/1mL (1:1000)",1 mL,7.70,M,11
+ADRENAIN2,"Adrenaline Injection, 1:10,000",Vial,6.55,M,11
+ADRIAMIN1,"Adriamycin Injection, 50 mg",Vial,172.59,D,11
+ALBENDSY1,"Albendazole Syrup, 100 mg/5 mL",20 mL,4.10,A,11
+ALBENDTA1,"Albendazole Tablet, 200 mg",Tablet,4.68,A,11
+ALBENDTA2,"Albendazole Tablet, 400 mg",Tablet,1.17,A,11
+ALLOPUTA1,"Allopurinol Tablet, 100 mg",Tablet,0.94,B1,11
+ALLOPUTA2,"Allopurinol Tablet, 300 mg",Tablet,1.10,B1,11
+AMIACIIN1,"Amino Acid Solution Injection, 10%",200 mL,106.00,D,11
+AMIACIIN2,"Amino Acid Solution Injection, 20%",200 mL,48.05,D,11
+AMINOPIN1,"Aminophylline Injection, 250 mg/10 mL",Ampoule,11.55,B2,12
+AMIODATA1,"Amiodarone Tablet, 200 mg",Tablet,1.93,SM,12
+AMITRITA1,"Amitriptyline Tablet, 10 mg",Tablet,0.66,B1,12
+AMITRITA2,"Amitriptyline Tablet, 25 mg",Tablet,0.18,B2,12
+AMITRITA3,"Amitriptyline Tablet, 50 mg",Tablet,0.66,B1,12
+AMLODITA2,"Amlodipine Tablet, 10 mg",Tablet,0.12,B1,12
+AMLODITA1,"Amlodipine Tablet, 5 mg",Tablet,0.11,B1,12
+AMOARTPO2,"Amodiaquine + Artesunate Granular Powder, 150 mg + 50 mg",Sachet,5.78,A,12
+AMOARTPO1,"Amodiaquine + Artesunate Granular Powder, 75 mg + 25 mg",Sachet,13.97,A,12
+AMOARTTA2,"Amodiaquine + Artesunate Tablet, 135 mg + 50 mg (12 tabs)",1 Course,5.07,A,12
+AMOARTTA4,"Amodiaquine + Artesunate Tablet, 135 mg + 50 mg (3's)",1 Course,0.70,A,12
+AMOARTTA5,"Amodiaquine + Artesunate Tablet, 270 mg + 100 mg (3's)",1 Course,1.28,A,12
+AMOARTTA6,"Amodiaquine + Artesunate Tablet, 270 mg + 100 mg (6's)",1 Course,2.15,A,12
+AMOARTTA3,"Amodiaquine + Artesunate Tablet, 67.5 mg + 25 mg (3's)",1 Course,0.65,A,12
+AMOARTTA1,"Amodiaquine + Artesunate Tablet, 67.5 mg + 25 mg (6 tabs)",1 Course,5.15,A,12
+COAMOXIN2,"Amoxicillin + Clavulanic Acid Injection, 1.2g",Vial,16.30,B2,12
+COAMOXIN1,"Amoxicillin + Clavulanic Acid Injection, 500 mg + 100 mg",Vial,18.70,B2,12
+COAMOXSU1,"Amoxicillin + Clavulanic Acid Suspension, 250 mg + 62 mg",70 mL,19.52,B1,12
+COAMOXSU2,"Amoxicillin + Clavulanic Acid Suspension, 400 mg + 57 mg",70 mL,25.86,B1,12
+COAMOXTA1,"Amoxicillin + Clavulanic Acid Tablet, 500 mg + 125 mg",Tablet,2.31,B1,12
+COAMOXTA2,"Amoxicillin + Clavulanic Acid Tablet, 875 mg + 125 mg",Tablet,2.98,B2,12
+AMOXICDT1,"Amoxicillin 250 mg, Dispersible Tablet",Tablet,1.87,A,12
+AMOXICCA1,"Amoxicillin Capsule, 250 mg",Capsule,0.47,A,12
+AMOXICCA2,"Amoxicillin Capsule, 500 mg",Capsule,0.83,A,13
+AMOXICSU1,"Amoxicillin Suspension, 125 mg/5 mL",100 mL,16.50,A,13
+AMPICIIN1,"Ampicillin Injection, 500 mg",Vial,3.85,B1,13
+ANASTRTA1,"Anastrozole Tablet, 1 mg",Tablet,9.68,SM,13
+ANIMGLIN1,"Anti RH Immunoglobulin Injection, 1500IU /5ml",Vial,827.20,C,13
+ANTESEIN1,Anti Tetanus Serum Injection 1500 IU,Vial,42.85,B1,13
+AQUEOUCR1,Aqueous Cream BP,100 G,29.98,A,13
+ARTLUMSU1,"Artemether + Lumefantrine Suspension, (Powder For Reconstitution) 20 mg + 120 mg / 5 mL",100 mL,25.85,A,13
+ARTLUMTA3,"Artemether + Lumefantrine Tablet, 20 mg + 120 mg (12's)",1 Course,1.25,A,13
+ARTLUMTA4,"Artemether + Lumefantrine Tablet, 20 mg + 120 mg (18's)",1 Course,1.88,A,13
+ARTLUMTA1,"Artemether + Lumefantrine Tablet, 20 mg + 120 mg (24’s)",1 Course,2.24,A,13
+ARTLUMTA2,"Artemether + Lumefantrine Tablet, 20 mg + 120 mg (6's)",1 Course,0.61,A,13
+ARTEMEIN2,Artemether Injection 80mg/mL,Ampoule,5.50,B2,13
+ARTLUMDT1,"Artermether + Lumefantrine Dispersible, (20 mg + 120 mg) Tablet",6 Tablets,4.39,A,13
+ARTESUIN3,Artesunate injection 120mg,Vial,6.25,B2,13
+ARTESUIN1,"Artesunate Injection, 30 mg",Vial,3.18,B2,13
+ARTESUIN2,"Artesunate Injection, 60 mg",Vial,3.18,B2,13
+ARTESURE2,Artesunate suppository 100mg,Supp,6.05,A,13
+ARTESURE1,"Artesunate Suppository, 50 mg",Supp.,5.49,A,13
+ATEHYDTA2,"Atenolol + Hydrochlorthiazide Tablet, 100 mg + 25 mg",Tablet,1.20,B2,13
+ATEHYDTA1,"Atenolol + Hydrochlorthiazide Tablet, 50 mg + 25 mg",Tablet,0.77,B2,13
+ATENOLIN1,"Atenolol Injection, 500 microgram/10 mL",Ampoule,8.98,D,13
+ATENOLTA3,"Atenolol Tablet, 100 mg",Tablet,1.10,B2,13
+ATENOLTA1,"Atenolol Tablet, 25 mg",Tablet,1.10,B2,14
+ATENOLTA2,"Atenolol Tablet, 50 mg",Tablet,0.54,B2,14
+ATORVATA1,"Atorvastatin Tablet, 10 mg",Tablet,0.23,C,14
+ATORVATA2,"Atorvastatin Tablet, 20 mg",Tablet,0.30,C,14
+ATROPIID1,"Atropine Eye Drops, 1%",10 mL,36.30,C,14
+ATROPIIN1,"Atropine Injection, 0.6 mg/mL",1 mL,5.50,B2,14
+AZITHRCA1,"Azithromycin Capsule, 250 mg",Capsule,3.58,C,14
+AZITHRSU1,"Azithromycin Oral Suspension, 200 mg/5 mL/15mL",15 mL,35.20,C,14
+AZITHRSU2,"Azithromycin Oral Suspension, 200 mg/5 mL/30mL",30 mL,40.13,C,14
+BADOESIN1,"Badoe's Solution Injection, 1000 mL",1000 mL,22.00,B1,14
+BECDIPGA2,"Beclometasone dipropionate Inhaler, 100 microgram/metered dose (200 doses)",Inhaler,87.94,B2,14
+BECDIPGA3,"Beclometasone dipropionate Inhaler, 200 microgram/metered dose (200 doses)",Inhaler,87.94,B2,14
+BECDIPGA1,"Beclometasone dipropionate Inhaler, 50 microgram/metered dose (200 doses)",Inhaler,119.90,B2,14
+BENDROTA1,"Bendroflumethiazide Tablet, 2.5 mg",Tablet,0.12,B1,14
+BENZATIN1,"Benzatropine Injection, 1 mg/mL",1 mL,110.20,C,14
+BENZATTA1,"Benzatropine Tablet, 2 mg",Tablet,6.93,C,14
+BEACSAOI1,"Benzoic Acid + Salicylic Acid Ointment, 6% + 3%",25 G,17.60,B1,14
+BENPERCR2,"Benzoyl Peroxide Cream, 10%",30 G,131.45,C,14
+BENPERCR1,"Benzoyl Peroxide Cream, 5%",30 G,118.25,C,14
+BENBENLO1,"Benzyl Benzoate Lotion, 25%",30mL,24.86,A,14
+BENBENLO2,"Benzyl Benzoate Lotion, 25%",100 mL,28.60,A,14
+BENZYLIN1,"Benzylpenicillin Injection, 1 MU",Vial,3.30,B1,14
+BENZYLIN2,"Benzylpenicillin Injection, 5 MU",Vial,11.00,B1,14
+BETVALCR2,"Betamethasone Valerate cream, 0.1%",15 G,38.50,D,15
+BETAXOID1,"Betaxolol HCL Eye Drops, 0.5%",5 mL,19.89,C,15
+BISACOTA1,"Bisacodyl Tablet, 5 mg",Tablet,1.10,B1,15
+BISOPRTA2,Bisoprolol Tablet 10 mg,Tablet,1.02,B2,15
+BISOPRTA1,Bisoprolol Tablet 5 mg,Tablet,0.98,B2,15
+BROMOCTA1,"Bromocriptine Tablet, 2.5 mg",Tablet,9.46,D,15
+BUDFORGA2,Budesonide + Formoterol Inhaler 160 microgram/4.5 microgram (60 Doses),Inhaler,151.25,B2,15
+BUDFORGA1,Budesonide + Formoterol Inhaler 80 microgram/4.5 microgram (60 Doses),Inhaler,143.00,B2,15
+BUDESOGA1,"Budesonide DPI, 100 microgram (100 Doses)",Inhaler,108.11,B2,15
+BUDESOGA2,"Budesonide DPI, 200 microgram (100 Doses)",Inhaler,212.78,B2,15
+CALAMICR1,"Calamine Cream, 15%",40 G,18.04,A,15
+CALAMILO1,"Calamine Lotion, 15%",200 mL,11.55,A,15
+CALCIFTA1,"Calciferol Tablet, 10,000 units",Tablet,4.78,D,15
+CALGLUIN1,"Calcium Gluconate Injection, 100 mg/mL in 10 mL",Ampoule,29.70,B2,15
+CALCARTA1,"Calcium Carbonate Tablet, 500 mg",Tablet,3.30,B1,15
+CALVITTA1,"Calcium with Vitamin D Tablet, (97 mg + 10 microgram)",Tablet,1.47,M,15
+CAPECITA1,"Capecitabine Tablet, 500 mg",Tablet,19.14,D,15
+CARBAMTA3,"Carbamazepine Sustained-Release Tablet, 200 mg",Tablet,2.92,C,15
+CARBAMTA4,"Carbamazepine Sustained-Release Tablet, 400 mg",Tablet,6.22,C,15
+CARBAMTA1,"Carbamazepine Tablet, 100 mg",Tablet,1.21,B2,15
+CARBAMTA2,"Carbamazepine Tablet, 200 mg",Tablet,1.05,B2,15
+CARBIMTA2,"Carbimazole Tablet, 20 mg",Tablet,2.20,C,15
+CARBIMTA1,"Carbimazole Tablet, 5 mg",Tablet,1.16,C,15
+CARBOCSY1,"Carbocisteine Paediatric Syrup , 125 mg/5 mL",100 mL,14.30,B1,16
+CARBOCSY2,"Carbocisteine Syrup, 250 mg/5 mL",100 mL,11.06,B1,16
+CARBOPIN1,"Carboplatin Injection, 150 mg Intravenous",Vial,385.00,D,16
+CARBOPIN2,"Carboplatin Injection, 450 mg Intravenous",Vial,559.68,D,16
+CARVEDTA2,Carvedilol Tablet 12.5 mg,Tablet,1.41,D,16
+CARVEDTA1,Carvedilol Tablet 3.125 mg,Tablet,1.05,D,16
+CEFACLCA1,"Cefaclor Capsule, 250 mg",Capsule,6.86,B2,16
+CEFACLCA2,"Cefaclor Capsule, 500 mg",Capsule,12.65,B2,16
+CEFACLSU1,"Cefaclor Suspension, 125 mg/5 mL",100 mL,40.15,B2,16
+CEFACLSU2,"Cefaclor Suspension, 250 mg/5 mL",100 mL,59.95,B2,16
+CEFOTAIN2,"Cefotaxime Injection, 1 g",Vial,20.20,C,16
+CEFOTAIN1,"Cefotaxime Injection, 500 mg",Vial,14.85,C,16
+CEFTRIIN3,"Ceftriazone Injection, 1g",Vial,13.20,C,16
+CEFTRIIN2,"Ceftriazone Injection, 500 mg",Vial,8.80,C,16
+CEFUROIN2,Cefuroxime Injection 1.5 g,Vial,35.42,B2,16
+CEFUROIN1,"Cefuroxime Injection, 750 mg",Vial,13.20,B2,16
+CEFUROSU1,"Cefuroxime Suspension, 125 mg/5 mL",50mL,20.56,B2,16
+CEFUROTA1,"Cefuroxime Tablet, 125 mg",Tablet,4.29,B2,16
+CEFUROTA2,"Cefuroxime Tablet, 250 mg",Tablet,2.17,B2,16
+CELECOTA1,Celecoxib Tablet 100 mg,Tablet,1.32,C,16
+CELECOTA2,Celecoxib Tablet 200 mg,Tablet,2.75,C,16
+CETIRISY1,"Cetirizine Syrup, 5 mg/5 mL",30 mL,8.80,B2,16
+CETIRITA1,"Cetirizine Tablet, 10 mg",Tablet,0.07,A,16
+CETRIMSO1,Cetrimide Solution,200 mL,7.15,M,17
+CHLORAED1,"Chloramphenicol Ear Drops, 5%",10 mL,6.88,A,17
+CHLORAID1,"Chloramphenicol Eye Drops, 0.5%",10 mL,6.38,A,17
+CHLORAEO1,"Chloramphenicol Eye Ointment, 1%",5 G,8.80,A,17
+CHLORAIN1,"Chloramphenicol Injection, 1 g",1 G,1.65,C,17
+CHLORASU1,"Chloramphenicol Suspension, 125mg/5mL",100 mL,8.58,B2,17
+CHLORHCR1,"Chlorhexidine Cream, 1%",15 G,28.60,A,17
+CHLORHGE1,Chlorhexidine Gel 7.1 % ( digluconate ) delivering 4% chlorhexidine,25g,24.75,A,17
+CHLORHMW2,Chlorhexidine Mouth wash 0.12%,300ml,22.69,A,17
+CHLORHSO1,"Chlorhexidine Solution, 2.5%",100 mL,75.13,A,17
+CHLPHESY1,"Chlorphenamine Syrup, 2 mg/5 mL",100 mL,11.00,A,17
+CHLPHETA1,"Chlorphenamine Tablet, 4 mg",Tablet,0.17,A,17
+CHLPROIN1,"Chlorpromazine Injection, 25 mg/mL in 2 mL",Ampoule,7.70,B2,17
+CHLPROTA3,"Chlorpromazine Tablet, 100 mg",Tablet,0.58,B1,17
+CHLPROTA1,"Chlorpromazine Tablet, 25 mg",Tablet,5.94,B1,17
+CHLPROTA2,"Chlorpromazine Tablet, 50 mg",Tablet,0.20,B1,17
+CHREFLIN2,"Cholera Replacement Fluid Injection, (5:4:1) 1 Litre",1000 mL,19.60,B1,17
+CHREFLIN1,"Cholera Replacement Fluid Injection, (5:4:1) 500 mL",500 mL,10.98,B1,17
+CIPTINTA1,"Ciprofloxacin + Tinidazole Tablet, 500 mg + 500 mg",Tablet,2.85,B2,17
+CIPROFID1,"Ciprofloxacin Eye Drops, 0.3%",10 mL,5.17,B2,17
+CIPROFIN1,"Ciprofloxacin Infusion, 2 mg/mL in 100 mL",Bottle,9.35,B2,17
+CIPROFTA1,"Ciprofloxacin Tablet, 250 mg",Tablet,0.61,B1,17
+CIPROFTA2,"Ciprofloxacin Tablet, 500 mg",Tablet,0.61,B1,17
+CLARITCA1,"Clarithromycin Capsule, 250 mg",Capsule,3.08,C,18
+CLARITCA2,"Clarithromycin Capsule, 500 mg",Capsule,5.50,C,18
+CLARITSU1,"Clarithromycin Paediatric Suspension, 125 mg/5 mL",100 mL,110.28,C,18
+CLINDACA1,"Clindamycin Capsule, 150 mg",Capsule,0.77,C,18
+CLINDAIN1,"Clindamycin Injection, 150 mg/mL in 2 mL",Vial,29.17,C,18
+CLINDASU1,"Clindamycin Suspension, 75 mg/5 mL",100 mL,207.90,C,18
+CLINDASO1,"Clindamycin Topical Solution, 1%",30 mL,100.10,C,18
+CLOPROCR1,"Clobetasol Propionate Cream, 0.05%",15 G,57.48,C,18
+CLOHYDCR1,"Clotrimazole + Hydrocortisone Cream, 1% + 1%",15 G,16.50,C,18
+CLOTRICR1,"Clotrimazole Cream, 1%",30 G,8.80,A,18
+CLOTRICR2,"Clotrimazole Cream, 2%",30 G,11.55,A,18
+CLOTRIVP1,"Clotrimazole Pessary, 100 mg",6 Pess.,11.55,M,18
+CLOTRIVP2,"Clotrimazole Pessary, 200 mg",3 Pess.,24.20,M,18
+CLOTRIVP3,"Clotrimazole Pessary, 500 mg",1 Pess.,21.01,B1,18
+CLOXACIN1,"Cloxacillin Injection, 250 mg",Vial,2.71,B1,18
+CLOXACIN2,"Cloxacillin Injection, 500 mg",Vial,11.28,B1,18
+CODEINTA1,"Codeine Tablet, 30 mg",Tablet,1.80,B2,18
+COOENOTA1,"Conjugated Oestrogen + Norgesterol Tablet, 625 microgram + 150 microgram",Tablet,3.77,C,18
+CONOESTA1,"Conjugated Oestrogen Tablet, 625 microgram",Tablet,6.02,D,18
+CONOESVC1,"Conjugated Oestrogen Vaginal cream, 625 microgram/g",1 G,255.20,D,18
+CORANTID1,Corticosteroid + Antibiotic Eye Drops,10 mL,41.80,C,18
+CORANTEO1,Corticosteroid + Antibiotic Eye Ointment,10 G,53.90,C,18
+COTRIMSU1,"Co-trimoxazole Suspension, (200+40) mg/5 mL",100 mL,9.46,A,18
+COTRIMTA1,"Cotrimoxazole Tablet, (400+80) mg",Tablet,0.23,A,19
+CYCLOPID1,"Cyclopentolate Eye Drops, 1%",5 mL,42.13,SM,19
+CYCLOPIN1,"Cyclophosphamide Injection, 500 mg",Vial,39.47,D,19
+DALSODIN1,"Dalteparin Sodium Injection, 5000 units/0.2 mL",Prefilled Syringe,102.08,D,19
+DARROWIN1,"Darrow's Solution Injection, Half Strength 250 mL",250 mL,8.71,B1,19
+DEXAMEID1,"Dexamethasone Eye Drops, 1%",5 mL,8.84,C,19
+DEXAMEEO1,"Dexamethasone Eye Ointment, 1%",5 G,42.63,C,19
+DEXAMEIN1,"Dexamethasone Injection, 4 mg/mL",1mL,3.03,C,19
+DEXAMEIN2,"Dexamethasone Injection, 8 mg/2 mL",2mL,2.20,C,19
+DEXAMETA2,"Dexamethasone Tablet, 2 mg",Tablet,6.44,D,19
+DEXAMETA3,"Dexamethasone Tablet, 4 mg",Tablet,4.71,D,19
+DEXAMETA1,"Dexamethasone Tablet, 500 microgram",Tablet,0.06,D,19
+DEXTROTA1,Dextromethorphan Containing Cough Syrup,100ml,40.70,B2,19
+DESOCHIN1,"Dextrose in Sodium Chloride Intravenous Infusion, 4.3% in 0.18% (250 mL)",250 mL,12.68,M,19
+DESOCHIN2,"Dextrose in Sodium Chloride Intravenous Infusion, 5% in 0.9% (500 mL)",500 mL,12.93,M,19
+DEXTROIN3,"Dextrose Infusion, 10% (250 mL)",250 mL,9.65,B1,19
+DEXTROIN4,"Dextrose Infusion, 10% (500 mL)",500 mL,14.20,B1,19
+DEXTROIN1,"Dextrose Infusion, 5% (250 mL)",250 mL,11.00,M,19
+DEXTROIN2,"Dextrose Infusion, 5% (500 mL)",500 mL,11.86,M,19
+DEXTROIN6,"Dextrose Infusion, 50% (250 mL)",250 mL,17.42,B1,19
+DIAZEPIN1,"Diazepam Injection, 5 mg/mL in 2 mL",Ampoule,7.90,B1,19
+DIAZEPRS1,"Diazepam Rectal Tubes, 2 mg/mL in 1.25 mL",Rectal Tube,5.50,A,19
+DIAZEPTA2,"Diazepam Tablet, 10 mg",Tablet,0.22,M,19
+DIAZEPTA1,"Diazepam Tablet, 5 mg",Tablet,0.17,M,20
+DICLOFCA1,"Diclofenac Capsule, 75 mg",Capsule,0.40,B1,20
+DICLOFGE1,Diclofenac Gel,30 G,5.41,M,20
+DICLOFIN1,"Diclofenac Injection, 75mg/3mL",Ampoule,1.10,B1,20
+DICLOFRE2,"Diclofenac Suppository, 100 mg",Supp.,0.96,M,20
+DICLOFRE1,"Diclofenac Suppository, 50 mg",Supp.,1.71,A,20
+DICLOFTA2,"Diclofenac Tablet, 50 mg",Tablet,0.13,A,20
+DIESTITA1,"Diethylstilboestrol Tablet, 1 mg",Tablet,0.11,SM,20
+DIESTITA2,"Diethylstilboestrol Tablet, 5 mg",Tablet,8.65,SM,20
+DIGOXIEL1,"Digoxin Elixir, 50 microgram/mL",60 mL,1.38,C,20
+DIGOXITA2,"Digoxin Tablet, 125 microgram",Tablet,1.71,C,20
+DIGOXITA3,"Digoxin Tablet, 250 microgram",Tablet,1.98,C,20
+DIGOXITA1,"Digoxin Tablet, 62.5 microgram",Tablet,1.03,C,20
+DIHPIPPO1,"Dihydroartemisin + Piperaquine Granular Powder, 10 mg + 80 mg",Sachet,3.85,A,20
+DIHYDRTA1,"Dihydrocodeine Tablet, 30 mg",Tablet,0.72,C,20
+DISOPYCA1,"Disopyramide Capsule, 100 mg",Capsule,6.60,D,20
+DISPHOIN1,"Disopyramide Phosphate Injection, 10 mg/mL in 5 mL",Ampoule,357.50,D,20
+DOCETAIN1,"Docetaxel Injection, 20 mg/mL",Ampoule,212.50,D,20
+DOMPERTA1,"Domperidone Tablet, 10 mg",Tablet,1.76,D,20
+DOPAMIIN1,"Dopamine Injection, 40 mg/mL in 5 mL",Vial,24.75,D,20
+DOXAPRIN1,"Doxapram Injection, 20 mg/mL in 5 mL",Vial,187.00,D,20
+DOXORUIN1,Doxorubicin Injection 50 mg Intravenous,Vial,130.00,D,20
+DOXYCYCA1,"Doxycycline Capsule, 100 mg",Capsule,0.92,B1,20
+ENOSODIN2,"Enoxaparin Sodium Injection, 40 mg/0.4 mL",Prefilled Syringe,126.50,B2,21
+EPHEDRIN1,"Ephedrine HCI Injection, 30 mg/mL",Ampoule,23.10,C,21
+EPHEDRND1,"Ephedrine Nasal Drops, 0.5%",10 mL,6.83,A,21
+EPHEDRND2,"Ephedrine Nasal Drops, 1%",10 mL,9.90,A,21
+ERGOMEIN1,"Ergometrine Injection, 0.2 mg/mL",1 mL,10.04,M,21
+ERGOMEIN2,"Ergometrine Injection, 0.5 mg/ml",1 mL,12.10,M,21
+ERGOMETA1,"Ergometrine Tablet, 0.5 mg",Tablet,0.66,A,21
+ERGOTATA1,"Ergotamine Tablet, 2 mg",Tablet,5.15,C,21
+ERYTHRSY1,"Erythromycin Syrup, 125 mg/5 mL",100 mL,23.65,B1,21
+ERYTHRTA1,"Erythromycin Tablet, 250 mg",Tablet,1.10,B1,21
+ESOMEPCA1,"Esomeprazole Capsule, 20 mg",Capsule,1.98,C,21
+ESOMEPCA2,"Esomeprazole Capsule, 40 mg",Capsule,3.40,C,21
+ETHOSUSY1,"Ethosuximide Syrup, 250 mg/5 mL",200 mL,21.51,D,21
+ETHOSUTA1,"Ethosuximide Tablet, 250 mg",Tablet,4.95,D,21
+ETOPOSIN1,Etoposide Injection 100 mg Intravenous,Vial,59.95,D,21
+FEAMCISU1,Ferric Ammonium Citrate Mixture (FAC),200 mL,7.48,A,21
+FERFUMTA1,"Ferrous Fumarate Tablet, 100 mg (Elemental Iron)",Tablet,0.22,A,21
+FERSULSY1,"Ferrous Sulphate (BPC) Syrup, 60 mg/5 mL",200 mL,18.70,A,21
+FESUFOTA1,"Ferrous Sulphate + Folic Acid Tablet, 50 mg (Elemental Iron) + 400 microgram",Tablet,0.67,A,21
+FERSULTA1,"Ferrous Sulphate Tablet, 60 mg (Elemental Iron)",Tablet,0.11,A,21
+FINASTTA1,"Finasteride Tablet, 5 mg",Tablet,4.33,SM,21
+FLUCLOCA1,"Flucloxacillin Capsule, 250 mg",Capsule,0.82,B2,21
+FLUCLOIN1,"Flucloxacillin Injection, 250 mg",Vial,10.18,B2,21
+FLUCLOIN2,"Flucloxacillin Injection, 500 mg",Vial,19.80,B2,22
+FLUCLOSU1,"Flucloxacillin Suspension, 125 mg/5 mL",100 mL,15.95,B1,22
+FLUCONCA1,"Fluconazole Capsule, 150 mg",Capsule,10.67,B1,22
+FLUCONCA2,"Fluconazole Capsule, 200 mg",Capsule,8.80,B2,22
+FLUCONSU1,"Fluconazole Suspension, 10 mg/mL",35 mL,32.45,B2,22
+FLUCONSU2,"Fluconazole Suspension, 50 mg/5 mL",35 mL,50.00,B2,22
+FLUCONTA1,"Fluconazole Tablet, 50 mg",Tablet,27.72,B2,22
+FLUDROTA1,"Fludrocortisone Tablet, 100 microgram",Tablet,10.78,D,22
+FLUOXECA1,"Fluoxetine Capsule, 20 mg",Capsule,1.43,C,22
+FLUPENTA2,"Flupentixol Tablet, 1mg",Tablet,1.65,C,22
+FLUPENTA1,"Flupentixol Tablet, 500 microgram",Tablet,1.53,C,22
+FLUDECIN1,"Fluphenazine Deconoate Injection, 25 mg/mL",1 mL,12.21,SM,22
+FLUSALGA1,"Fluticasone + Salmeterol Inhaler, 250 microgram/50 microgram (60 Doses)",Inhaler,275.00,B2,22
+FLUTICGA2,"Fluticasone MDI, 125 microgram (120 Dose)",Inhaler,191.73,B2,22
+FLUTICGA3,"Fluticasone MDI, 250 microgram (120 Dose)",Inhaler,128.70,B2,22
+FLUVASCA1,"Fluvastatin Capsule, 20 mg",Capsule,1.69,D,22
+FOLACITA1,"Folic Acid Tablet, 5 mg",Tablet,0.05,A,22
+FUROSEIN1,"Furosemide Injection, 10 mg/mL in 2 mL",Ampoule,1.56,B2,22
+FUROSETA1,"Furosemide Tablet, 40 mg",Tablet,0.28,B1,22
+GELATIIN1,Gelatin Infusion (Succinylated Gelatin),500 mL,82.61,B2,22
+GENTAMED1,"Gentamicin Ear Drops, 0.3%",10mL,6.62,B1,22
+GENTAMID1,"Gentamicin Eye Drops, 0.3%",10 mL,6.60,B1,22
+GENTAMIN1,"Gentamicin Injection, 40 mg/mL in 2 mL",Ampoule,2.75,C,22
+GLIBENTA1,"Glibenclamide Tablet, 5 mg",Tablet,0.15,B1,23
+GLICLATA1,"Gliclazide Tablet, 80 mg",Tablet,0.66,C,23
+GLIMEPTA1,"Glimepiride Tablet, 1 mg",Tablet,1.10,C,23
+GLIMEPTA2,"Glimepiride Tablet, 2 mg",Tablet,0.19,C,23
+GLIMEPTA3,"Glimepiride Tablet, 3 mg",Tablet,1.57,C,23
+GLIMEPTA4,"Glimepiride Tablet, 4 mg",Tablet,0.24,C,23
+GLUCAGIN1,"Glucagon Injection, 1 mg",Ampoule,455.40,C,23
+GLTRSUTA1,"Glyceryl Trinitrate Sublingual Tablet, 500 microgram",100 Tablets,121.63,C,23
+GRANISIN1,"Granisetron Injection, 1 mg/1mL",Ampoule,83.85,D,23
+GRANISTA1,"Granisetron Tablet, 1 mg",Tablet,17.88,D,23
+GRISEOSU1,"Griseofulvin Suspension, 125 mg/5 mL",100 mL,29.26,B2,23
+GRISEOTA1,"Griseofulvin Tablet, 125 mg",Tablet,0.35,B1,23
+GRISEOTA2,"Griseofulvin Tablet, 500 mg",Tablet,2.20,B1,23
+GUAIFESY1,Guaifenesin Containing Expectorant Syrup,100ml,34.93,B2,23
+HALOPEIN1,"Haloperidol Injection, 5 mg/5 mL",Ampoule,9.24,SM,23
+HALOPETA1,"Haloperidol Tablet, 0.5 mg",Tablet,0.95,C,23
+HALOPETA2,"Haloperidol Tablet, 5 mg",Tablet,1.41,C,23
+HALOPETA3,"Haloperidol Tablet, 10 mg",Tablet,1.65,C,23
+HEPARIIN1,"Heparin Injection, 1000 units/mL in 5 mL",Ampoule,111.21,D,23
+HEPARIIN2,"Heparin Injection, 5000 units/mL in 1mL",Ampoule,90.86,D,23
+HEPARIIN3,"Heparin Injection, 5000 units/mL in 5 mL",Vial,137.50,D,23
+HUIMTEIN1,"Human Immune Tetanus Globulins Injection, 250 IU/mL",1 mL,42.85,B1,23
+HUIMTEIN2,"Human Immune Tetanus Globulins Injection, 500 IU/mL",2 mL,42.85,B1,23
+HYDRALIN1,"Hydralazine Injection, 20 mg",Ampoule,26.95,C,24
+HYDRALTA1,"Hydralazine Tablet, 25 mg",Tablet,3.25,B2,24
+HYDROCCR1,"Hydrocortisone Cream, 1%",15 G,12.06,B1,24
+HYDROCID1,"Hydrocortisone Eye Drops, 1%",5 mL,16.50,C,24
+HYDROCEO1,"Hydrocortisone Eye Ointment, 1%",5 G,13.86,C,24
+HYSOSUIN1,"Hydrocortisone Sodium Succinate Injection, 100 mg",Vial,11.00,M,24
+HYDROXIN1,"Hydroxocobalamin Injection, 1 mg/mL",1 mL,9.61,D,24
+HYDROXCA1,"Hydroxyurea Capsule, 500mg",Capsule,3.52,SM,24
+HYOBUTIN1,"Hyoscine Butylbromide Injection, 20 mg/ mL",1 mL,6.60,M,24
+HYOBUTTA1,"Hyoscine Butylbromide Tablet, 10 mg",Tablet,0.99,M,24
+IBUPROSU1,"Ibuprofen Suspension, 100 mg/5 mL",100 mL,12.65,A,24
+IBUPROTA1,"Ibuprofen Tablet, 200 mg",Tablet,0.22,A,24
+IBUPROTA2,"Ibuprofen Tablet, 400 mg",Tablet,0.28,A,24
+IMIPRATA1,"Imipramine Tablet, 25 mg",Tablet,0.33,C,24
+INPRMIIN1,"Insulin premixed (30/70) HM Injection, 100 units/mL in 10 mL",Vial,84.42,C,24
+INSSOLIN1,"Insulin Soluble HM, 100 units/mL in 10 mL",Vial,80.87,C,24
+INTRALSO1,Intralipid Solution (for TPN),500 mL,165.00,D,24
+IPRBROGA1,Ipratropium Bromide Nebulizer 250 micrograms,Dose,11.00,B2,24
+IPRBROGA2,Ipratropium Bromide Nebulizer 500 micrograms,Dose,14.30,B2,24
+IROPOLCA1,Iron (III) Polymaltose Complex Capsule,Capsule,0.28,M,24
+IROPOLSU1,Iron (III) Polymaltose Complex Suspension,200 mL,9.75,M,24
+IRODEXIN1,"Iron Dextran Injection, 100mg/2mL",2 mL,27.50,C,24
+IROSUCIN1,"Iron Sucrose Injection, 20 mg/mL",Ampoule,60.50,SM,24
+ISOINSIN1,"Isophane Insulin Injection (HM), 100 units/mL in 10 mL",Vial,100.10,C,25
+ISODINTA1,"Isosorbide Dinitrate Tablet, 10 mg",Tablet,1.97,C,25
+ITRACOCA1,"Itraconazole Capsule, 100 mg",Capsule,5.50,D,25
+ITRACOSU1,"Itraconazole Suspension, 10 mg/mL",30 mL,7.33,D,25
+KETOCOCR1,"Ketoconazole Cream, 30g",Tube,22.00,B1,25
+KETOCOTA1,"Ketoconazole Tablet, 200 mg",Tablet,8.50,C,25
+LABETAIN1,"Labetalol Injection, 5 mg/mL in 20 mL",Ampoule,85.80,D,25
+LABETATA1,"Labetalol Tablet, 100 mg",Tablet,3.30,D,25
+LABETATA2,"Labetalol Tablet, 200 mg",Tablet,4.40,B2,25
+LACTULLI1,Lactulose Liquid 3.1–3.7 g/5 mL,300 mL,75.35,C,25
+LAMOTRTA1,Lamotrigine Tablet 100 mg,Tablet,2.05,D,25
+LEVOFLIN1,Levofloxacin infusion 500mg,100mL,189.64,D,25
+LEVSODTA3,"Levothyroxine Sodium Tablet, 100 microgram",Tablet,1.32,C,25
+LEVSODTA1,"Levothyroxine Sodium Tablet, 25 microgram",Tablet,0.92,C,25
+LEVSODTA2,"Levothyroxine Sodium Tablet, 50 microgram",Tablet,1.10,C,25
+LIDOCACR1,"Lidocaine Cream, 2%",15 G,38.50,M,25
+LIDOCAGE1,"Lidocaine Gel, 4%",15 G,76.67,M,25
+LISHYDTA1,"Lisinopril + Hydrochlorthiazide Tablet, (10 mg + 12.5 mg)",Tablet,1.26,C,25
+LISHYDTA2,"Lisinopril + Hydrochlorthiazide Tablet, (20 mg + 12.5 mg)",Tablet,2.57,C,25
+LISINOTA3,"Lisinopril Tablet, 10 mg",Tablet,0.21,B2,25
+LISINOTA1,"Lisinopril Tablet, 2.5 mg",Tablet,0.47,B2,25
+LISINOTA4,"Lisinopril Tablet, 20 mg",Tablet,0.90,B2,25
+LISINOTA2,"Lisinopril Tablet, 5 mg",Tablet,0.39,B2,25
+LODOXAID1,"Lodoxamide Eye Drops, 0.1%",10 mL,8.90,C,26
+LORAZEIN1,"Lorazepam Injection, 4 mg/mL in 1mL",Ampoule,93.50,D,26
+LORAZETA1,"Lorazepam Tablet, 1 mg",Tablet,1.76,B2,26
+LORAZETA2,"Lorazepam Tablet, 2 mg",Tablet,0.44,B2,26
+LORAZETA3,"Lorazepam Tablet, 2.5 mg",Tablet,2.20,D,26
+LOSARTTA3,"Losartan Tablet, 100 mg",Tablet,0.54,C,26
+LOSARTTA1,"Losartan Tablet, 25 mg",Tablet,1.32,C,26
+LOSARTTA2,"Losartan Tablet, 50 mg",Tablet,0.26,C,26
+MAGSULIN1,"Magnesium Sulphate Injection, 20% (10 mL)",Ampoule,5.96,M,26
+MAGSULIN3,"Magnesium Sulphate Injection, 50% (10 mL)",Ampoule,19.54,M,26
+MAGSULPO1,Magnesium Sulphate Salt,1 G,33.00,B2,26
+MATRALMI1,Magnesium Trisilicate + Aluminium Hydroxide Mixture,200 mL,22.22,A,26
+MATRALTA1,Magnesium Trisilicate + Aluminium Hydroxide Tablet,Tablet,0.22,A,26
+MAGTRIMI1,Magnesium Trisilicate Mixture,200 mL,7.70,A,26
+MAGTRITA1,"Magnesium Trisilicate Tablet, 500 mg",Tablet,3.58,A,26
+MANNITIN1,"Mannitol Injection, 10%",500 mL,36.04,C,26
+MANNITIN2,"Mannitol Injection, 20%",500 mL,30.42,C,26
+MEBENDSU1,"Mebendazole Suspension, 100 mg/5 mL",30 mL,44.00,A,26
+MEBENDTA1,"Mebendazole Tablet, 100 mg",6 Tablets,14.30,A,26
+MEBENDTA2,"Mebendazole Tablet, 500 mg",Tablet,23.10,A,26
+MEBEVETA1,"Mebeverine Tablet, 135 mg",Tablet,1.50,C,26
+MEDACETA1,"Medroxyprogesterone Acetate Tablet, 5 mg",Tablet,8.53,D,26
+MEFACICA1,"Mefenamic Acid Capsule, 250 mg",Capsule,2.70,M,26
+MEFACITA1,"Mefenamic Acid Tablet, 500 mg",Tablet,1.29,M,27
+METFORTA1,"Metformin Tablet, 500 mg",Tablet,0.15,B1,27
+METHOTIN1,"Methotrexate Injection, 2.5 mg/ mL",Ampoule,0.11,D,27
+METHOTIN2,"Methotrexate Injection, 25 mg/ mL in 2mL",Ampoule,54.65,D,27
+METHOTTA2,"Methotrexate Tablet, 10 mg",Tablet,38.50,D,27
+METHOTTA1,"Methotrexate Tablet, 2.5 mg",Tablet,3.08,D,27
+METCELID1,"Methyl Cellulose Eye Drops, 0.3%",10 mL,22.55,C,27
+METHYLTA1,"Methyldopa Tablet, 250 mg",Tablet,0.93,M,27
+METOCLIN1,"Metoclopramide Injection, 5 mg/mL in 2 mL",Ampoule,8.80,C,27
+METOCLSY1,"Metoclopramide Syrup, 5 mg/5 mL",200 mL,92.40,C,27
+METOCLTA1,"Metoclopramide Tablet, 10 mg",Tablet,0.77,B2,27
+METOLATA1,"Metolazone Tablet, 5 mg",Tablet,5.39,D,27
+METTARTA1,Metoprolol Tartrate Tablet 100 mg,Tablet,1.85,C,27
+METRONIN1,"Metronidazole Injection, 5 mg/mL in 100 mL",Bottle,9.01,B1,27
+METRONRE1,"Metronidazole Suppository, 500 mg",Supp.,15.95,B2,27
+METRONSU1,"Metronidazole Suspension, 100 mg/5 mL (as benzoate)",100 mL,10.92,A,27
+METRONSU2,"Metronidazole Suspension, 200 mg/5 mL(as benzoate)",100 mL,12.02,A,27
+METRONTA1,"Metronidazole Tablet, 200 mg",Tablet,0.13,A,27
+METRONTA2,"Metronidazole Tablet, 400 mg",Tablet,0.25,A,27
+MICHYDCR1,"Miconazole + Hydrocortisone Cream, 2% + 1%",15 G,51.87,C,27
+MICONACR1,"Miconazole Cream, 2%",15 G,38.50,B2,27
+MICONAOG1,"Miconazole Oral Gel, 25 mg/mL",40 G,73.70,B2,27
+MICONAVP1,"Miconazole Ovule, 400 mg",3 Ovules,46.20,A,27
+MIDAZOIN1,"Midazolam Injection, 5 mg/5mL",Ampoule,70.13,C,28
+MIDAZOTA1,"Midazolam Tablet, 15 mg",Tablet,13.89,B2,28
+MORPHIIN1,"Morphine Injection, 10 mg/mL",Ampoule,21.97,B2,28
+MORPHIIN2,"Morphine Injection, 10 mg/mL (Preservative Free)",Ampoule,39.55,SM,28
+MORSULTA1,"Morphine Sulphate Tablet, 10 mg (Slow release)",Tablet,5.61,B2,28
+MORSULTA2,"Morphine Sulphate Tablet, 30 mg (Slow release)",Tablet,8.83,B2,28
+MULTIVDR1,Multivitamin Drops,20 mL,24.20,A,28
+MULTIVSY1,Multivitamin Syrup,125 mL,8.10,A,28
+MULTIVTA1,Multivitamin Tablet,Tablet,0.07,A,28
+NALOXOIN1,"Naloxone Injection, 400 microgram/mL in 1mL",Ampoule,28.55,C,28
+NEOMYCTA1,"Neomycin Tablet, 500 mg",Tablet,55.00,C,28
+NEOBROTA1,"Neostigmine Bromide Tablet, 15 mg",Tablet,6.47,D,28
+NEOSTIIN1,"Neostigmine Injection, 2.5 mg/mL",Ampoule,27.50,C,28
+NIFEDICA1,"Nifedipine Capsule, 10 mg",Capsule,1.21,D,28
+NIFEDITA1,"Nifedipine Tablet, 10 mg (slow release)",Tablet,1.10,B2,28
+NIFEDITA2,"Nifedipine Tablet, 20 mg (slow release)",Tablet,0.20,B2,28
+NIFEDITA3,"Nifedipine Tablet, 30 mg (GITS)",Tablet,0.30,B2,28
+NITROFTA1,"Nitrofurantoin Tablet, 100 mg",Tablet,4.18,B2,28
+NORETHTA1,"Norethisterone Tablet, 5 mg",Tablet,2.98,D,28
+NYSTATOI1,"Nystatin Ointment, 100,000 IU",30 G,25.74,B2,28
+NYSTATTA1,"Nystatin Pessary, 100,000 IU",Pessary,52.71,B1,28
+NYSTATSU1,"Nystatin Suspension, 100,000 IU/mL",15 mL,71.17,B1,28
+NYSTATTA2,"Nystatin Tablet, 500,000 IU",Tablet,36.14,B1,28
+OLANZATA1,Olanzapine Tablet 10 mg,Tablet,1.63,SM,29
+OMEPRAIN2,"Omeprazole Injection, 40 mg",Vial,19.80,B2,29
+OMEPRATA1,"Omeprazole Tablet, 20 mg",Tablet,0.23,B1,29
+ONDANSTA1,"Ondansetrone Tablet, 4 mg",Tablet,1.65,D,29
+ORRESAPO1,Oral Rehydration Salts Powder,Sachet,1.47,A,29
+OXYTOCIN2,"Oxytocin Injection, 10 units/mL",Ampoule,10.19,M,29
+OXYTOCIN1,"Oxytocin Injection, 5 units/mL",Ampoule,16.47,M,29
+PACLITIN1,"Paclitaxel Injection, 100 mg/16.7mL",Vial,343.20,D,29
+PARACERE1,"Paracetamol Suppository, 125 mg",Supp,1.50,A,29
+PARACERE2,"Paracetamol Suppository, 250 mg",Supp,2.34,A,29
+PARACERE3,"Paracetamol Suppository, 500 mg",Supp,2.41,A,29
+PARACESY1,"Paracetamol Syrup, 120 mg/5 mL",125 mL,8.50,A,29
+PARACETA1,"Paracetamol Tablet, 500 mg",Tablet,0.12,A,29
+PARAFFLI1,Paraffin Liquid,100 mL,25.30,A,29
+PETHIDIN1,"Pethidine Injection, 50 mg/mL in 2 mL",Ampoule,39.56,B2,29
+PHENOBEL1,"Phenobarbital Elixir, 15 mg/5 mL",100 mL,60.50,B1,29
+PHENOBIN1,"Phenobarbital Injection, 200 mg/mL",Ampoule,34.58,B1,29
+PHENOBTA1,"Phenobarbital Tablet, 30 mg",Tablet,0.22,B1,29
+PHENOBTA2,"Phenobarbital Tablet, 60 mg",Tablet,0.33,B1,29
+PHENOLIN1,Phenol 5% in Almond Oil Injection,50 mL,0.39,SM,29
+PHEPENTA1,"Phenoxymethyl Penicillin Tablet, 250 mg",Tablet,0.84,B1,29
+PHENYTIN1,"Phenytoin Injection, 50 mg/mL in 5 mL",Ampoule,38.50,D,29
+PHENYTCA2,"Phenytoin Sodium Capsule, 100 mg",Capsule,1.54,B1,29
+PHENYTTA1,"Phenytoin Sodium Tablet, 100 mg",Tablet,1.32,B1,30
+PHYTOMIN1,"Phytomenadione Injection, 1 mg/mL (Paediatric)",Ampoule,6.93,M,30
+PHYTOMIN2,"Phytomenadione Injection, 10 mg/mL",Ampoule,12.10,M,30
+PILOCAID1,"Pilocarpine Eye Drops, 2%",10 mL,35.75,C,30
+PILOCAID2,"Pilocarpine Eye Drops, 4%",10 mL,19.25,C,30
+PIOGLITA1,"Pioglitazone Tablet, 15 mg",Tablet,0.74,C,30
+PIOGLITA2,"Pioglitazone Tablet, 30 mg",Tablet,0.91,C,30
+PIRACETA1,"Piracetam Tablet, 800 mg",Tablet,5.50,C,30
+POTCHLIN1,"Potassium Chloride Injection, 20 mEq/10 mL",Vial,17.16,C,30
+POTCHLTA1,"Potassium Chloride Tablet, 600 mg (Enteric Coated)",Tablet,3.85,B1,30
+POTCITMI1,Potassium Citrate Mixture BP,200 mL,9.35,A,30
+POVIDOSO1,"Povidone Iodine Aqueous Solution, 10%",100 mL,46.20,A,30
+POVIDOOI1,"Povidone Iodine Ointment, 10%",10 G,28.88,A,30
+PRAZIQTA1,"Praziquantel Tablet, 600 mg",Tablet,11.55,B1,30
+PRAZOSTA1,"Prazosin Tablet, 500 microgram",Tablet,2.90,D,30
+PREDNIDT1,Prednisolone 5mg Dispersible Tablets,Tablet,0.28,B1,30
+PREDNIID1,"Prednisolone Eye Drops, 0.5%",10 mL,15.40,SM,30
+PREDNIID2,"Prednisolone Eye Drops, 1%",10 mL,22.00,SM,30
+PREDNISY1,"Prednisolone Oral Solution, 5mg/5ml",60ml,62.70,B1,30
+PREDNITA1,"Prednisolone Tablet, 5 mg",Tablet,0.20,B2,30
+PRIMIDTA1,"Primidone Tablet, 250 mg",Tablet,0.33,C,30
+PROBENIN1,"Procaine Benzylpenicillin Injection, 4 MU",Vial,9.90,B2,30
+PROHYDEL1,"Promethazine Hydrochloride Elixir, 5 mg/5 mL",60 mL,9.21,A,30
+PROHYDIN1,"Promethazine Hydrochloride Injection, 25 mg/mL in 2 mL",Ampoule,2.20,B1,31
+PROMETTA1,"Promethazine Hydrochloride Tablet, 25 mg",Tablet,0.28,A,31
+PROTHETA1,"Promethazine Theoclate Tablet, 25 mg",Tablet,0.22,M,31
+PROPRAIN1,"Propranolol Injection, 1 mg/mL in 1mL",Ampoule,0.18,D,31
+PROPRATA1,"Propranolol Tablet, 10 mg",Tablet,0.84,B2,31
+PROPRATA2,"Propranolol Tablet, 40 mg",Tablet,0.22,B2,31
+PROPRATA3,"Propranolol Tablet, 80 mg",Tablet,1.88,B2,31
+PROPYLTA1,"Propylthiouracil Tablet, 50 mg",Tablet,5.23,D,31
+PROSULIN1,"Protamine Sulphate Injection, 10 mg/mL in 5 mL",Ampoule,47.52,D,31
+QUINININ1,"Quinine Injection, 300 mg/mL in 2 mL",Ampoule,4.68,B2,31
+QUININSY1,"Quinine Syrup, 75 mg/5 mL",125 mL,12.10,B1,31
+QUININTA1,"Quinine Tablet, 300 mg",Tablet,1.47,M,31
+RAMIPRTA1,"Ramipril Tablet, 2.5 mg",Tablet,1.01,C,31
+RAMIPRTA2,"Ramipril Tablet, 5 mg",Tablet,1.22,C,31
+RANITITA1,"Ranitidine Tablet, 150 mg",Tablet,1.99,B2,31
+RETSOFCA2,"Retinol Soft Capsule, 200,000 IU",Capsule,0.24,A,31
+RINLACSO1,"Ringer - Lactate Solution, 500 mL",500 mL,13.10,M,31
+RISPERLI1,"Risperidone Liquid, 1 mg/mL",10 mL,4.29,SM,31
+RISPERTA2,"Risperidone Tablet, 1 mg",Tablet,1.10,SM,31
+RISPERTA3,"Risperidone Tablet, 2 mg",Tablet,1.60,SM,31
+RISPERTA1,"Risperidone Tablet, 500 microgram",Tablet,5.67,SM,31
+RITUXIIN1,Rituximab Injection 100mg/10ml,Vial,2300.00,SM,31
+RITUXIIN2,Rituximab Injection 500mg/10ml,Vial,6515.00,SM,32
+SALBUTGA1,"Salbutamol Inhaler, 100 microgram/metered dose, 200 doses",Inhaler,49.50,A,32
+SALBUTGA2,"Salbutamol Nebules, 2.5 mg",Dose,10.12,B1,32
+SALBUTGA3,"Salbutamol Nebules, 5 mg",Dose,17.60,B1,32
+SALSULIN1,"Salbutamol Sulphate Injection, 500 microgram/mL in 1mL",Ampoule,16.50,B2,32
+SALBUTSY1,"Salbutamol Syrup, 2 mg/5 mL",200 mL,18.70,B1,32
+SALACIOI1,"Salicylic Acid Ointment, 2%",40G,18.70,B1,32
+SECNIDTA1,"Secnidazole Tablet, 500 mg",Tablet,8.80,B2,32
+SELSULSH1,"Selenium Sulphide Shampoo, 2.5%",50 mL,12.93,C,32
+SERTRATA2,"Sertraline Tablet, 100 mg",Tablet,1.93,SM,32
+SERTRATA1,"Sertraline Tablet, 50 mg",Tablet,1.34,SM,32
+SILSULCR1,"Silver Sulphadiazine Cream, 1%",50 G,26.40,A,32
+SIMLINSY1,Simple Linctus BPC (Paediatric),125mL,6.97,A,32
+SIMLINSY2,Simple Linctus BPC,200mL,7.54,A,32
+SIMVASTA1,"Simvastatin Tablet, 10 mg",Tablet,0.66,C,32
+SIMVASTA2,"Simvastatin Tablet, 20 mg",Tablet,1.02,C,32
+SIMVASTA3,"Simvastatin Tablet, 40 mg",Tablet,1.27,C,32
+SIMVASTA4,"Simvastatin Tablet, 80 mg",Tablet,1.98,D,32
+SODBICIN1,"Sodium Bicarbonate Injection, 8.4% in 10 mL",Ampoule,50.05,C,32
+SODCHLIN1,"Sodium Chloride Infusion, 0.45% (250 mL)",250 mL,48.38,B1,32
+SODCHLIN3,"Sodium Chloride Infusion, 0.9% (500 mL)",500 mL,14.37,M,32
+SODCHLND1,"Sodium Chloride Nasal Drops, 0.9%",10 mL,6.60,A,32
+SODVALCA2,"Sodium Valproate Capsule (Slow Release), 500 mg",Capsule,11.70,D,32
+SODVALCA1,"Sodium Valproate Capsule, 200 mg",Capsule,3.08,D,33
+SODVALSY1,"Sodium Valproate Syrup, 200 mg/5 Ml",300 mL,294.80,D,33
+SODVALTA1,"Sodium Valproate Tablet, 200 mg",Tablet,3.28,D,33
+SOANSTOI1,Soothing Agent + Local Anaesthetic + Steroid Ointment,15 G,85.80,B1,33
+SOANSTRE1,Soothing Agent + Local Anaesthetic + Steroid Suppository,Supp,7.70,B1,33
+SOOANAOI1,Soothing Agent + Local Anaesthetic Ointment,15 G,42.46,M,33
+SOOANARE1,Soothing Agent + Local Anaesthetic Suppository,Supp,6.93,M,33
+SPIRONTA1,"Spironolactone Tablet, 25 mg",Tablet,1.10,C,33
+SPIRONTA2,"Spironolactone Tablet, 50 mg",Tablet,1.45,C,33
+STREPTIN1,"Streptokinase Injection, 100,000 unit-vial",Vial,432.00,D,33
+STREPTIN2,"Streptokinase Injection, 250,000 unit-vial",Vial,482.00,D,33
+STREPTIN3,"Streptokinase Injection, 750,000 unit-vial",Vial,557.19,D,33
+SULFASTA1,"Sulfasalazine Tablet, 500 mg",Tablet,4.73,D,33
+TAMOXITA1,"Tamoxifen Tablet, 10 mg",Tablet,2.97,SM,33
+TAMOXITA2,"Tamoxifen Tablet, 20 mg",Tablet,4.11,SM,33
+TAMSULCA1,"Tamsulosin Capsule, 400 microgram",Capsule,2.18,SM,33
+TERAZOTA1,"Terazosin Tablet, 2 mg",Tablet,2.86,SM,33
+TERAZOTA2,"Terazosin Tablet, 5 mg",Tablet,4.38,SM,33
+TERBINTA1,"Terbinafine HCl Tablet, 250 mg",Tablet,3.03,D,33
+TETRACCA1,"Tetracycline Capsule, 250 mg",Capsule,0.28,B1,33
+TETRACEO2,"Tetracycline Eye Ointment, 1%",5 G,8.25,M,33
+THEOPHTA1,"Theophylline Tablet, 200 mg (slow release)",Tablet,16.50,B2,33
+THIAMIIN1,"Thiamine Injection, 100mg/2mL",Ampoule,11.00,C,33
+THIAMITA2,"Thiamine Tablet, 100 mg",Tablet,1.10,C,34
+THIAMITA1,"Thiamine Tablet, 50 mg",Tablet,0.66,C,34
+TIABENTA1,"Tiabendazole Tablet, 500 mg",Tablet,1.58,B1,34
+TIMMALID1,"Timolol Maleate Eye Drops, 0.5%",10 mL,13.20,C,34
+TINIDACA1,"Tinidazole Capsule, 500 mg",Capsule,28.05,B2,34
+TIROFIIN2,"Tirofiban Infusion, 250 micrograms/ml (concentrate)",100 mL,514.80,D,34
+TIROFIIN1,"Tirofiban Infusion, 50 micrograms/mL",100 mL,371.80,D,34
+TOLBUTTA1,"Tolbutamide Tablet, 500 mg",Tablet,9.65,C,34
+TRAACICA1,"Tranexamic Acid Capsule, 250 mg",Capsule,3.52,C,34
+TRAACIIN1,"Tranexamic Acid Injection, 500 mg/5mL",Ampoule,26.82,D,34
+TRAACITA1,"Tranexamic Acid Tablet, 500 mg",Tablet,4.68,C,34
+TRIHEXTA1,"Trihexyphenidyl Tablet, 2 mg",Tablet,2.64,C,34
+TRIHEXTA2,"Trihexyphenidyl Tablet, 5 mg",Tablet,1.82,C,34
+VERAPATA1,"Verapamil Tablet, 40 mg",Tablet,0.44,C,34
+VERAPATA2,"Verapamil Tablet, 80 mg",Tablet,1.00,C,34
+VINCRIIN1,Vincristine Injection 1 mg Intravenous,Vial,67.10,D,34
+VINCRIIN2,Vincristine Injection 2 mg Intravenous,Vial,20.91,D,34
+WARFARTA1,"Warfarin Tablet, 1 mg",Tablet,0.36,D,34
+WARFARTA2,"Warfarin Tablet, 3 mg",Tablet,0.61,D,34
+WARFARTA3,"Warfarin Tablet, 5 mg (scored)",Tablet,0.81,D,34
+WATFORIN1,Water for Injection,10 mL,1.10,A,34
+ZINCOOTA1,"Zinc Tablet, 10 mg",Tablet,0.18,A,34
+ZINCOOTA2,"Zinc Tablet, 20 mg",Tablet,0.17,A,34

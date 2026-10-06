@@ -10,3 +10,37 @@
   --color-brand-900: #1d3934;
   --shadow-soft: 0 22px 52px rgba(26, 52, 47, 0.09);
 }
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  #receipt-print-area,
+  #receipt-print-area * {
+    visibility: visible !important;
+  }
+
+  #receipt-dialog[open] {
+    position: absolute;
+    inset: 0 auto auto 0;
+    display: block;
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    overflow: visible;
+    border: 0;
+    box-shadow: none;
+  }
+
+  #receipt-print-area {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+  .receipt-actions {
+    display: none !important;
+  }
+}
