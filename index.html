@@ -10,6 +10,83 @@
   >
   <link rel="stylesheet" href="./dist/tailwind.css">
   <style>
+    .site-header-inner {
+      display: flex;
+      width: min(100%, 68.75rem);
+      min-width: 0;
+      margin-inline: auto;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .site-logo-image { width: 2.5rem; height: 2.5rem; flex: 0 0 2.5rem; }
+    .home-hero { position: relative; display: flex; min-height: 32rem; align-items: center; overflow: hidden; isolation: isolate; }
+    .home-hero-image,
+    .home-hero-overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .home-hero-image { z-index: -2; object-fit: cover; object-position: center 42%; }
+    .home-hero-overlay { z-index: -1; background: linear-gradient(90deg, rgb(13 48 43 / 88%), rgb(13 48 43 / 58%) 56%, rgb(13 48 43 / 28%)); }
+    .home-hero-content { width: min(100%, 68.75rem); min-width: 0; margin-inline: auto; }
+
+    @media (max-width: 639px) {
+      .site-header-inner { align-items: flex-start; flex-direction: column; gap: 0.5rem; }
+      .home-hero { min-height: 35rem; }
+      .home-hero-image { object-position: 58% center; }
+      .home-hero-overlay { background: linear-gradient(90deg, rgb(13 48 43 / 88%), rgb(13 48 43 / 55%)); }
+      #medicine-table-wrap {
+        overflow: visible;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+      #medicine-table { display: block; min-width: 0; }
+      #medicine-table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      #medicine-rows { display: grid; gap: 0.75rem; }
+      #medicine-rows tr {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        padding: 1rem;
+        border: 1px solid #d7e6e1;
+        border-radius: 0.5rem;
+        background: #fff;
+      }
+      #medicine-rows td {
+        display: grid;
+        min-width: 0;
+        gap: 0.15rem;
+        padding: 0;
+        overflow-wrap: anywhere;
+      }
+      #medicine-rows td::before {
+        color: #64756f;
+        content: attr(data-label);
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      #medicine-rows td[data-label="Name"] {
+        grid-column: 1 / -1;
+        color: #183b34;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+      #medicine-rows td[data-label="Order"] { align-content: start; }
+      #medicine-rows td[data-label="Order"]::before { content: ""; }
+      #medicine-rows td[colspan] { display: block; grid-column: 1 / -1; }
+      #medicine-rows td[colspan]::before { content: none; }
+    }
+
     @media print {
       @page { margin: 14mm; }
       body {
@@ -49,58 +126,56 @@
 </head>
 
 <body class="bg-[radial-gradient(circle_at_top,#f8faf8_0%,#f0f6f2_30%,#edf4f3_100%)] text-slate-700 antialiased">
-  <header class="bg-white/90 text-brand-800 shadow-soft backdrop-blur-sm">
-    <div class="container mx-auto flex flex-row flex-wrap items-center justify-between gap-4 px-4 py-4">
-  <a href="index.html" class="flex items-center gap-2 text-2xl font-bold tracking-tight text-brand-900">
-  <img src="Adepa Logo.png" alt="Adepa Pharmacy Logo" class="h-12 w-12 object-contain">
-  <span>Adepa Pharmacy</span>
-  </a>
-      <nav aria-label="Main navigation">
-        <ul class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-medium md:gap-x-7">
-          <li><a href="#services" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Services</a></li>
-          <li><a href="#medicines" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Medicines</a></li>
-          <li><a href="#ordering" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Order</a></li>
-          <li><a href="#sales-history" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Sales history</a></li>
-          <li><a href="#about" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">About</a></li>
-          <li><a href="#gallery" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Gallery</a></li>
-          <li><a href="#contact" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Contact</a></li>
+  <header class="sticky top-0 z-40 border-b border-brand-900/10 bg-white/95 px-4 py-3 text-brand-800 shadow-sm backdrop-blur-sm">
+    <div class="site-header-inner">
+      <a href="index.html" class="flex shrink-0 items-center gap-2 text-xl font-bold tracking-tight text-brand-900">
+        <img src="Adepa Logo.png" alt="" class="site-logo-image object-contain">
+        <span>Adepa Pharmacy</span>
+      </a>
+      <nav class="w-full overflow-x-auto sm:w-auto" aria-label="Main navigation">
+        <ul class="flex w-max min-w-full flex-nowrap items-center gap-x-5 whitespace-nowrap text-sm font-semibold sm:min-w-0 sm:gap-x-6">
+          <li><a href="#services" class="text-slate-700 transition hover:text-brand-700">Services</a></li>
+          <li><a href="#medicines" class="text-slate-700 transition hover:text-brand-700">Medicines</a></li>
+          <li><a href="#ordering" class="inline-flex items-center gap-1.5 text-brand-700 transition hover:text-brand-900">Basket <span id="header-cart-count" class="inline-grid h-5 min-w-5 place-items-center rounded-full bg-brand-700 px-1 text-xs text-white" aria-live="polite">0</span></a></li>
+          <li><a href="#about" class="text-slate-700 transition hover:text-brand-700">About</a></li>
+          <li><a href="#contact" class="text-slate-700 transition hover:text-brand-700">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="bg-[linear-gradient(135deg,#f3f8f6_0%,#edf4f1_45%,#f4f7f3_100%)] px-6 py-12">
-      <div class="container mx-auto px-4">
-        <div class="max-w-3xl">
-          
-          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-brand-700">
-            Trusted pharmacy care
+    <section class="home-hero bg-[#183b34] text-white">
+      <img
+        src="pharmacist%20and%20client.png"
+        alt="A pharmacist helping a customer at the pharmacy counter"
+        class="home-hero-image"
+        width="1536"
+        height="1024"
+        fetchpriority="high"
+      >
+      <div class="home-hero-overlay" aria-hidden="true"></div>
+      <div class="home-hero-content px-5 py-16 sm:px-8 sm:py-20">
+        <div class="max-w-2xl">
+          <p class="mb-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white/85">
+            <span class="h-2 w-2 rounded-full bg-[#e8ad51]" aria-hidden="true"></span>
+            Asokwa, Kumasi · Serving our community since 2011
           </p>
-
-          <h1 id="page-title" class="text-2xl font-black leading-tight text-brand-900 sm:text-3xl lg:text-3xl">
-            Trusted medicines and professional care in Kumasi
+          <h1 id="page-title" class="max-w-xl font-serif text-4xl font-bold leading-tight text-white sm:text-5xl">
+            Pharmacy care, close to home.
           </h1>
-
-          <p class="mt-3 max-w-xl text-lg leading-7 text-slate-600 sm:text-xl">
-            Get reliable medicines, professional pharmacy advice, and everyday
-            healthcare support from a team committed to your wellbeing.
+          <p class="mt-5 max-w-lg text-base leading-7 text-white/85 sm:text-lg">
+            Find medicines, speak with our pharmacy team, and get thoughtful care for your everyday health.
           </p>
-
-          <div class="mt-4 flex flex-col gap-1.5 sm:flex-row sm:items-center">
-            <a href="#services" class="inline-flex items-center justify-center rounded-lg bg-brand-700 px-3 py-1 font-semibold text-white shadow-sm transition hover:bg-brand-800">
-              Explore our services
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#medicines" class="inline-flex min-h-12 items-center justify-center rounded-md bg-white px-5 py-3 font-bold text-brand-900 transition hover:bg-[#f1f4eb]">
+              Browse medicines
             </a>
-
-            <a href="#contact" class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-2 py-1 font-semibold text-brand-700 transition hover:bg-slate-50">
-              Contact the pharmacy
+            <a href="#services" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/70 px-5 py-3 font-semibold text-white transition hover:bg-white/10">
+              Explore pharmacy services
             </a>
-        </div>
-
-        <div class="mt-8 flex flex-wrap gap-x-3 gap-y-1 text-sm font-medium text-slate-600">
-          <span>Open 7 days a week</span>
-          <span>•</span>
-          <span>Asokwa, Kumasi</span>
+          </div>
+          <p class="mt-8 text-sm font-medium text-white/80">Open seven days a week <span class="px-2 text-[#e8ad51]" aria-hidden="true">•</span> 12 Asokwa Road</p>
         </div>
       </div>
     </section>
@@ -263,8 +338,8 @@
           <button id="medicine-next-page" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50">Next</button>
         </div>
       </nav>
-      <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm">
-        <table class="w-full min-w-190 border-collapse text-left text-sm">
+      <div id="medicine-table-wrap" class="overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm">
+        <table id="medicine-table" class="w-full min-w-190 border-collapse text-left text-sm">
           <thead class="bg-slate-100 text-xs uppercase tracking-wide text-slate-600">
             <tr>
               <th scope="col" class="px-4 py-3">ID</th>
@@ -329,7 +404,9 @@
         </form>
       </section>
 
-      <section id="sales-history" class="mt-16 border-t border-slate-200 pt-10" aria-labelledby="sales-history-title">
+      <details id="sales-history" class="mt-16 border-t border-slate-200 pt-8">
+        <summary class="cursor-pointer text-lg font-semibold text-slate-800">Pharmacy staff: open sales history</summary>
+        <div class="pt-6" aria-labelledby="sales-history-title">
         <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Staff area</p>
         <h2 id="sales-history-title" class="text-3xl font-bold text-slate-900">Sales history</h2>
         <p class="mt-2 max-w-2xl text-sm text-slate-600">Sign in with a pharmacy staff account to review submitted orders and print receipts.</p>
@@ -349,7 +426,8 @@
             <tbody id="sales-history-rows" class="divide-y divide-slate-200 text-slate-700"><tr><td colspan="6" class="px-4 py-6 text-center text-slate-500">Sign in to view order history.</td></tr></tbody>
           </table>
         </div>
-      </section>
+        </div>
+      </details>
 
       <section id="order-receipt" class="mt-12 max-w-2xl border border-slate-300 bg-white p-6" aria-labelledby="receipt-title" hidden>
         <div class="flex flex-wrap items-start justify-between gap-4 border-b border-slate-200 pb-4">
@@ -620,6 +698,11 @@
                 Contact
               </a>
             </li>
+            <li>
+              <a href="#sales-history" class="text-slate-400 transition hover:text-white">
+                Staff sales history
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -722,9 +805,10 @@
     return "Other dosage form";
   }
 
-  function addCell(row, value) {
+  function addCell(row, value, label) {
     const cell = document.createElement("td");
     cell.className = "px-4 py-3 align-top";
+    cell.dataset.label = label;
     cell.textContent = value;
     row.append(cell);
   }
@@ -767,13 +851,14 @@
     const fragment = document.createDocumentFragment();
     pageMedicines.forEach((medicine) => {
       const row = document.createElement("tr");
-      addCell(row, medicine.id);
-      addCell(row, medicine.name);
-      addCell(row, `${medicine.price.toFixed(2)} / ${medicine.unit}`);
-      addCell(row, medicine.category);
-      addCell(row, medicine.supplier);
+      addCell(row, medicine.id, "ID");
+      addCell(row, medicine.name, "Name");
+      addCell(row, `${medicine.price.toFixed(2)} / ${medicine.unit}`, "Price (GHS / unit)");
+      addCell(row, medicine.category, "Category");
+      addCell(row, medicine.supplier, "Supplier");
       const orderCell = document.createElement("td");
       orderCell.className = "px-4 py-3 align-top";
+      orderCell.dataset.label = "Order";
       const addButton = document.createElement("button");
       addButton.type = "button";
       addButton.dataset.addMedicine = medicine.id;
