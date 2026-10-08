@@ -1,7 +1,7 @@
 {
   "name": "adepa",
   "version": "1.0.0",
-  "description": "Responsive informational website for Adepa Pharmacy in Asokwa, Kumasi, Ghana.",
+  "description": "Adepa Pharmacy website with Supabase-backed medicine ordering, staff sales history, and receipts.",
   "main": "index.js",
   "scripts": {
     "dev": "tailwindcss -i ./src/input.css -o ./dist/tailwind.css --watch",

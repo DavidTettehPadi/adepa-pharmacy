@@ -9,6 +9,43 @@
     content="Adepa Pharmacy supplies prescription and over-the-counter medicines in Kumasi. Open seven days a week."
   >
   <link rel="stylesheet" href="./dist/tailwind.css">
+  <style>
+    @media print {
+      @page { margin: 14mm; }
+      body {
+        display: block !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        background: #fff !important;
+      }
+      body > header,
+      body > footer,
+      main > section:not(#medicines) { display: none !important; }
+      main {
+        display: block !important;
+        overflow: visible !important;
+      }
+      #medicines {
+        display: block !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      #medicines > :not(#order-receipt) { display: none !important; }
+      #order-receipt {
+        display: block !important;
+        position: static !important;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        border: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+      #order-receipt tr { break-inside: avoid; }
+      #order-receipt button { display: none !important; }
+    }
+  </style>
 </head>
 
 <body class="bg-[radial-gradient(circle_at_top,#f8faf8_0%,#f0f6f2_30%,#edf4f3_100%)] text-slate-700 antialiased">
@@ -22,6 +59,8 @@
         <ul class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-medium md:gap-x-7">
           <li><a href="#services" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Services</a></li>
           <li><a href="#medicines" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Medicines</a></li>
+          <li><a href="#ordering" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Order</a></li>
+          <li><a href="#sales-history" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Sales history</a></li>
           <li><a href="#about" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">About</a></li>
           <li><a href="#gallery" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Gallery</a></li>
           <li><a href="#contact" class="text-[17.33px] text-slate-700 transition hover:text-brand-700">Contact</a></li>
@@ -64,60 +103,6 @@
           <span>Asokwa, Kumasi</span>
         </div>
       </div>
-    </section>
-    <section id="medicines" class="container mx-auto px-4 py-16" aria-labelledby="medicines-title">
-      <div class="mb-8">
-        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">NHIS medicine list</p>
-        <h2 id="medicines-title" class="text-3xl font-bold text-slate-900">Medication catalogue</h2>
-        <p class="mt-3 max-w-2xl text-slate-600">
-          Browse NHIS medicine names, dosage-form categories, suppliers, and listed unit prices.
-        </p>
-      </div>
-
-      <div class="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-        <div class="w-full sm:max-w-md">
-          <label for="medicine-search" class="mb-1 block text-sm font-medium text-slate-700">Search medicines</label>
-          <input id="medicine-search" type="search" placeholder="Search by name or ID" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
-        </div>
-        <div class="w-full sm:w-56">
-          <label for="medicine-category" class="mb-1 block text-sm font-medium text-slate-700">Category</label>
-          <select id="medicine-category" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
-            <option value="">All categories</option>
-          </select>
-        </div>
-      </div>
-
-      <p id="medicine-count" class="mb-3 text-sm text-slate-600" role="status" aria-live="polite">Loading medicines...</p>
-      <nav class="mb-3 flex flex-wrap items-center justify-between gap-3" aria-label="Medication catalogue pages">
-        <p id="medicine-page-status" class="text-sm text-slate-600" aria-live="polite">Page 1 of 1</p>
-        <div class="flex gap-2">
-          <button id="medicine-previous-page" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50">Previous</button>
-          <button id="medicine-next-page" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50">Next</button>
-        </div>
-      </nav>
-      <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm">
-        <table class="w-full min-w-190 border-collapse text-left text-sm">
-          <thead class="bg-slate-100 text-xs uppercase tracking-wide text-slate-600">
-            <tr>
-              <th scope="col" class="px-4 py-3">ID</th>
-              <th scope="col" class="px-4 py-3">Name</th>
-              <th scope="col" class="px-4 py-3">Price (GHS / unit)</th>
-              <th scope="col" class="px-4 py-3">Category</th>
-              <th scope="col" class="px-4 py-3">Supplier</th>
-            </tr>
-          </thead>
-          <tbody id="medicine-rows" class="divide-y divide-slate-200 text-slate-700">
-            <tr><td colspan="5" class="px-4 py-8 text-center text-slate-500">Loading medicine catalogue...</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <nav class="mt-3 flex flex-wrap items-center justify-between gap-3" aria-label="Medication catalogue pages, bottom">
-        <p id="medicine-page-status-bottom" class="text-sm text-slate-600" aria-live="polite">Page 1 of 1</p>
-        <div class="flex gap-2">
-          <button id="medicine-previous-page-bottom" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50">Previous</button>
-          <button id="medicine-next-page-bottom" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50">Next</button>
-        </div>
-      </nav>
     </section>
     <section id="services" class="container mx-auto px-4 py-16">
       <div class="mb-10">
@@ -248,6 +233,137 @@
       </div>
     </section>
 
+    <section id="medicines" class="container mx-auto px-4 py-16" aria-labelledby="medicines-title">
+      <div class="mb-8">
+        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">NHIS medicine list</p>
+        <h2 id="medicines-title" class="text-3xl font-bold text-slate-900">Medication catalogue</h2>
+        <p class="mt-3 max-w-2xl text-slate-600">
+          Browse NHIS medicine names, dosage-form categories, suppliers, and listed unit prices.
+        </p>
+      </div>
+
+      <div class="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div class="w-full sm:max-w-md">
+          <label for="medicine-search" class="mb-1 block text-sm font-medium text-slate-700">Search medicines</label>
+          <input id="medicine-search" type="search" placeholder="Search by name or ID" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+        </div>
+        <div class="w-full sm:w-56">
+          <label for="medicine-category" class="mb-1 block text-sm font-medium text-slate-700">Category</label>
+          <select id="medicine-category" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+            <option value="">All categories</option>
+          </select>
+        </div>
+      </div>
+
+      <p id="medicine-count" class="mb-3 text-sm text-slate-600" role="status" aria-live="polite">Loading medicines...</p>
+      <nav class="mb-3 flex flex-wrap items-center justify-between gap-3" aria-label="Medication catalogue pages">
+        <p id="medicine-page-status" class="text-sm text-slate-600" aria-live="polite">Page 1 of 1</p>
+        <div class="flex gap-2">
+          <button id="medicine-previous-page" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50">Previous</button>
+          <button id="medicine-next-page" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50">Next</button>
+        </div>
+      </nav>
+      <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm">
+        <table class="w-full min-w-190 border-collapse text-left text-sm">
+          <thead class="bg-slate-100 text-xs uppercase tracking-wide text-slate-600">
+            <tr>
+              <th scope="col" class="px-4 py-3">ID</th>
+              <th scope="col" class="px-4 py-3">Name</th>
+              <th scope="col" class="px-4 py-3">Price (GHS / unit)</th>
+              <th scope="col" class="px-4 py-3">Category</th>
+              <th scope="col" class="px-4 py-3">Supplier</th>
+              <th scope="col" class="px-4 py-3">Order</th>
+            </tr>
+          </thead>
+          <tbody id="medicine-rows" class="divide-y divide-slate-200 text-slate-700">
+            <tr><td colspan="6" class="px-4 py-8 text-center text-slate-500">Loading medicine catalogue...</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <nav class="mt-3 flex flex-wrap items-center justify-between gap-3" aria-label="Medication catalogue pages, bottom">
+        <p id="medicine-page-status-bottom" class="text-sm text-slate-600" aria-live="polite">Page 1 of 1</p>
+        <div class="flex gap-2">
+          <button id="medicine-previous-page-bottom" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50">Previous</button>
+          <button id="medicine-next-page-bottom" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50">Next</button>
+        </div>
+      </nav>
+
+      <section id="ordering" class="mt-12 grid gap-8 lg:grid-cols-[1fr_1.1fr]" aria-labelledby="ordering-title">
+        <div>
+          <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Place an order</p>
+          <h2 id="ordering-title" class="text-3xl font-bold text-slate-900">Your basket</h2>
+          <p id="order-connection-status" class="mt-2 text-sm text-slate-600" role="status" aria-live="polite"></p>
+          <ul id="order-cart-items" class="mt-5 divide-y divide-slate-200 border-y border-slate-200"></ul>
+          <p id="order-cart-empty" class="py-6 text-sm text-slate-600">Your basket is empty.</p>
+          <p class="mt-4 flex justify-between text-lg font-bold text-slate-900"><span>Estimated total</span><span id="order-cart-total">GHS 0.00</span></p>
+          <p class="mt-2 text-xs text-slate-500">Final prices and stock are confirmed securely when you place the order.</p>
+        </div>
+
+        <form id="order-form" class="space-y-4 rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+          <h3 class="text-xl font-semibold text-slate-900">Delivery details</h3>
+          <div>
+            <label for="order-customer-name" class="mb-1 block text-sm font-medium text-slate-700">Full name</label>
+            <input id="order-customer-name" name="customer_name" autocomplete="name" required class="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+          </div>
+          <div>
+            <label for="order-phone" class="mb-1 block text-sm font-medium text-slate-700">Phone number</label>
+            <input id="order-phone" name="phone" type="tel" autocomplete="tel" required class="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+          </div>
+          <div>
+            <label for="order-address" class="mb-1 block text-sm font-medium text-slate-700">Delivery address</label>
+            <textarea id="order-address" name="delivery_address" rows="3" autocomplete="street-address" required class="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"></textarea>
+          </div>
+          <div>
+            <label for="order-payment-method" class="mb-1 block text-sm font-medium text-slate-700">Payment method</label>
+            <select id="order-payment-method" name="payment_method" class="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-800">
+              <option value="cash">Cash on delivery</option>
+              <option value="nhis">NHIS claim</option>
+            </select>
+          </div>
+          <div id="nhis-number-field" hidden>
+            <label for="order-nhis-number" class="mb-1 block text-sm font-medium text-slate-700">NHIS number</label>
+            <input id="order-nhis-number" name="nhis_number" class="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-800">
+          </div>
+          <p id="order-form-status" class="text-sm text-slate-700" role="status" aria-live="polite"></p>
+          <button id="order-submit" type="submit" class="w-full rounded-md bg-brand-700 px-4 py-3 font-semibold text-white transition hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-50">Place order</button>
+        </form>
+      </section>
+
+      <section id="sales-history" class="mt-16 border-t border-slate-200 pt-10" aria-labelledby="sales-history-title">
+        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Staff area</p>
+        <h2 id="sales-history-title" class="text-3xl font-bold text-slate-900">Sales history</h2>
+        <p class="mt-2 max-w-2xl text-sm text-slate-600">Sign in with a pharmacy staff account to review submitted orders and print receipts.</p>
+        <form id="staff-login-form" class="mt-5 grid max-w-3xl gap-3 sm:grid-cols-[1fr_1fr_auto]">
+          <label class="text-sm font-medium text-slate-700">Email<input id="staff-email" type="email" autocomplete="username" required class="mt-1 w-full rounded-md border border-slate-300 px-3 py-2"></label>
+          <label class="text-sm font-medium text-slate-700">Password<input id="staff-password" type="password" autocomplete="current-password" required class="mt-1 w-full rounded-md border border-slate-300 px-3 py-2"></label>
+          <button id="staff-login-button" type="submit" class="self-end rounded-md bg-slate-800 px-4 py-2 font-semibold text-white hover:bg-slate-700">Sign in</button>
+        </form>
+        <div class="mt-4 flex flex-wrap items-center gap-3">
+          <p id="staff-history-status" class="text-sm text-slate-600" role="status" aria-live="polite">Staff sign-in is required.</p>
+          <button id="staff-refresh-history" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" hidden>Refresh history</button>
+          <button id="staff-sign-out" type="button" class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" hidden>Sign out</button>
+        </div>
+        <div class="mt-4 overflow-x-auto rounded-lg border border-slate-200 bg-white">
+          <table class="w-full min-w-180 border-collapse text-left text-sm">
+            <thead class="bg-slate-100 text-xs uppercase tracking-wide text-slate-600"><tr><th class="px-4 py-3">Date</th><th class="px-4 py-3">Reference</th><th class="px-4 py-3">Customer</th><th class="px-4 py-3">Status</th><th class="px-4 py-3">Total</th><th class="px-4 py-3">Receipt</th></tr></thead>
+            <tbody id="sales-history-rows" class="divide-y divide-slate-200 text-slate-700"><tr><td colspan="6" class="px-4 py-6 text-center text-slate-500">Sign in to view order history.</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="order-receipt" class="mt-12 max-w-2xl border border-slate-300 bg-white p-6" aria-labelledby="receipt-title" hidden>
+        <div class="flex flex-wrap items-start justify-between gap-4 border-b border-slate-200 pb-4">
+          <div><h2 id="receipt-title" class="text-2xl font-bold text-slate-900">Adepa Pharmacy</h2><p class="text-sm text-slate-600">12 Asokwa Road, Kumasi, Ghana</p></div>
+          <p class="text-sm font-semibold text-slate-700">ORDER RECEIPT</p>
+        </div>
+        <dl id="receipt-details" class="grid gap-x-6 gap-y-2 py-4 text-sm sm:grid-cols-2"></dl>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm"><thead class="border-b border-slate-200 text-slate-600"><tr><th class="py-2">Medicine</th><th class="px-2 py-2">Qty</th><th class="px-2 py-2">Unit price</th><th class="py-2 text-right">Amount</th></tr></thead><tbody id="receipt-items" class="divide-y divide-slate-100"></tbody></table>
+        </div>
+        <p class="mt-4 flex justify-between border-t border-slate-200 pt-4 text-lg font-bold text-slate-900"><span>Total</span><span id="receipt-total"></span></p>
+        <button id="receipt-print" type="button" class="mt-5 rounded-md bg-brand-700 px-4 py-2 font-semibold text-white hover:bg-brand-800">Print receipt</button>
+      </section>
+    </section>
     <section id="about" class="container mx-auto px-4 py-16">
       <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
         <div>
@@ -535,6 +651,8 @@
 
   </div>
 </footer>
+<script src="./supabase/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   const medicineRows = document.querySelector("#medicine-rows");
   const medicineSearch = document.querySelector("#medicine-search");
@@ -638,7 +756,7 @@
     if (!pageMedicines.length) {
       const row = document.createElement("tr");
       const cell = document.createElement("td");
-      cell.colSpan = 5;
+      cell.colSpan = 6;
       cell.className = "px-4 py-8 text-center text-slate-500";
       cell.textContent = "No medicines match your search.";
       row.append(cell);
@@ -654,6 +772,16 @@
       addCell(row, `${medicine.price.toFixed(2)} / ${medicine.unit}`);
       addCell(row, medicine.category);
       addCell(row, medicine.supplier);
+      const orderCell = document.createElement("td");
+      orderCell.className = "px-4 py-3 align-top";
+      const addButton = document.createElement("button");
+      addButton.type = "button";
+      addButton.dataset.addMedicine = medicine.id;
+      addButton.setAttribute("aria-label", `Add ${medicine.name} to order`);
+      addButton.className = "rounded-md border border-brand-700 px-3 py-1 text-sm font-semibold text-brand-700 hover:bg-brand-50";
+      addButton.textContent = "Add";
+      orderCell.append(addButton);
+      row.append(orderCell);
       fragment.append(row);
     });
     medicineRows.append(fragment);
@@ -702,12 +830,13 @@
       medicineRows.replaceChildren();
       const row = document.createElement("tr");
       const cell = document.createElement("td");
-      cell.colSpan = 7;
+      cell.colSpan = 6;
       cell.className = "px-4 py-8 text-center text-slate-600";
       cell.textContent = "The medicine list could not be loaded. Please try again later.";
       row.append(cell);
       medicineRows.append(row);
     });
 </script>
+<script src="./src/orders.js"></script>
 </body>
 </html>

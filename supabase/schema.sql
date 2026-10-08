@@ -189,7 +189,9 @@ after update of status on public.customer_orders
 for each row
 execute function public.restore_cancelled_order_stock();
 
-create or replace function public.place_customer_order(
+drop function if exists public.place_customer_order(text, text, text, jsonb, text, text);
+
+create function public.place_customer_order(
   p_customer_name text,
   p_phone text,
   p_delivery_address text,
@@ -197,7 +199,7 @@ create or replace function public.place_customer_order(
   p_payment_method text default 'cash',
   p_nhis_number text default null
 )
-returns table (order_reference text, order_total numeric)
+returns table (order_reference text, order_total numeric, order_items jsonb)
 language plpgsql
 security definer
 set search_path = public, pg_temp
@@ -206,6 +208,7 @@ declare
   new_order_id uuid;
   new_order_reference text;
   order_total_amount numeric(12, 2) := 0;
+  receipt_items jsonb;
   requested_item record;
   selected_medicine public.medicines%rowtype;
 begin
@@ -316,7 +319,18 @@ begin
       updated_at = now()
   where id = new_order_id;
 
-  return query select new_order_reference, order_total_amount;
+  select jsonb_agg(jsonb_build_object(
+    'medicine_name', item.medicine_name,
+    'quantity', item.quantity,
+    'unit_price', item.unit_price,
+    'pricing_unit', item.pricing_unit,
+    'line_total', item.line_total
+  ) order by item.id)
+  into receipt_items
+  from public.customer_order_items item
+  where item.order_id = new_order_id;
+
+  return query select new_order_reference, order_total_amount, receipt_items;
 end;
 $$;
 

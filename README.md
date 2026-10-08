@@ -1,6 +1,6 @@
 # Adepa Pharmacy Website
 
-Responsive informational website for Adepa Pharmacy in Asokwa, Kumasi, Ghana.
+Responsive pharmacy website for Adepa Pharmacy in Asokwa, Kumasi, Ghana, with a medicine catalogue, Supabase-backed orders, staff sales history, and printable receipts.
 
 **Live website:** [davidtettehpadi.github.io/adepa-pharmacy](https://davidtettehpadi.github.io/adepa-pharmacy/)
 
@@ -8,7 +8,7 @@ Responsive informational website for Adepa Pharmacy in Asokwa, Kumasi, Ghana.
 
 ## Run Locally
 
-This is a static site. Clone the repository and open `index.html`, or serve the project directory with a local HTTP server:
+This is a static site. Run `npm install` and `npm run build`, then serve the project directory with a local HTTP server:
 
 ```sh
 python3 -m http.server 8000
@@ -16,11 +16,13 @@ python3 -m http.server 8000
 
 Then visit `http://localhost:8000`. The contact form is handled by Formspree and requires an internet connection.
 
+To enable order placement and staff sales history, initialize Supabase by following [supabase/SETUP.md](supabase/SETUP.md) and set the project URL and public anon key in `supabase/config.js`. Do not put a service-role key in the website.
+
 ## Project Overview
 
 ## 1. Project Overview
 
-I created this responsive pharmacy website for Adepa Pharmacy in Kumasi, Ghana. The website presents the pharmacy’s services, gallery, background information, contact form, and opening hours.
+The website presents Adepa Pharmacy’s services, gallery, background information, contact form, and opening hours. The medicine catalogue also supports database-backed checkout, authenticated staff order history, and printable receipts when Supabase is configured.
 
 ## 2. Project Goals
 
@@ -51,6 +53,8 @@ I created:
 - A gallery using images, figures, and captions
 - An about section with a customer testimonial
 - A contact form
+- A searchable medicine catalogue with a basket and delivery checkout
+- Staff-only order history with receipt printing
 - An Opening Hours section beside the contact form
 - A responsive footer with pharmacy contact information
 
