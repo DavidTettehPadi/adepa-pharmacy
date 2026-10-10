@@ -353,7 +353,7 @@
       <div class="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div class="w-full sm:max-w-md">
           <label for="medicine-search" class="mb-1 block text-sm font-medium text-slate-700">Search medicines</label>
-          <input id="medicine-search" type="search" placeholder="Search by name or ID" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+          <input id="medicine-search" type="search" placeholder="Search by medicine, brand or ID" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
         </div>
         <div class="w-full sm:w-56">
           <label for="medicine-category" class="mb-1 block text-sm font-medium text-slate-700">Category</label>
@@ -801,6 +801,23 @@
     document.querySelector("#medicine-next-page"),
     document.querySelector("#medicine-next-page-bottom")
   ];
+  const medicineBrandAliases = {
+    "acetylsalicylic acid": ["Aspirin", "Disprin"],
+    acyclovir: ["Zovirax"],
+    albendazole: ["Zentel"],
+    amoxicillin: ["Amoxil"],
+    amlodipine: ["Norvasc"],
+    azithromycin: ["Zithromax"],
+    cetirizine: ["Zyrtec"],
+    ciprofloxacin: ["Cipro"],
+    diclofenac: ["Voltaren"],
+    doxycycline: ["Vibramycin"],
+    fluconazole: ["Diflucan"],
+    ibuprofen: ["Brufen", "Advil"],
+    metronidazole: ["Flagyl"],
+    omeprazole: ["Losec", "Prilosec"],
+    paracetamol: ["Panadol", "Tylenol"]
+  };
   let medicines = [];
   let currentPage = 1;
 
@@ -852,11 +869,17 @@
     return "Other dosage form";
   }
 
-  function addCell(row, value, label) {
+  function addCell(row, value, label, supportingText = "") {
     const cell = document.createElement("td");
     cell.className = "px-4 py-3 align-top";
     cell.dataset.label = label;
     cell.textContent = value;
+    if (supportingText) {
+      const supportingLine = document.createElement("span");
+      supportingLine.className = "mt-1 block text-xs font-normal text-slate-500";
+      supportingLine.textContent = supportingText;
+      cell.append(supportingLine);
+    }
     row.append(cell);
   }
 
@@ -865,7 +888,7 @@
     const selectedCategory = medicineCategory.value;
     const filtered = medicines.filter((medicine) =>
       (!selectedCategory || medicine.category === selectedCategory) &&
-      `${medicine.id} ${medicine.name}`.toLowerCase().includes(query)
+      `${medicine.id} ${medicine.name} ${medicine.brandNames.join(" ")}`.toLowerCase().includes(query)
     );
     const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
     currentPage = Math.min(currentPage, pageCount);
@@ -899,7 +922,7 @@
     pageMedicines.forEach((medicine) => {
       const row = document.createElement("tr");
       addCell(row, medicine.id, "ID");
-      addCell(row, medicine.name, "Name");
+      addCell(row, medicine.name, "Name", medicine.brandNames.length ? `Brand names: ${medicine.brandNames.join(", ")}` : "");
       addCell(row, `${medicine.price.toFixed(2)} / ${medicine.unit}`, "Price (GHS / unit)");
       addCell(row, medicine.category, "Category");
       addCell(row, medicine.supplier, "Supplier");
@@ -939,9 +962,13 @@
       const column = Object.fromEntries(headers.map((header, index) => [header, index]));
       medicines = records.map((record) => {
         const name = record[column.generic_name_dosage_form_strength];
+        const brandNames = Object.entries(medicineBrandAliases).find(([genericName]) =>
+          name.toLowerCase().startsWith(genericName)
+        )?.[1] || [];
         return {
           id: record[column.code],
           name,
+          brandNames,
           price: Number(record[column.price_ghc]),
           unit: record[column.unit_of_pricing],
           category: getCategory(name),
